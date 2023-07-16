@@ -150,9 +150,10 @@ print(parsed_output)
 ```
 <br>
 
-Now we can easily cherry pick the data, for example if you want to get the platform name and its interface of the first neighbor, you can do this
+Now we can easily cherry pick the data, for example if you want to get the name, platform and interface of the first neighbor, you can do this
 
 ```python
+print(parsed_output[0]["neighbor"])
 print(parsed_output[0]["platform"])
 print(parsed_output[0]["neighbor_interface"])
 ```
@@ -160,6 +161,7 @@ print(parsed_output[0]["neighbor_interface"])
 and you'll get this output
 
 ```
+xe5
 CSR1000V
 Gig 1
 ```
