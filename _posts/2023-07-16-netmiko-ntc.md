@@ -8,16 +8,16 @@ tags: [coding, network automation, python, ntc templates]
 
 In today's network infrastructure, automation plays a crucial role in managing and configuring devices efficiently. Netmiko, a multi-vendor library, and NTC Templates, a collection of parsing templates, are powerful tools that can simplify the process of obtaining and manipulating data from network devices. In this article, we will explore how to leverage Netmiko and NTC Templates to streamline network automation tasks.
 
-### What's Netmiko?
+## What's Netmiko?
 > An open-source library that provides a simplified and consistent interface for network device interactions over SSH.
 
-### What's NTC Templates?
+## What's NTC Templates?
 > A collection of structured data parsing templates designed to extract valuable information from the command output of various network devices.
 
 <br>
 <br>
 
-# Setting Up Netmiko
+## Setting Up Netmiko
 First of all, you need to make sure you have Netmiko installed on your machine with this command
 ```shell
 pip install netmiko
@@ -72,7 +72,7 @@ xr1              Gig 6             162               R    IOS-XRv 9 Gig 0/0/0/0
 <br>
 <br>
 
-# Setting Up NTC Templates
+## Setting Up NTC Templates
 Using only netmiko, all you get is a text output, which is fine if it's all you need. But if you need to cook the data or to get specific data from the output, it will be easier to do if the output is in a json format instead. <br>
 This is where NTC Templates comes in to parse the raw output to become json.
 
@@ -81,6 +81,12 @@ First, install the module
 
 ```shell
 pip install ntc-templates
+```
+<br>
+
+Then import the module
+```python
+from ntc_templates.parse import parse_output
 ```
 <br>
 
