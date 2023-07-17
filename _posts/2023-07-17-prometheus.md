@@ -1,6 +1,6 @@
 ---
 title: Monitoring Tools with Prometheus
-date: 2023-07-16 13:30:00 +0700
+date: 2023-07-17 13:30:00 +0700
 categories: [Prometheus]
 tags: [network automation, prometheus, monitoring, linux, node exporter, snmp exporter]
 ---
