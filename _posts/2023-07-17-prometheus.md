@@ -171,9 +171,8 @@ helena@ubuntuhelena:~$ systemctl status prometheus
 
 If it's active and running, you can access it with browser on http://<the-ip-address:9090>
 
+![01](/static/2023-07-17-prometheus/01.png)
 
 <br>
 
 To check the status of your node, go to **Status > Targets**.
-
-
