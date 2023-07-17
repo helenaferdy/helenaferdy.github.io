@@ -39,23 +39,16 @@ sudo chown prometheus:prometheus /var/lib/prometheus
 
 <br>
 
-Then download the [Prometheus file](https://prometheus.io/download/), you can use *wget* to do this on linux
+Then download and extract the [Prometheus file](https://prometheus.io/download/).
 
 ```bash
 wget https://github.com/prometheus/prometheus/releases/download/v2.45.0/prometheus-2.45.0.linux-amd64.tar.gz
-```
-
-<br>
-
-After that extract it
-
-```bash
 tar xvzf prometheus-2.45.0.linux-386
 ```
 
 <br>
 
-Next we need to copy the files to its respective configuration directories and 
+Next we need to copy the files to its respective configuration directories 
 
 ```bash
 cd prometheus-2.45.0.linux-386/
@@ -66,7 +59,7 @@ sudo cp -r consoles console_libraries /etc/prometheus/
 
 <br>
 
-Then open the prometheus.yml file
+And then open the prometheus.yml file
 
 ```bash
 sudo nano /etc/prometheus/prometheus.yml
@@ -75,6 +68,7 @@ sudo nano /etc/prometheus/prometheus.yml
 <br>
 
 make sure it contains this configuration
+
 ```yml
 # my global config
 global:
@@ -176,3 +170,5 @@ If it's active and running, you can access it with browser on http://<the-ip-add
 <br>
 
 To check the status of your node, go to **Status > Targets**.
+
+![02](/static/2023-07-17-prometheus/02.png)
