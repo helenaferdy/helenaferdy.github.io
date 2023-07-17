@@ -1,5 +1,5 @@
 ---
-title: Monitoring Tools with Prometheus
+title: Prometheus - Monitoring and Alerting tool
 date: 2023-07-17 13:30:00 +0700
 categories: [Prometheus]
 tags: [network automation, prometheus, monitoring, linux, node exporter, snmp exporter]
@@ -172,3 +172,6 @@ If it's active and running, you can access it with browser on http://<the-ip-add
 To check the status of your node, go to **Status > Targets**.
 
 ![02](/static/2023-07-17-prometheus/02.png)
+
+You'll see that you have one node, which is the Premetheus Linux server itself.
+Next we'll install some modules to add other nodes, like other linux servers and networking devices.
