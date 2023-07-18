@@ -204,10 +204,20 @@ sudo systemctl enable alertmanager
 
 <br>
 
+
+Also restart the prometheus service
+
+```shell
+sudo systemctl restart prometheus
+```
+
+<br>
+
 Check the status by running this
 
 ```shell
 sudo systemctl status alertmanager
+sudo systemctl status prometheus
 ```
 
 ```
@@ -224,9 +234,12 @@ sudo systemctl status alertmanager
 
 <br>
 
+You can also access the web ui on here http://198.18.0.201:9093
+
 ![03](/static/2023-07-18-alert-telegram/03.png)
 
-You can also access the web ui on here http://198.18.0.201:9093
+>This page will not show any rule until it's triggered.
+
 
 <br>
 <br>
@@ -246,7 +259,7 @@ sudo snap install docker
 
 <br>
 
-After that, pull this docker image
+After that, pull this [Alert Manager Telegram Relay](https://github.com/janw/alertmanager-telegram) docker file.
 
 ```shell
 sudo docker pull ghcr.io/janw/alertmanager-telegram:edge
@@ -278,13 +291,12 @@ sudo docker run -d --rm \
     ghcr.io/janw/alertmanager-telegram:edge
 ```
 
-> -d will make it run in the background, --rm will remove the container when it's stopped <br>
 > Use your own chat-id and bot-id from the telegram bot that you have created
 
 
 <br>
 
-Run this to check if the container is running
+Lastly, run this command to check if the container is running
 
 ```shell
 sudo docker ps
@@ -297,31 +309,26 @@ CONTAINER ID   IMAGE    COMMAND   CREATED   STATUS         PORTS       NAMES
 
 <br>
 
-And lastly, restart the services
-
-```shell
-sudo systemctl restart alertmanager
-sudo systemctl restart prometheus
-```
+And everything is done here. Let's proceed with testing.
 
 <br>
 <br>
 
 ## Testing
 
-Now try shutting down one of the monitored node, you'll see it on the alert page on Prometheus
+Try shutting down one of the monitored node, it'll be visible on the alert page on Prometheus
 
 ![04](/static/2023-07-18-alert-telegram/04.png)
 
 <br>
 
-You can also see it on alert manager
+We can also see it on alert manager
 
 ![05](/static/2023-07-18-alert-telegram/05.png)
 
 <br>
 
-And on your telegram, you should see your bot sending the alert as well.
+And on the telegram side, we should see our bot sending the alert as well.
 
 
 ![06](/static/2023-07-18-alert-telegram/06.png)
