@@ -8,9 +8,11 @@ tags: [prometheus, alert manager, telegram]
 
 ## Setting up Alerting rule on Prometheus
 
-![01](/static/2023-07-18-alert-telegram/01.png)
+<br>
 
 The way we create our alerting tool is by detecting the parameter **"up"**, where if the returned data is 1 it means the node is up and if it is 0 the it is down.
+
+![01](/static/2023-07-18-alert-telegram/01.png)
 
 <br>
 
@@ -46,6 +48,10 @@ Next we add this new rule to our Prometheus configuration file
 ```shell
 sudo nano /etc/prometheus/prometheus.yml 
 ```
+
+<br>
+
+Modify the "rule_files" with the yml file that we just created.
 
 ```
 # Alertmanager configuration
