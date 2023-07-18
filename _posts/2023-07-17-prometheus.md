@@ -1,5 +1,5 @@
 ---
-title: Prometheus - Monitoring and Alerting tool (part 1)
+title: Prometheus
 date: 2023-07-17 13:30:00 +0700
 categories: [Monitoring Tools]
 tags: [prometheus]
@@ -7,7 +7,7 @@ tags: [prometheus]
 
 ## What is Prometheus?
 
-Prometheus is an open-source systems monitoring and alerting toolkit. It is widely used for monitoring the performance and health of computer systems and applications in a distributed environment. Prometheus follows a pull-based model, where it periodically scrapes metrics data from configured targets, such as servers, services, and containers.
+Prometheus is an open-source monitoring and alerting toolkit. It is widely used for monitoring the performance and health of computer systems and applications in a distributed environment. Prometheus follows a pull-based model, where it periodically scrapes metrics data from configured targets, such as servers, services, and containers.
 
 <br>
 
