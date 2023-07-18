@@ -1,0 +1,322 @@
+---
+title: Prometheus - Alert Manager Telegram
+date: 2023-07-18 15:30:00 +0700
+categories: [Monitoring Tools]
+tags: [prometheus, alert manager, telegram]
+---
+
+
+## Setting up Alerting rule on Prometheus
+
+![01](/static/2023-07-18-alert-telegram/01.png)
+
+The way we create our alerting tool is by detecting the parameter **"up"**, where if the returned data is 1 it means the node is up and if it is 0 the it is down.
+
+<br>
+
+Now we create a new alerting rule
+
+```shell
+sudo nano /etc/prometheus/alert_server_down.yml
+```
+
+<br>
+
+paste in these lines of configuration
+
+```yml
+groups:
+- name: server_down
+  rules:
+  - alert: server_down
+    expr: up == 0
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: Server is down
+```
+
+>We give it name "server_down" with the expression "up == 0", which means if there's a node with the parameter 0, this rule will be triggered. <br> We also give it the wait time of 1 minute before firing the rule.
+
+<br>
+
+Next we add this new rule to our Prometheus configuration file
+
+```shell
+sudo nano /etc/prometheus/prometheus.yml 
+```
+
+```
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - localhost:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+   - "alert_server_down.yml"
+```
+
+>Add the newly created "alert_server_down.yml" file below the **rule_files**.
+
+<br>
+
+After that restart the Prometheus service.
+
+```shell
+sudo systemctl restart prometheus
+```
+
+<br>
+
+Now on the alert page, you'll see the "server_down" rule.
+
+![02](/static/2023-07-18-alert-telegram/02.png)
+
+<br>
+
+This rule by itself doesn't do anything, it only shows a visual indicator stating a node is down.
+If we want to trigger an action, we need Alert Manager.
+
+<br>
+<br>
+
+## Setting up Alert Manager
+
+<br>
+
+First, download the [Alert Manager](https://prometheus.io/download/) and extract it.
+
+```
+wget https://github.com/prometheus/alertmanager/releases/download/v0.25.0/alertmanager-0.25.0.linux-amd64.tar.gz
+tar xvzf alertmanager-0.25.0.linux-amd64.tar.gz
+```
+
+<br>
+
+Next, navigate to the folder and copy the files to its supposed directories
+
+```shell
+cd alertmanager-0.25.0.linux-amd64/
+sudo cp alertmanager amtool /usr/local/bin/
+sudo cp alertmanager.yml /etc/alertmanager/
+```
+
+<br>
+
+Set the owner
+
+```shell
+sudo chown -R prometheus:prometheus /etc/alertmanager/alertmanager.yml /usr/local/bin/{alertmanager,amtool}
+```
+
+<br>
+
+Configure the Alert Manager yaml file
+
+```shell
+sudo nano /etc/alertmanager/alertmanager.yml
+```
+
+paste in these lines
+
+```yml
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 24h
+  receiver: 'telegram'
+receivers:
+- name: 'telegram'
+  webhook_configs:
+  - url: "http://localhost:8080/alerts"
+    send_resolved: true
+```
+
+>The url is the telegram webhook relay that we will run on a docker later
+
+<br>
+
+Run this command to make sure your config file doesn't have any error
+
+```shell
+amtool check-config /etc/alertmanager/alertmanager.yml
+```
+
+```
+Checking '/etc/alertmanager/alertmanager.yml'  SUCCESS
+Found:
+ - global config
+ - route
+ - 0 inhibit rules
+ - 1 receivers
+ - 0 templates
+```
+
+<br>
+
+Then we create the alertmanager service file
+
+```shell
+sudo nano /etc/systemd/system/alertmanager.service
+```
+
+Paste in these lines
+
+```
+[Unit]
+Description=AlertManager Server Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/alertmanager --config.file /etc/alertmanager/alertmanager.yml
+
+[Install]
+WantedBy=multi-user.target
+```
+
+<br>
+
+Finally start the service
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl start alertmanager
+sudo systemctl enable alertmanager
+```
+
+<br>
+
+Check the status by running this
+
+```shell
+sudo systemctl status alertmanager
+```
+
+```
+● alertmanager.service - AlertManager Server Service
+     Loaded: loaded (/etc/systemd/system/alertmanager.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-07-18 11:01:14 UTC; 11min ago
+   Main PID: 5835 (alertmanager)
+      Tasks: 12 (limit: 9386)
+     Memory: 14.1M
+        CPU: 1.175s
+     CGroup: /system.slice/alertmanager.service
+             └─5835 /usr/local/bin/alertmanager --config.file /etc/alertmanager/alertmanager.yml
+```
+
+<br>
+
+![03](/static/2023-07-18-alert-telegram/03.png)
+
+You can also access the web ui on here http://198.18.0.201:9093
+
+<br>
+<br>
+
+## Installing Docker
+
+>Skip this section if you already have docker installed.
+
+<br>
+
+Install docker on ubuntu with this command
+
+```shell
+sudo snap refresh
+sudo snap install docker 
+```
+
+<br>
+
+After that, pull this docker image
+
+```shell
+sudo docker pull ghcr.io/janw/alertmanager-telegram:edge
+```
+
+<br>
+
+Run this command to make sure the image is present on your machine
+
+```shell
+sudo docker images
+```
+
+```
+REPOSITORY                           TAG       IMAGE ID       CREATED       SIZE
+ghcr.io/janw/alertmanager-telegram   edge      49047627b4f6   7 weeks ago   159MB
+```
+
+<br>
+
+Run this command to spin up the docker container.
+
+```shell
+sudo docker run -d --rm \
+    --name alertmanager-telegram \
+    -e TELEGRAM_CHAT_ID="{chat-id}" \
+    -e TELEGRAM_TOKEN="{bot-id}" \
+    -p 8080:8080 \
+    ghcr.io/janw/alertmanager-telegram:edge
+```
+
+> -d will make it run in the background, --rm will remove the container when it's stopped <br>
+> Use your own chat-id and bot-id from the telegram bot that you have created
+
+
+<br>
+
+Run this to check if the container is running
+
+```shell
+sudo docker ps
+```
+
+```
+CONTAINER ID   IMAGE    COMMAND   CREATED   STATUS         PORTS       NAMES
+86be69939b3e   ghcr.io/janw/alertmanager-telegram:edge   "gunicorn alertmanag…"   4 minutes ago   Up 4 minutes   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   alertmanager-telegram
+```
+
+<br>
+
+And lastly, restart the services
+
+```shell
+sudo systemctl restart alertmanager
+sudo systemctl restart prometheus
+```
+
+<br>
+<br>
+
+## Testing
+
+Now try shutting down one of the monitored node, you'll see it on the alert page on Prometheus
+
+![04](/static/2023-07-18-alert-telegram/04.png)
+
+<br>
+
+You can also see it on alert manager
+
+![05](/static/2023-07-18-alert-telegram/05.png)
+
+<br>
+
+And on your telegram, you should see your bot sending the alert as well.
+
+
+![06](/static/2023-07-18-alert-telegram/06.png)
+
