@@ -1,8 +1,8 @@
 ---
-title: Prometheus - Monitoring and Alerting tool
+title: Prometheus - Monitoring and Alerting tool (part 1)
 date: 2023-07-17 13:30:00 +0700
-categories: [Prometheus]
-tags: [network automation, prometheus, monitoring, linux, node exporter, snmp exporter]
+categories: [Monitoring Tools]
+tags: [prometheus]
 ---
 
 ## What is Prometheus?
