@@ -1,5 +1,5 @@
 ---
-title: Syslog Server with Python
+title: Create Syslog Server with Python
 date: 2023-07-19 11:30:00 +0700
 categories: [Python Automation]
 tags: [syslog]
@@ -53,7 +53,7 @@ def syslog_server(host, port):
 if __name__ == "__main__":
     syslog_server('198.18.0.220', 514)
 ```
-> change the **with open('<span style="color:yellow">/opt/python-syslog/output-syslog.log</span>', 'a') as log_file:** with the your own path. <br>
+> change the **with open('<span style="color:yellow">/opt/python-syslog/output-syslog.log</span>', 'a') as log_file:** with your own path. <br>
 > change the **syslog_server('<span style="color:yellow">198.18.0.220</span>', 514)** with your server's IP Address.
 
 <br>
@@ -153,7 +153,7 @@ WantedBy=multi-user.target
 
 <br>
 
-Start the service
+Now we can run this code just like any other linux services.
 
 ```
 sudo systemctl daemon-reload
