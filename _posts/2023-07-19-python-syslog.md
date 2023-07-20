@@ -28,8 +28,8 @@ def save_to_log(log_data):
     with open('/opt/python-syslog/output-syslog.log', 'a') as log_file:
         log_file.write(log_data)
 
-def parse_syslog_data(data):
-    data = data+"\n"
+def parse_syslog_data(data, ipadd):
+    data = f"{data}: {ipadd}\n"
     return data
 
 def syslog_server(host, port):
@@ -41,8 +41,8 @@ def syslog_server(host, port):
         while True:
             data, address = server_socket.recvfrom(4096)
             log_data = data.decode('utf-8')
-            parsed_log = parse_syslog_data(log_data)
-            print(f"{address[0]}: {parsed_log}")
+            parsed_log = parse_syslog_data(log_data, address[0])
+            print(parsed_log)
             save_to_log(parsed_log)
 
     except Exception as e:
@@ -51,10 +51,10 @@ def syslog_server(host, port):
         server_socket.close()
 
 if __name__ == "__main__":
-    syslog_server('198.18.0.220', 514)
+    syslog_server('198.18.0.201', 514)
 ```
 > change the **with open('<span style="color:yellow">/opt/python-syslog/output-syslog.log</span>', 'a') as log_file:** with your own path. <br>
-> change the **syslog_server('<span style="color:yellow">198.18.0.220</span>', 514)** with your server's IP Address.
+> change the **syslog_server('<span style="color:yellow">198.18.0.201</span>', 514)** with your server's IP Address.
 
 <br>
 
@@ -67,7 +67,7 @@ sudo python3 python-syslog.py
 
 ```shell
 helena@ubuntuy:~/syslog$ sudo python3 python-syslog.py 
-Syslog server listening on 198.18.0.220:514
+Syslog server listening on 198.18.0.201:514
 ```
 
 <br>
@@ -76,8 +76,7 @@ Now set the target device (eg: cisco routers) to send syslog messages to our sys
 
 ```
 xe4#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-xe4(config)#logging host 198.18.0.220
+xe4(config)#logging host 198.18.0.201
 ```
 
 <br>
@@ -85,14 +84,11 @@ xe4(config)#logging host 198.18.0.220
 After a while, you'll start seeing syslog messages being printed on the console
 
 ```
-Syslog server listening on 198.18.0.220:514
+Syslog server listening on 198.18.0.201:514
 
 198.18.0.124: <189>225: *Jul 19 06:55:12.582: %SYS-5-CONFIG_I: Configured from console by helena on vty0 (10.16.36.109)
-
 198.18.0.124: <189>226: *Jul 19 06:55:35.935: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback2, changed state to up
-
 198.18.0.124: <189>227: *Jul 19 06:55:42.307: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback2, changed state to down
-
 198.18.0.124: <189>228: *Jul 19 06:55:42.307: %LINK-5-CHANGED: Interface Loopback2, changed state to administratively down
 ```
 <br>
@@ -113,25 +109,25 @@ helena@ubuntuy:~/syslog$ cat output-syslog.log
 
 # Running the code as a Linux Service
 
-The code working well, now we're gonna make it run as a service on our server.
+After we verify that the code is working well, now we're gonna make it to run as a service on our server.
 <br>
 
 First, move the python code to a secure and neat directory, here we'll use /opt/python-syslog, and give it executable permission
 
 ```shell
 sudo mkdir /opt/python-syslog
-sudo cp python-syslog.py
-sudo chmod +x python-syslog.py
+sudo cp python-syslog.py opt/python-syslog/python-syslog.py
+sudo chmod +x opt/python-syslog/python-syslog.py
 ```
 
->PS: Optionally, modify the code to also save the log in this directory
+>PS: Optionally, modify the code to also save the log in this directory if it is not already
 
 <br>
 
 After that, create the service file
 
 ```shell
-sudo nano /etc/systemd/system/python_syslog.service
+sudo nano /etc/systemd/system/python-syslog.service
 ```
 
 Paste in these lines
@@ -157,8 +153,8 @@ Now we can run this code just like any other linux services.
 
 ```
 sudo systemctl daemon-reload
-sudo systemctl start python_syslog
-sudo systemctl enable python_syslog
+sudo systemctl start python-syslog
+sudo systemctl enable python-syslog
 ```
 
 <br>
@@ -166,8 +162,8 @@ sudo systemctl enable python_syslog
 Check the service status or view its logs by running these
 
 ```shell
-systemctl status python_syslog
-journalctl -u python_syslog
+systemctl status python-syslog
+journalctl -u python-syslog
 ```
 
 ```
@@ -183,7 +179,7 @@ journalctl -u python_syslog
 
 
 Jul 19 06:49:41 ubuntu2 systemd[1]: Started Python Syslog Service.
-Jul 19 06:54:50 ubuntu2 python-syslog.py[23763]: Syslog server listening on 198.18.0.220:514
+Jul 19 06:54:50 ubuntu2 python-syslog.py[23763]: Syslog server listening on 198.18.0.201:514
 Jul 19 06:54:50 ubuntu2 python-syslog.py[23763]: 198.18.0.125: <188>1820499: *Jul 19 06:41:06.923: %OSPF-4-ERRRCV: Received invalid packet: mismatched area ID from back>
 ```
 
@@ -192,7 +188,7 @@ Jul 19 06:54:50 ubuntu2 python-syslog.py[23763]: 198.18.0.125: <188>1820499: *Ju
 And finally run this command to watch as the logs piling up in your output file
 
 ```shell
-tail -f output-syslog.log 
+tail -f /opt/python-syslog/output-syslog.log 
 ```
 
 ```
