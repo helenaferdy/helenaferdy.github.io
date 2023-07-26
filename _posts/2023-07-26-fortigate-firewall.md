@@ -1,7 +1,7 @@
 ---
 title: Configure Firewall Policy on Fortigate Firewall
 date: 2023-07-26 20:30:00 +0700
-categories: [Security]
+categories: [Security, Fortigate Firewall]
 tags: [fortigate]
 ---
 
@@ -53,7 +53,7 @@ Then i toggled on the Log Allowed Traffic with All Sessions so i can inspect all
 
 <br>
 
-Then i created a new policy to access the DNS Server of 1.1.1.1 so the linux server is able to resolve the FQDN of api.telegram.org into an IP address.
+I created another new policy to allow access to the DNS Server of 1.1.1.1 so the linux server is able to resolve the FQDN of api.telegram.org into an IP address.
 
 ![05](/static/2023-07-26-fortigate-firewall/05.png)
 
