@@ -20,10 +20,10 @@ timezone: Asia/Jakarta
 
 title: Sena Perdiana # the main title
 
-tagline: Networking and Automation # it will display as the sub-title
+tagline: The jack of all trades, master of none. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Networking and Automation
+  The jack of all trades, master of none.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ""
