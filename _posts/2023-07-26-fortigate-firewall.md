@@ -1,7 +1,7 @@
 ---
-title: Configure Firewall Policy on Fortigate Firewall
+title: Configure Firewall Policy on Fortigate
 date: 2023-07-26 20:30:00 +0700
-categories: [Security, Fortigate Firewall]
+categories: [Security, Fortigate]
 tags: [fortigate]
 ---
 
