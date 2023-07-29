@@ -1,7 +1,7 @@
 ---
 title: Prometheus - Telegram notification with Alert Manager
 date: 2023-07-18 15:30:00 +0700
-categories: [Monitoring Tools]
+categories: [Monitoring Tools, Prometheus]
 tags: [prometheus, alert manager, telegram]
 ---
 
