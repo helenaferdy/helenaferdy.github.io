@@ -20,10 +20,10 @@ timezone: Asia/Jakarta
 
 title: Sena Perdiana # the main title
 
-tagline: The jack of all trades, master of none. # it will display as the sub-title
+tagline: jack of all trades, master of none. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  The jack of all trades, master of none.
+  jack of all trades, master of none.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ""
@@ -83,7 +83,7 @@ avatar: https://pbs.twimg.com/profile_images/1277476488502054912/Ft_NZdQg_400x40
 toc: true
 
 comments:
-  active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  active: disqus # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
