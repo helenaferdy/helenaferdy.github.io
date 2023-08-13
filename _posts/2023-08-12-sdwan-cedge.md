@@ -424,3 +424,9 @@ Doing tracepath from server on site 10 to 11 gives an alternating path between t
 ![x](/static/2023-08-12-sdwan-cedge/43.png)
 
 <br>
+
+If we do a flow simulation, which we can access on Devices >> Troubleshooting >> Simulate Flows, we can see all the WAN paths available to be taken
+
+![x](/static/2023-08-12-sdwan-cedge/44.png)
+
+<br>
