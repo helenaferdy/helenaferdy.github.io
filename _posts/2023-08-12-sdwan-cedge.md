@@ -199,8 +199,10 @@ Repeat the process for the second router, and then we end up with this
 
 Templates are pre-defined configurations that allow us to quickly deploy and manage SD-WAN devices and policies within the network infrastructure. <br>
 
-> Device templates cover the overall configuration of an SD-WAN device, ensuring consistent setup across the network. <br>
-> Feature templates, focus on specific functionalities within the network, allowing us to fine-tune policies for traffic management, security, and other specific aspects. <br>
+> * Device templates cover the overall configuration of an SD-WAN device, ensuring consistent setup across the network. <br>
+> * Feature templates focus on specific functionalities within the network, allowing us to fine-tune policies for traffic management, security, and other specific aspects. <br>
+
+<br>
 
 To configure templates, go to Configuration >> Templates, lets create a new Device Template
 
@@ -355,3 +357,70 @@ Here we can see the link path between WAN connection and the status of these con
 Under Monitor >> Devices, we can also see the status of each device in the inventory
 
 ![x](/static/2023-08-12-sdwan-cedge/38.png)
+
+<br>
+
+If we SSH to one of our edge routers, we can also validate some configurations
+
+```shell
+cedge0#show sdwan control connections 
+
+PEER    PEER PEER            SITE       DOMAIN PEER                                    PRIV  PEER                                    PUB                                           GROUP      
+TYPE    PROT SYSTEM IP       ID         ID     PRIVATE IP                              PORT  PUBLIC IP                               PORT  LOCAL COLOR     PROXY STATE UPTIME      ID         
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+vsmart  dtls 1.1.1.3         1          1      10.0.0.13                               12446 10.0.0.13                               12446 metro-ethernet  No    up     0:10:25:10  0           
+vsmart  dtls 1.1.1.3         1          1      10.0.0.13                               12446 10.0.0.13                               12446 biz-internet    No    up     0:10:24:56  0           
+vsmart  dtls 1.1.1.3         1          1      10.0.0.13                               12446 10.0.0.13                               12446 mpls            No    up     0:10:24:59  0           
+vbond   dtls 0.0.0.0         0          0      10.0.0.12                               12346 10.0.0.12                               12346 metro-ethernet  -     up     0:10:25:11  0           
+vbond   dtls 0.0.0.0         0          0      10.0.0.12                               12346 10.0.0.12                               12346 biz-internet    -     up     0:10:24:56  0           
+vbond   dtls 0.0.0.0         0          0      10.0.0.12                               12346 10.0.0.12                               12346 mpls            -     up     0:10:24:59  0           
+vmanage dtls 1.1.1.1         1          0      10.0.0.11                               13046 10.0.0.11                               13046 metro-ethernet  No    up     0:10:25:11  0     
+```
+
+```shell
+cedge0#show sdwan control local-properties
+
+INTERFACE                IPv4            PORT   IPv4            IPv6                                    PORT    VS/VM COLOR            STATE CNTRL CONTROL/     LR/LB  CONNECTION   REMAINING   TYPE CON
+                                                                                                                                                   STUN                                              PRF
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GigabitEthernet1         80.0.0.2        12386  80.0.0.2        ::                                      12386    1/1  metro-ethernet   up     2      no/yes/no   No/No  0:00:00:05   0:01:33:25  N    5  
+GigabitEthernet3         90.0.0.2        12366  90.0.0.2        ::                                      12366    1/0  biz-internet     up     2      no/yes/no   No/No  0:00:00:06   0:01:33:39  N    5  
+GigabitEthernet4         100.0.0.2       12366  100.0.0.2       ::                                      12366    1/0  mpls             up     2     yes/yes/no   No/No  0:00:00:12   0:01:33:36  N    5  
+```
+
+```shell
+cedge0#show ip route vrf 99
+
+      198.10.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        198.10.0.0/24 is directly connected, GigabitEthernet5
+L        198.10.0.1/32 is directly connected, GigabitEthernet5
+m     198.11.0.0/24 [251/0] via 11.1.1.1, 10:27:57
+```
+
+
+<br>
+<br>
+
+## End to End Testing
+
+<br>
+
+![x](/static/2023-08-12-sdwan-cedge/39.png)
+
+We have 1 endpoint device on each site, and now we will do the end to end connectivity testing.
+
+<br>
+
+Doing tracepath from server on site 10 to 11 gives an alternating path between the 3 WAN links
+
+![x](/static/2023-08-12-sdwan-cedge/40.png)
+
+![x](/static/2023-08-12-sdwan-cedge/41.png)
+
+![x](/static/2023-08-12-sdwan-cedge/42.png)
+
+<br>
+
+![x](/static/2023-08-12-sdwan-cedge/43.png)
+
+<br>
