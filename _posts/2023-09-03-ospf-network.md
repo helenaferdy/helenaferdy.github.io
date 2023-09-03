@@ -15,27 +15,27 @@ In OSPF, there are 5 different types of connections between routers:
 
 ![x](/static/2023-09-03-ospf-network/01.png)
 
-> 1. Point-to-Point (P2P): <br>
+> * Point-to-Point (P2P): <br>
 In a Point-to-Point connection, OSPF is configured between two directly connected routers. This type of connection is typically used in scenarios where there is a single link between two routers. P2P connections don't require the use of DR/BDR (Designated Router/Backup Designated Router) election.
 
 <br>
 
 ![x](/static/2023-09-03-ospf-network/02.png)
 
-> 2. Broadcast: <br>
+> * Broadcast: <br>
 In a Broadcast network type, multiple routers are connected to a same network segment. In this type of network, OSPF routers elect a DR and a BDR to reduce the amount of OSPF traffic and improve efficiency.
 
-> 3. Non-Broadcast Multi-Access (NBMA): <br>
+> * Non-Broadcast Multi-Access (NBMA): <br>
 NBMA networks are similar to Broadcast networks but lack the automatic broadcast capabilities. In NBMA networks, OSPF routers can't rely on automatic DR/BDR election due to the lack of broadcast, so the neighborship adjacency needs to be configured manually
 
 <br>
 
 ![x](/static/2023-09-03-ospf-network/03.png)
 
-> 4. Point-to-Multipoint (P2MP): <br> 
+> * Point-to-Multipoint (P2MP): <br> 
 In a Point-to-Multipoint connection, a router is connected to multiple remote routers as if it were a point-to-point link with each of them, but are still in the same segment. P2MP connections simplifies OSPF configuration and doesn't require DR/BDR election.
 
-> 5. Point-to-Multipoint Non-Broadcast (P2MNB): <br> 
+> * Point-to-Multipoint Non-Broadcast (P2MNB): <br> 
 Similar to P2MP, P2MNB connections are used in a network with no broadcast connectivity. Neighborship adjacency is configured manually.
 
 
@@ -123,9 +123,9 @@ If we take a look at the neighborship adjacency status, we can see all 3 routers
 
 Here XE3 is elected as the DR because it has the highest router-id number, followed by XE2 as the BDR, while XE1 remains in DROTHER status.
 
-> DR (Designated Router): DR is responsible for performing LSA flooding tasks to the entire segment. <br>
-> BDR (Backup Designated Router): The BDR is the router that takes over as the DR if the current DR fails. <br>
-> DROther (DR Other Router): DROther routers are OSPF routers that neither hold the DR nor the BDR role. <br>
+> * DR (Designated Router): DR is responsible for performing LSA flooding tasks to the entire segment. <br>
+> * BDR (Backup Designated Router): The BDR is the router that takes over as the DR if the current DR fails. <br>
+> * DROther (DR Other Router): DROther routers are OSPF routers that neither hold the DR nor the BDR role. <br>
 
 <br>
 
