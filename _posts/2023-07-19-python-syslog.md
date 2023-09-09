@@ -1,7 +1,7 @@
 ---
-title: Create Syslog Server with Python
+title: Syslog Server with Python
 date: 2023-07-19 11:30:00 +0700
-categories: [Python Automation, Syslog]
+categories: [Python, Syslog]
 tags: [syslog]
 ---
 

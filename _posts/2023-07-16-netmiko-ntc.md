@@ -1,7 +1,7 @@
 ---
 title: Python Network Automation with Netmiko and NTC Templates
 date: 2023-07-16 14:30:00 +0700
-categories: [Python Automation, Netmiko]
+categories: [Python, Netmiko]
 tags: [ntc templates, netmiko]
 ---
 
