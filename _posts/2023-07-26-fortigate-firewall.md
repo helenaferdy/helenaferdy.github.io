@@ -1,6 +1,6 @@
 ---
 title: Firewall Policy on Fortigate
-date: 2023-07-26 20:30:00 +0700
+date: 2023-09-17 14:30:00 +0700
 categories: [Security, Fortigate]
 tags: [fortigate]
 ---
