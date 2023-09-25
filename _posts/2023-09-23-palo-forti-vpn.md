@@ -2,7 +2,7 @@
 title: Site to Site VPN between Palo Alto and Fortigate
 date: 2023-09-23 07:30:00 +0700
 categories: [Security, Palo Alto]
-tags: [palo alto, fortigate, vpn]
+tags: [palo alto, fortigate, VPN]
 ---
 
 
