@@ -1,5 +1,5 @@
 ---
-title: SSL Offloading on F5
+title: F5 - SSL Offloading
 date: 2023-08-05 08:30:00 +0700
 categories: [Security, F5]
 tags: [F5]
