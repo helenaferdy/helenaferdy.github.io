@@ -59,6 +59,12 @@ After that we configure the CNAME record
 
 <br>
 
+Doing a *dig* command confirms that the custom domain points to the configured IP Addresses
+
+![x](/static/2023-09-28-github-domain/04a.png)
+
+<br>
+
 Now if we check on Github Repository, it shows that the site is hosted on the custom domain
 
 ![x](/static/2023-09-28-github-domain/08.png)
