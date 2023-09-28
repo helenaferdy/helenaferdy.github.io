@@ -2,7 +2,7 @@
 title: Squid Proxy on Ubuntu
 date: 2023-09-27 07:30:00 +0700
 categories: [Proxy, Squid]
-tags: [proxy, squid]
+tags: [proxy]
 ---
 
 <br>
@@ -139,7 +139,7 @@ Now only the connection using proxy will be able to access internet
 
 ![x](/static/2023-09-27-proxy-squid/06.png)
 
-> chrome (left) doesnt have proxy configured, while firefox (right) has it set up
+> chrome (left) doesnt have proxy configured, while firefox (right) does
 
 <br>
 
@@ -163,11 +163,10 @@ Now lets try blocking traffic to facebook and reddit, on the sqiuid.conf file ad
 
 ```shell
 acl block_sites dstdomain .facebook.com .reddit.com
-deny_info localhost/opt/block.hml block_sites
 http_access deny block_sites
 ```
 
-![x](/static/2023-09-27-proxy-squid/11.png)
+![x](/static/2023-09-27-proxy-squid/11a.png)
 
 <br>
 
