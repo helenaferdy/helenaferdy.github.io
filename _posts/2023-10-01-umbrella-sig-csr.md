@@ -1,5 +1,5 @@
 ---
-title: Cisco Umbrella - Secure Internet Gateway (SIG) Tunnel with CSR/ISR Router
+title: Cisco Umbrella - Secure Internet Gateway (SIG) with CSR/ISR Router
 date: 2023-10-01 07:30:00 +0700
 categories: [Security, Cisco Umbrella]
 tags: [umbrella, SIG]
@@ -7,7 +7,7 @@ tags: [umbrella, SIG]
 
 <br>
 
-## What is Secure Internet Gateway Tunnel?
+## What is Secure Internet Gateway?
 
 A Secure Internet Gateway (SIG) is a cloud-based service that provides secure and filtered access to the internet for users and devices within an organization. <br>
 SIG uses tunnels to establish secure connections between an organization's network and the cloud-based security service. This tunnel encrypts the traffic between the organization's network and the SIG service, ensuring the confidentiality and integrity of data as it travels over the internet.
@@ -58,7 +58,8 @@ crypto ikev2 keyring umbrella-kr
   pre-shared-key <password set on umbrella>
 ```
 
-> Set the address to the closest umbrella DC, check out [this document](https://docs.umbrella.com/umbrella-user-guide/docs/cisco-umbrella-data-centers) for the details
+> * Set the address to the closest umbrella DC, check out [this document](https://docs.umbrella.com/umbrella-user-guide/docs/cisco-umbrella-data-centers) for the details
+> * In IKEv2 (Internet Key Exchange version 2), a keyring is used to store pre-shared keys (PSKs) and associate them with specific remote peers for authentication during the VPN (Virtual Private Network) negotiation process.
 
 <br>
 
@@ -74,6 +75,8 @@ crypto ikev2 profile umbrella-profile
   dpd 10 3 periodic
 ```
 
+> * Profile is used to specify various parameters and settings for establishing VPN connections with remote peers
+
 <br>
 
 Next define an IPSec transform set named "umbrella-ts" and set the mode to be "tunnel"
@@ -83,9 +86,11 @@ crypto ipsec transform-set umbrella-ts esp-gcm 256
  mode tunnel
 ```
 
+> * IPSec transform set specifies the encryption and authentication algorithms and other parameters used for securing IP traffic within an IPSec VPN tunnels
+
 <br>
 
-After that define an IPSec profile named "umbrella" to configure IPSec settings for the VPN tunnel
+After that define an IPSec profile named "umbrella" to use the "umbrella-ts" transform set for encryption and the "umbrella-profile" IKEv2 profile for the VPN negotiation
 
 ```shell
 crypto ipsec profile umbrella
@@ -106,7 +111,7 @@ crypto ikev2 proposal umbrella-proposal
 
 <br>
 
-Next define an IKEv2 policy named "umbrella" to configure IKEv2 parameters matching the outside interface IP Address
+Next define an IKEv2 policy named "umbrella" to configure IKEv2 parameters matching the outside interface IP Address and to use the "umbrella-proposal" created earlier
 
 ```shell
 crypto ikev2 policy umbrella
@@ -139,13 +144,17 @@ ip access-list extended traffic-to-umbrella
 
 <br>
 
-Lastly, define a route map named "umbrella-route-map" and apply it to Iniside Interface for policy-based routing
+Lastly, define a route map named "umbrella-route-map" to match the access-list "traffic-to-umbrella" for policy-based routing
 
 ```shell
 route-map umbrella-route-map permit 10
   match ip address traffic-to-umbrella
   set interface Tunnel1
-!
+```
+
+And apply the route-map to Inside Interface 
+
+```shell
 interface GigabitEthernet 2
  ip policy route-map umbrella-route-map
 ```
