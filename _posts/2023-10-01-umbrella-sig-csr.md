@@ -26,7 +26,7 @@ On this deployment, we will establish a IPsec Tunnel connection from the CSR1000
 <br>
 <br>
 
-## Configirng Network Tunnel on Umbrella
+## Configuring Network Tunnel on Umbrella
 
 On Cisco Umbrella, go to Deployments >> Network Tunnels, add new for our CSR router
 
@@ -41,9 +41,9 @@ Here's after the tunnel added, the entry is present with status of Unestablished
 <br>
 <br>
 
-## Configirng Network Tunnel on CSR Router
+## Configuring Network Tunnel on CSR Router
 
-Now to the CSR Router, Cisco actually provides a great deployment guide [here](https://docs.umbrella.com/umbrella-user-guide/docs/add-a-tunnel-cisco-isr) to configure this. We'll follow this
+Cisco actually provides a great deployment guide [here](https://docs.umbrella.com/umbrella-user-guide/docs/add-a-tunnel-cisco-isr) to configure tunnel on CSR/ISR Routers
 
 ![x](/static/2023-10-01-umbrella-sig-csr/01a.png)
 
@@ -59,7 +59,7 @@ crypto ikev2 keyring umbrella-kr
 ```
 
 > * Set the address to the closest umbrella DC, check out [this document](https://docs.umbrella.com/umbrella-user-guide/docs/cisco-umbrella-data-centers) for the details
-> * In IKEv2 (Internet Key Exchange version 2), a keyring is used to store pre-shared keys (PSKs) and associate them with specific remote peers for authentication during the VPN (Virtual Private Network) negotiation process.
+> * In IKEv2 (Internet Key Exchange version 2), a keyring is used to store pre-shared keys (PSKs) and associate them with specific remote peers for authentication during the VPN negotiation process.
 
 <br>
 
@@ -74,8 +74,6 @@ crypto ikev2 profile umbrella-profile
   keyring local umbrella-kr
   dpd 10 3 periodic
 ```
-
-> * Profile is used to specify various parameters and settings for establishing VPN connections with remote peers
 
 <br>
 
@@ -144,7 +142,7 @@ ip access-list extended traffic-to-umbrella
 
 <br>
 
-Lastly, define a route map named "umbrella-route-map" to match the access-list "traffic-to-umbrella" for policy-based routing
+Then define a route map named "umbrella-route-map" to match the access-list "traffic-to-umbrella" for policy-based routing
 
 ```shell
 route-map umbrella-route-map permit 10
@@ -152,14 +150,18 @@ route-map umbrella-route-map permit 10
   set interface Tunnel1
 ```
 
-And apply the route-map to Inside Interface 
+<br>
+
+Lastly,  apply the route-map to Inside Interface 
 
 ```shell
 interface GigabitEthernet 2
  ip policy route-map umbrella-route-map
 ```
 
-and thats pretty much it.
+<br>
+
+And thats pretty much it
 
 <br>
 <br>
@@ -182,7 +184,7 @@ Now all the internet traffic from the inside segment will be routed to the Umbre
 
 ![x](/static/2023-10-01-umbrella-sig-csr/04.png)
 
-Here we can see the reports of all traffic coming in from the inside segment of 10.99.0.0/24 being inspected by Cisco Umbrella
+Here we can see the reports of all traffic coming in from the inside segment of 10.99.0.0/24 being inspected by Cisco Umbrella before being forwarded to the actual destination
 
 <br>
 
