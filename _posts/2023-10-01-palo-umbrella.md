@@ -119,7 +119,7 @@ And now all internet traffic will be proxied by Umbrella, acting as the Secure I
 
 ![x](/static/2023-10-01-palo-umbrella/11.png)
 
-Here we can see the reports of the traffic coming from the palo's internal segment being inspected before being forwarded to the actual destination on the internet
+Here we can see the reports of the traffic coming from the palo's internal segment is inspected before being forwarded to the actual destination on the internet
 
 <br>
 
