@@ -1,7 +1,7 @@
 ---
-title: Onboard Edge Routers to Cisco SD-WAN
+title: Cisco SD-WAN - Onboard Edge Routers
 date: 2023-08-12 15:30:00 +0700
-categories: [Networking, SD-WAN]
+categories: [SD-WAN, Cisco SD-WAN]
 tags: [SD-WAN]
 ---
 

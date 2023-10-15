@@ -59,13 +59,13 @@ On node1, go to Replication Task, add new
 
 Select the dummy_data dataset inside helena pool for the source location, and the helena_backup pool for the destination
 
-![x](/static/2023-10-14-truenas-replication/05.png)
+![x](/static/2023-10-14-truenas-replication/06.png)
 
 <br>
 
 Set the schedule, here we set it to run hourly
 
-![x](/static/2023-10-14-truenas-replication/06.png)
+![x](/static/2023-10-14-truenas-replication/06a.png)
 
 <br>
 
@@ -165,7 +165,7 @@ Save and wait until the task finishes
 
 <br>
 
-Now we shoudl see the pulled dataset from node2 crated by the replication task, along with its snapshot
+Now we should see the pulled dataset from node2 created by the replication task, along with its snapshot
 
 ![x](/static/2023-10-14-truenas-replication/25.png)
 
