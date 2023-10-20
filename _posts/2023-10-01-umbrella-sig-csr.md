@@ -2,7 +2,7 @@
 title: Cisco Umbrella - Secure Internet Gateway (SIG) with CSR/ISR Router
 date: 2023-10-01 07:30:00 +0700
 categories: [Security, Cisco Umbrella]
-tags: [umbrella, SIG]
+tags: [Umbrella, SIG, Proxy]
 ---
 
 <br>

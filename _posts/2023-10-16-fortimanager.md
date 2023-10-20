@@ -2,7 +2,7 @@
 title: Fortimanager
 date: 2023-10-16 07:30:00 +0700
 categories: [Security, Fortigate]
-tags: [fortigate]
+tags: [Fortigate]
 ---
 
 <br>

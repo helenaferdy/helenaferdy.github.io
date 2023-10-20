@@ -2,7 +2,7 @@
 title: Github Pages Custom Domain
 date: 2023-09-28 07:30:00 +0700
 categories: [Other, Github Pages]
-tags: [github pages]
+tags: [Github Pages]
 ---
 
 <br>

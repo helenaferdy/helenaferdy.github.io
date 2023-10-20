@@ -2,7 +2,7 @@
 title: Squid Proxy on Ubuntu
 date: 2023-09-27 07:30:00 +0700
 categories: [Proxy, Squid]
-tags: [proxy]
+tags: [Proxy]
 ---
 
 <br>
