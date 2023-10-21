@@ -34,7 +34,7 @@ Configure the management interface when deploying the ova
 
 <br>
 
-ALternatively, we can configure it later on the CLI with these commands
+Alternatively, we can configure it later on the CLI with these commands
 
 ![x](/static/2023-10-16-fortimanager/03.png)
 

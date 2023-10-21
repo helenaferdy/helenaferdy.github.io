@@ -228,13 +228,13 @@ And on Routing Monitors, we can see all spokes' VPN interfaces as the BGP Neighb
 
 <br>
 
-And on BGP Paths, we can see the local subnets of the spokes being advertised by BGP
+And on BGP Paths, we can also see the local subnets of the spokes being advertised by BGP
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/42.png)
 
 <br>
 
-On the client PC on Site 2, we can see the connectivity is up going to the Site 3
+On the client PC on Site 2, testing with ping proves that the connectivity is up going to the Site 3
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/43.png)
 
@@ -246,12 +246,143 @@ Same goes with the other way around
 
 <br>
 
-And on the Spokes, we can also see the VPN utilizations as the traffic flowing through the SD-WAN
+And on the Spokes, the VPN utilizations can be observed as the traffic flowing through the SD-WAN
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/45.png)
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/46.png)
 
 <br>
+<br>
+
+## Enable ECMP on BGP
+
+> ECMP (Equal-Cost Multi-Path) is a routing technique that allows multiple paths with the same cost to be used simultaneously for load balancing
+
+Right now if we take a look at the BGP Paths, we have multiple paths to reach the local subnets on other sites but only one being used
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/60.png)
+
+<br>
+
+To enable ECMP, go to BGP configuration and enable IBGP Multipath and Additional Path
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/61.png)
+
+<br>
+
+Additionally on CLI, we can also lower the advertisement interval to 1 second
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/63.png)
+
+<br>
+
+Apply the config on all nodes and now all the available paths can and will be utilized
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/62.png)
+
+<br>
+<br>
+
+## Configuring Performance SLA on Hub
+
+To also enable load balancing on SD-WAN VPN Tunnel, use Volume based priority rules on the priority rules
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/69.png)
+
+<br>
+
+Create a performance SLA that continuously doing ping to the local subnet of site 2
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/70.png)
+
+<br>
+
+Do the same to do ping to site 3
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/71.png)
+
+<br>
+
+Now we have 2 performance SLAs to measure latency to both sites
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/72.png)
+
+<br>
+
+Additionaly, we can set the SD-WAN Members to use the source of the local subnet to measure latency
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/73.png)
+
+<br>
+
+Next we create a new priority rule to utilize the performance SLA made to make judgement to use the lowest latency for the SD-WAN traffic to site 2
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/74.png)
+
+<br>
+
+Do the same for site 3
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/75.png)
+
+<br>
+
+Here we can see the rules determine which VPN has the best latency to reach the sites, and will continuously measure the latency to make sure the best path is used
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/76.png)
+
+<br>
+<br>
+
+## Configuring Performance SLA on Spoke Sites
+
+Configuration is pretty much the same, but on sites the SLA is made going to Hub and Other Site
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/77.png)
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/78.png)
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/79.png)
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/80.png)
+
+<br>
+<br>
+
+## Testing the Performance SLA
+
+Now we're gonna shutdown the ISP 1 network
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/81.png)
+
+<br>
+
+And on the Performanc SLA, we can see VPN 1 network is detected to be down
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/82.png)
+
+<br>
+
+And the rules will redirects all traffic to use the VPN 2 network
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/83.png)
+
+<br>
+
+Looking over at the BGP Paths, we can also observer that the only paths remaining in the tables are the ISP 2 networks
+
+![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/84.png)
+
+<br>
+
+
+
+
+
+
+
+
+
 
 
