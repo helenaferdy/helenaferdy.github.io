@@ -7,7 +7,7 @@ tags: [SD-WAN, Fortigate, VPN]
 
 <br>
 
-## What Hub-and-Spoke SD-WAN with ADVPN?
+## What is Hub-and-Spoke SD-WAN with ADVPN?
 
 Hub-and-Spoke SD-WAN with ADVPN is a setup where a central hub connects to multiple remote branch offices using SD-WAN technology. The use of ADVPN means that the VPN connections between the hub and spokes are established automatically and dynamically, simplifying network management and ensuring efficient and secure communication between all network locations.
 
@@ -286,7 +286,7 @@ Apply the config on all nodes and now all the available paths can and will be ut
 
 ## Configuring Performance SLA on Hub
 
-To also enable load balancing on SD-WAN VPN Tunnel, use Volume based priority rules on the priority rules
+To also enable load balancing on SD-WAN VPN Tunnel, use Volume based priority rules
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/69.png)
 
@@ -339,9 +339,13 @@ Here we can see the rules determine which VPN has the best latency to reach the 
 
 Configuration is pretty much the same, but on sites the SLA is made going to Hub and Other Site
 
+> Site 2
+
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/77.png)
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/78.png)
+
+> Site 3
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/79.png)
 
@@ -364,13 +368,13 @@ And on the Performanc SLA, we can see VPN 1 network is detected to be down
 
 <br>
 
-And the rules will redirects all traffic to use the VPN 2 network
+And the rules will redirect all traffic to use the VPN 2 network
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/83.png)
 
 <br>
 
-Looking over at the BGP Paths, we can also observer that the only paths remaining in the tables are the ISP 2 networks
+Looking over at the BGP Paths, we can also observe that the only paths remaining in the table are the ones going to the ISP 2 network
 
 ![x](/static/2023-10-17-forti-sdwan-hub-spoke-advpn/84.png)
 
