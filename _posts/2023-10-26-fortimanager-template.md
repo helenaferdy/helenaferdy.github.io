@@ -211,8 +211,6 @@ config firewall policy
 end
 ```
 
-<br>
-
 ### Edges
 
 > 11-Edge-IPSec_VPN
@@ -293,13 +291,13 @@ config router bgp
     set additional-path enable
     config neighbor
        edit 10.100.100.1
-	   set advertisement-interval 1
+	        set advertisement-interval 1
             set capability-graceful-restart enable
             set soft-reconfiguration enable
             set remote-as 65001
        next
        edit 10.200.200.1
-	   set advertisement-interval 1
+	        set advertisement-interval 1
             set capability-graceful-restart enable
             set soft-reconfiguration enable
             set remote-as 65001
@@ -397,23 +395,6 @@ Do the same for the edges
 <br>
 <br>
 
-## Creating Policy Package
-
-Next, create two Policy Packages for Hub and Edges, this will be used to push the templates to the devices
-
-![x](/static/2023-10-26-fortimanager-template/08.png)
-
-![x](/static/2023-10-26-fortimanager-template/09.png)
-
-<br>
-
-Here's the two policy packages
-
-![x](/static/2023-10-26-fortimanager-template/10.png)
-
-<br>
-<br>
-
 ## Configuring Metadata Mapping
 
 After that, go to the devices and select Edit Variable Mapping
@@ -429,6 +410,23 @@ Configure the metadata for each device
 ![x](/static/2023-10-26-fortimanager-template/13.png)
 
 ![x](/static/2023-10-26-fortimanager-template/14.png)
+
+<br>
+<br>
+
+## Creating Policy Package
+
+Next, create two Policy Packages for Hub and Edges, this will be used to push the templates to the devices
+
+![x](/static/2023-10-26-fortimanager-template/08.png)
+
+![x](/static/2023-10-26-fortimanager-template/09.png)
+
+<br>
+
+Here's the two policy packages
+
+![x](/static/2023-10-26-fortimanager-template/10.png)
 
 <br>
 <br>
