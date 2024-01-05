@@ -7,8 +7,6 @@ tags: [Proxy]
 
 <br>
 
-## What is Squid Proxy?
-
 Squid is a free and open-source caching proxy server for HTTP, HTTPS, FTP, and other popular network protocols. It acts as an intermediary between web servers and clients, caching frequently requested content to improve performance and reduce bandwidth usage.
 
 <br>

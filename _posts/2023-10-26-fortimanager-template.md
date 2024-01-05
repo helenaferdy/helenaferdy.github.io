@@ -7,7 +7,6 @@ tags: [SD-WAN, Fortigate, VPN]
 
 <br>
 
-## What is Fortimanager Templates?
 Fortimanager is a centralized network security management and automation platform for Fortigate Firewalls, and here we use its template push feature as a way to create, manage, and enforce configurations and policies across all managed devices
 
 <br>

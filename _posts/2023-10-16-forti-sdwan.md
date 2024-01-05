@@ -7,8 +7,6 @@ tags: [SD-WAN, Fortigate]
 
 <br>
 
-## What is Fortinet SD-WAN?
-
 SD-WAN, or Software-Defined Wide Area Network, is a technology that simplifies and enhances the management and performance of WAN by using software-based control and automation to efficiently route and prioritize network traffic.
 
 <br>

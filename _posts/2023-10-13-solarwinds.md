@@ -5,7 +5,7 @@ categories: [Monitoring Tools, Solarwinds]
 tags: [Solarwinds]
 ---
 
-## What is Solarwinds Server & Application Monitor (SAM)?
+<br>
 
 SolarWinds Server & Application Monitor (SAM) is a software tool for monitoring and managing the performance and availability of servers and applications in IT environments. It provides real-time monitoring of server metrics like CPU and memory usage and application performance.
 

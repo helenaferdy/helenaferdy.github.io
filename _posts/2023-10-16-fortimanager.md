@@ -7,8 +7,6 @@ tags: [Fortigate]
 
 <br>
 
-## What is Fortimanager?
-
 FortiManager is a platform designed to centralize the management of Fortinet's security products, including firewalls, security appliances, and other network devices. FortiManager provides features for configuration, monitoring, reporting, and automation, making it easier for organizations to manage their network security infrastructure efficiently and securely.
 
 <br>

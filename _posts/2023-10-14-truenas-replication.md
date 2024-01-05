@@ -7,8 +7,6 @@ tags: [TrueNAS]
 
 <br>
 
-## What is ZFS Replication?
-
 ZFS Replication is a feature of the TrueNAS storage management system that allows us to create copies of data stored in ZFS file systems and transfer them to another system. It can synchronize data between systems and perform incremental transfers to optimize data replication.
 
 ![x](/static/2023-10-14-truenas-replication/00.png)

@@ -7,8 +7,6 @@ tags: [ESXi]
 
 <br>
 
-## What is ESXi?
-
 ESXi is the software that runs on the bare-metal hypervisor known as VMware ESXi. It is the operating system for managing and running virtual machines on VMware's virtualization platform.
 
 <br>

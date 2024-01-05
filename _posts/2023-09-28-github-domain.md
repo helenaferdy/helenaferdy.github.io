@@ -7,8 +7,6 @@ tags: [Github Pages]
 
 <br>
 
-## What is Github Pages Custom Domain?
-
 GitHub Pages is a web hosting service provided by GitHub for hosting static websites directly from a GitHub repository. <br>
 GitHub Pages Custom Domain allows us to use our own domain (e.g., helenaferdy.site) instead of the default GitHub Pages URL (e.g., helenaferdy.github.io).
 

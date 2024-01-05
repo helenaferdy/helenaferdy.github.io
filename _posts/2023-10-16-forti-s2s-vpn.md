@@ -7,8 +7,6 @@ tags: [Fortigate, VPN]
 
 <br>
 
-## What is Site to Site IPSec VPN?
-
 A Site-to-Site IPSec VPN is a secure network connection that links two or more separate networks or sites over the internet with IPSec VPN Ecrypted Traffic
 
 <br>

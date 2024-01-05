@@ -7,8 +7,6 @@ tags: [Palo Alto, Umbrella, SIG, Proxy]
 
 <br>
 
-## What is Secure Internet Gateway?
-
 A Secure Internet Gateway (SIG) is a cloud-based service that provides secure and filtered access to the internet for users and devices within an organization. <br>
 Cisco Umbrella SIG uses tunnels to establish secure connections between Palo Alto's network and the cloud-based Umbrella service. This tunnel encrypts the traffic between Palo Alto and Umbrella service, ensuring the confidentiality and integrity of data as it travels over the internet.
 

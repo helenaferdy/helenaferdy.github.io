@@ -7,8 +7,6 @@ tags: [SD-WAN, Fortigate, VPN]
 
 <br>
 
-## What is Hub-and-Spoke SD-WAN with ADVPN?
-
 Hub-and-Spoke SD-WAN with ADVPN is a setup where a central hub connects to multiple remote branch offices using SD-WAN technology. The use of ADVPN means that the VPN connections between the hub and spokes are established automatically and dynamically, simplifying network management and ensuring efficient and secure communication between all network locations.
 
 > * Hub-and-Spoke: In this topology, there is a central hub that connects to multiple remote branch offices (spokes). The hub serves as a central point for network management and traffic distribution

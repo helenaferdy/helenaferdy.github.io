@@ -7,8 +7,6 @@ tags: [SD-WAN, Fortigate, VPN]
 
 <br>
 
-## What is SD-WAN with IPSec VPN?
-
 SD-WAN with IPSec VPN is a technology that combines SD-WAN and IPSec VPN to securely connect to a remote locations over WAN. SD-WAN optimizes network traffic and allows for centralized management, while IPSec VPN ensures data encryption and secure communication over the WAN.
 
 <br>

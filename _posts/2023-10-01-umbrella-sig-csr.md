@@ -7,8 +7,6 @@ tags: [Umbrella, SIG, Proxy]
 
 <br>
 
-## What is Secure Internet Gateway?
-
 A Secure Internet Gateway (SIG) is a cloud-based service that provides secure and filtered access to the internet for users and devices within an organization. <br>
 SIG uses tunnels to establish secure connections between an organization's network and the cloud-based security service. This tunnel encrypts the traffic between the organization's network and the SIG service, ensuring the confidentiality and integrity of data as it travels over the internet.
 
