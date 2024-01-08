@@ -1,5 +1,5 @@
 ---
-title: PDF Extraction with Langchain & OpenAI API
+title: PDF Embedding with Langchain & OpenAI
 date: 2024-01-07 07:30:00 +0700
 categories: [Artificial Intelligence, Langchain]
 tags: [AI, Langchain, OpenAI, Python]
@@ -7,7 +7,7 @@ tags: [AI, Langchain, OpenAI, Python]
 
 <br>
 
-PDF Extraction is a process to extract data from PDFs and embed it into a vector represented data, which then is used as context for an LLM to answer the question the user asked.
+PDF Embedding is a process to extract data from PDFs and embed it into a vector represented data, which then is used as context for an LLM to answer the question the user asked.
 
 <br>
 <br>
@@ -108,6 +108,8 @@ This line establishes a searchable database of text embeddings, enabling efficie
 document_search = FAISS.from_texts(texts, embeddings)
 ```
 
+<br>
+
 Now that we finish dealing with our PDF, lets import load_qa_chain to handle question-answering tasks using large language models (LLMs) which in this case is OpenAI's.
 
 ```python
@@ -117,7 +119,7 @@ from langchain.llms import OpenAI
 
 <br>
 
-Finally, let's ceate a question-answering chain using OpenAI's LLMs and query our question. <br>
+Finally, let's ceate a question-answering chain using OpenAI's LLMs, and procedd to query our question. <br>
 The chain will use document_search FAISS object to find text passages semantically similar to the query.
 
 ```python
