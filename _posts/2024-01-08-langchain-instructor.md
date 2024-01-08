@@ -7,7 +7,7 @@ tags: [AI, Langchain, OpenAI, Python, HuggingFace]
 
 <br>
 
-In this [previous post](helenaferdy.github.io/posts/langchain/), we created a custom GPT that reads through a embedded PDF as an additional context to help better answer the question asked by user, but it depends on OpenAI for embedding as long as to actually make an answer to user using it's GPT 3.5 Turbo LLM. <br>
+In this [previous post](https://helenaferdy.github.io/posts/langchain/), we created a custom GPT that reads through a embedded PDF as an additional context to help better answer the question asked by user, but it depends on OpenAI for embedding as long as to actually make an answer to user using it's GPT 3.5 Turbo LLM. <br>
 
 This time, we'll create something similar but without OpenAI, utlizing Open Source models that's available for free.
 
