@@ -106,7 +106,7 @@ db_instructEmbedd = FAISS.from_documents(texts, instructor_embeddings)
 
 This is where the locally run Instructor kicks in, for a 327 pages PDF it took around 1 minute and 45 seconds. Not bad
 
-![x](/static/2024-01-07-langchain/13.png)
+![x](/static/2024-01-07-langchain/12.png)
 
 <br>
 
@@ -127,7 +127,7 @@ docs = retriever.get_relevant_documents("How to login to calabrio one?")
 
 <br>
 
-We get the texts used to be the possible context for the LLM
+We get the relevant texts as the result
 
 ![x](/static/2024-01-07-langchain/11.png)
 
