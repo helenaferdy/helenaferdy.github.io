@@ -1,5 +1,5 @@
 ---
-title: Fortigate Site-to-Site IPSec VPN
+title: Fortigate Site to Site IPSec VPN
 date: 2023-10-16 10:30:00 +0700
 categories: [Security, Fortigate]
 tags: [Fortigate, VPN]
