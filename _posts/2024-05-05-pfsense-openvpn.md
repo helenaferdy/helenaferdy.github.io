@@ -49,7 +49,7 @@ Complete the CSR by adding the final certificate on System >> Certificate >> Cer
 
 <br>
 
-Bonus and completely optional, use that certificate on our web server so we get a trusted secure HTTPS connection on System >> Advanced >> Admin Access
+Bonus and completely optional, use that certificate on our web server on System >> Advanced >> Admin Access so we get a trusted secure HTTPS connection
 
 ![x](/static/2024-05-05-pfsense-openvpn/06.png)
 
@@ -76,7 +76,7 @@ Here select our trusted CA
 
 <br>
 
-Then select the newly created certificated
+Then select the newly created certificate
 
 ![x](/static/2024-05-05-pfsense-openvpn/10.png)
 
@@ -88,8 +88,7 @@ Here give it a name, select the interface and used port
 
 <br>
 
-On Tunnel Settings, configure the Tunnel Network for our VPN Clients to use, then declare the internal network to be accessed by VPN users on IPV4 Local Network. <br>
-Disable Redirect IPV4 Gateway to enable Split Tunneling
+On Tunnel Settings, configure the Tunnel Network for our VPN Clients to use, then declare the internal network to be accessed by VPN users on IPV4 Local Network. Also disable Redirect IPV4 Gateway to enable Split Tunneling
 
 ![x](/static/2024-05-05-pfsense-openvpn/12.png)
 
@@ -109,7 +108,7 @@ Now the OpenVPN is up and running
 
 <br>
 
-If we edit the VPN, we can see we have multiple server modes, this setting basically dictate how the authentication is done by our clients.
+If we edit the VPN, we can see we have multiple server modes, this setting basically dictates how the authentication is done between clients and server.
 Here we select SSL + User Auth meaning clients will be asked to have both personal user certificate and credentials to connect to the VPN.
 
 ![x](/static/2024-05-05-pfsense-openvpn/15.png)
@@ -119,7 +118,7 @@ Here we select SSL + User Auth meaning clients will be asked to have both person
 
 ## Configuring VPN Users
 
-On System >> User Manager, create new user with credentials and user certificate signed by the CA
+On System >> User Manager, create new user with having user certificate signed by the CA
 
 ![x](/static/2024-05-05-pfsense-openvpn/16.png)
 
