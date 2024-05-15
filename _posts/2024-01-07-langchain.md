@@ -135,7 +135,11 @@ chain.run(input_documents=docs, question=query)
 And this is the answer of the query
 
 ```text
-Based on the context provided, it appears that to upgrade from PAN-OS 6.0 to 7.0.x, you would need to first install the next major version, 6.1, before being able to upgrade to 7.0 and subsequent versions. You would also need to make sure that the desired release is reached and that the installation package is available and has not been updated with a newer version.
+Based on the context provided, it appears that to upgrade from PAN-OS 6.0 to 7.0.x, 
+you would need to first install the next major version, 6.1, before being able to 
+upgrade to 7.0 and subsequent versions. You would also need to make sure that the 
+desired release is reached and that the installation package is available and has 
+not been updated with a newer version.
 ```
 
 Whic is taken straight from the document
@@ -161,7 +165,17 @@ chain.run(input_documents=docs, question=query)
 And the LLM is able to answer the query pretty well.
 
 ```text
-The licensing system controls the different functions of the system and allows for the download of content, application updates, and software upgrades. Different licenses are required for different functions, such as the support license for software and AppID updates, the Threat Prevention license for virus, threat, and malware signatures, and the URL license for URL categories used in security policies. The device must be registered on the support portal and have the necessary licenses added in order for updates to be downloaded. Once the licenses have been successfully added, the system can retrieve a list of available updates and display them for download. If the device has not been registered, an authorization code can be used to activate a license through a Palo Alto sales contact. Once the licenses are added, updates can be downloaded through the Dynamic Updates section of the Device tab.
+The licensing system controls the different functions of the system and allows for 
+the download of content, application updates, and software upgrades. Different licenses 
+are required for different functions, such as the support license for software and 
+AppID updates, the Threat Prevention license for virus, threat, and malware signatures, 
+and the URL license for URL categories used in security policies. The device must be 
+registered on the support portal and have the necessary licenses added in order for 
+updates to be downloaded. Once the licenses have been successfully added, the system 
+can retrieve a list of available updates and display them for download. If the device 
+has not been registered, an authorization code can be used to activate a license through 
+a Palo Alto sales contact. Once the licenses are added, updates can be downloaded through 
+the Dynamic Updates section of the Device tab.
 ```
 
 <br>
@@ -186,7 +200,8 @@ As we can see below, langchain provides a chunk of the PDF's content that deemed
 
 > Entering new LLMChain chain...
 Prompt after formatting:
-Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+Use the following pieces of context to answer the question at the end. 
+If you don't know the answer, just say that you don't know, don't try to make up an answer.
 
 Tobeallowedtodownloadcontentandapplicationupdatesorsoftwareupgrades,the
 systemneedstobelicensed.Variouslicensescontrolthedifferentfunctionsofthesystem,
@@ -234,7 +249,20 @@ Helpful Answer:
 > Finished chain.
 
 > Finished chain.
- The licensing system for this device requires various licenses to control different functions of the system. These licenses include the Support license, which allows for software and application updates, the Threat Prevention license, which adds virus, threat, and malware signatures, and the URL license, which enables URL categories for use in security policies. To download content and updates, the device must be registered on the support portal and the appropriate licenses must be added. Once the licenses are successfully added, the device can be updated by navigating to the Device tab and selecting Dynamic Updates. If the device has not been registered, it can be registered by following the steps outlined in the "How to Register a Palo Alto Networks Device, Spare, Traps, or VM-Series Auth-Code" guide. Once the licenses are added, the licenses page will show a list of available updates, which can be retrieved from the license server. If the device was registered but no licenses were added, an authorization code can be used to activate a license. Once the licenses are successfully added, the device is ready to start updating its content.
+ The licensing system for this device requires various licenses to control different 
+ functions of the system. These licenses include the Support license, which allows for 
+ software and application updates, the Threat Prevention license, which adds virus, 
+ threat, and malware signatures, and the URL license, which enables URL categories 
+ for use in security policies. To download content and updates, the device must be 
+ registered on the support portal and the appropriate licenses must be added. 
+ Once the licenses are successfully added, the device can be updated by navigating 
+ to the Device tab and selecting Dynamic Updates. If the device has not been registered, 
+ it can be registered by following the steps outlined in the "How to Register a Palo Alto 
+ Networks Device, Spare, Traps, or VM-Series Auth-Code" guide. Once the licenses are added, 
+ the licenses page will show a list of available updates, which can be retrieved from 
+ the license server. If the device was registered but no licenses were added, an 
+ authorization code can be used to activate a license. Once the licenses are successfully 
+ added, the device is ready to start updating its content.
 ```
 
 <br>

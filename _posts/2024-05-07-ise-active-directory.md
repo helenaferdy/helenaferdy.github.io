@@ -72,7 +72,7 @@ Now we configure RADIUS to use the AD users to authenticate, on Policy >> Policy
 
 <br>
 
-Now on the Network Devices, we should be able to use AD Users to authenticate though RADIUS
+Now on the Network Devices, we should be able to use AD Users to authenticate through RADIUS
 
 ![x](/static/2024-05-07-ise-active-directory/08.png)
 
@@ -103,7 +103,7 @@ Then on Authorization >> RBAC Policy, create a new policy that gives AD Users pe
 
 ![x](/static/2024-05-07-ise-active-directory/12.png)
 
->> RBAC is Role Based Access Control
+> RBAC means Role Based Access Control
 
 <br>
 
