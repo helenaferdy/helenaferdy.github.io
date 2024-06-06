@@ -1,5 +1,5 @@
 ---
-title: Cisco Meeting Server Recorder
+title: CMS Recorder
 date: 2024-06-06 17:30:00 +0700
 categories: [Collaboration, Cisco Meeting Server (CMS)]
 tags: [CMS, CUCM]
@@ -102,7 +102,7 @@ Now on the CMS Call Bridge Node, go to Configuration >> API >> /api/v1/callProfi
 ![x](/static/2024-06-06-cms-recorder/13.png)
 
 > * recordingMode automatic sets this profile to automatically records a meeting whenever a participant joins.
-> * sipRecordUri tells the callbridge where to send the recording to.
+> * sipRecordUri tells the callbridge where the recorder node is.
 
 <br>
 
@@ -155,7 +155,7 @@ After the meeting ends, the recording will be saved as an mp4 file on the define
 
 And the mp4 file can be played with any media player
 
-![x](/static/2024-06-06-cms-recorder/18.png)
+![x](/static/2024-06-06-cms-recorder/19.png)
 
 <br>
 
