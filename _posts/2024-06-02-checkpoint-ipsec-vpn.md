@@ -1,5 +1,5 @@
 ---
-title: Check Point Site2Site IPSec VPN with Cisco Router
+title: Check Point IPSec VPN with Cisco Router
 date: 2024-06-02 17:30:00 +0700
 categories: [Security, Check Point]
 tags: [Check Point, VPN]
@@ -154,9 +154,7 @@ Lastly, we apply the previously defined crypto map to a the Gig2 interface on th
 
 ![x](/static/2024-06-02-checkpoint-ipsec-vpn/15.png)
 
-<br>
-
-### Validation VPN Session
+### Validating VPN Session
 
 Runing "show crypto session detail" shows that the IPSec VPN between this Cisco Router to the Check Point Firewall is established
 
@@ -174,7 +172,7 @@ Now on the PC from the Cisco Router's LAN network, we are able to connect to the
 
 <br>
 
-And seeing it on Check Point SmartConsole, we can see all the traffic crossing the IPSec VPN
+And back on the Check Point SmartConsole, we can see all the traffic crossing the IPSec VPN
 
 ![x](/static/2024-06-02-checkpoint-ipsec-vpn/18.png)
 
