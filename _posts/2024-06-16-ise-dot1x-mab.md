@@ -1,6 +1,6 @@
 ---
 title: Cisco ISE Dot1x & MAB
-date: 2024-05-06 10:30:00 +0700
+date: 2024-06-16 10:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
 tags: [ISE, RADIUS]
 ---
