@@ -32,7 +32,7 @@ chsh -s /bin/bash admin
 
 <br>
 
-Then copy the [https://support.checkpoint.com/results/download/88806](Deployment Agent) and the [https://support.checkpoint.com/results/download/124401](Upgrade Image) to the /home/admin/ directory
+Then copy the [Deployment Agent](https://support.checkpoint.com/results/download/88806) and the [Upgrade Image](https://support.checkpoint.com/results/download/12440) to the /home/admin/ directory
 
 ![x](/static/2024-06-22-checkpoint-upgrade/04.png)
 
