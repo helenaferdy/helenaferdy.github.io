@@ -1,6 +1,6 @@
 ---
-title: Check Point Upgrade Procedure
-date: 2024-06-26 17:30:00 +0700
+title: Check Point Upgrade
+date: 2024-06-22 17:30:00 +0700
 categories: [Security, Check Point]
 tags: [Check Point]
 ---
@@ -175,7 +175,7 @@ The upgrade process takes a while and the server will reboots in the middle of i
 
 <br>
 
-After it finishes, the upgrade has been done successfully indicated by the version
+After it finishes, we can see the version is now on R81.20 take 634 indicating a successfull upgrade
 
 ![x](/static/2024-06-22-checkpoint-upgrade/24.png)
 
