@@ -60,7 +60,11 @@ rpm -Uhv --force CPda-00-00.i386.rpm
 
 <br>
 
-Notice that after the DA installation the DAservice is stopped, to restart the service run "$DADIR/bin/dastart"
+Notice that after the DA installation the DAservice is stopped, to restart the service run this command
+
+```shell
+$DADIR/bin/dastart
+```
 
 ![x](/static/2024-06-22-checkpoint-upgrade/07.png)
 
@@ -68,7 +72,7 @@ Notice that after the DA installation the DAservice is stopped, to restart the s
 
 ### Upgrading OS
 
-Exit the expert mode, then locally import the Upgrade Image with this command :
+Exit the expert mode, then locally import the Upgrade Image with this command
 
 ```shell
 installer import local /home/admin/Check_Point_R81.20_T634_Fresh_Install_and_Upgrade.tar
