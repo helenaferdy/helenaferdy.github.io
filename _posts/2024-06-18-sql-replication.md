@@ -196,27 +196,87 @@ Then hit finish
 <br>
 
 
+## Monitoring Replication
 
+On WIN1, on Replication Monitor we can see we have WIN2 in the subscription running the replication
 
+![x](/static/2024-06-18-sql-replication/32.png)
 
+<br>
 
+We can also see the detailed logs for this particular replication
 
+![x](/static/2024-06-18-sql-replication/33.png)
 
+<br>
 
+Now going back to WIN2, we can see the table has been replicated and available on WIN2
 
+![x](/static/2024-06-18-sql-replication/34.png)
 
+<br>
 
+## Modifying Data
 
+On WIN1, we modify the table data by inserting 10 new rows
 
+![x](/static/2024-06-18-sql-replication/35.png)
 
+<br>
 
+We can see on the Synchronization Status that we have 1 transaction with 10 commands being delivered to WIN2
 
+![x](/static/2024-06-18-sql-replication/36.png)
 
+<br>
 
+And WIN2 now has 20 rows of data
 
+![x](/static/2024-06-18-sql-replication/37.png)
 
+<br>
 
+Now we try deleting 7 rows of data on WIN1
 
+![x](/static/2024-06-18-sql-replication/38.png)
+
+<br>
+
+The Synchronization Status also shows 7 commands being delivered to inform WIN2 about the deletion
+
+![x](/static/2024-06-18-sql-replication/39.png)
+
+<br>
+
+Now WIN2 only has 13 rows of data
+
+![x](/static/2024-06-18-sql-replication/40.png)
+
+<br>
+
+Now lets try stopping the synchronization
+
+![x](/static/2024-06-18-sql-replication/41.png)
+
+<br>
+
+If we modify data while sync is off, the WIN2 will not receive the changes until the sync is back on
+
+![x](/static/2024-06-18-sql-replication/42.png)
+
+<br>
+
+Now lets start the synchronization again
+
+![x](/static/2024-06-18-sql-replication/43.png)
+
+<br>
+
+And we can see the 9 commands change we made is being delivered right after
+
+![x](/static/2024-06-18-sql-replication/44.png)
+
+<br>
 
 
 

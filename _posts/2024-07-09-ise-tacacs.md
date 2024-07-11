@@ -2,12 +2,12 @@
 title: Cisco ISE TACACS Configurations (Fortigate, F5, Juniper, etc)
 date: 2024-07-09 10:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, TACACS, Fortigate, F5, Juniper]
+tags: [ISE, TACACS, Fortigate, F5, Juniper, Check Point, WLC, ASA]
 ---
 
 <br>
 
-Here's the configuration to use Cisco ISE as the TACACS+ Server for various devices :
+Here’s the configuration setup for using Cisco ISE as the TACACS+ server across multiple devices:
 
 <br>
 
@@ -261,6 +261,56 @@ Now we can login with iseadmin and iseguest and we'll be granted with its respec
 The Live Logs shows the logging history as expected
 
 ![x](/static/2024-07-09-ise-tacacs/46.png)
+
+<br>
+
+## Cisco ACI
+
+For APIC, we create another Policy Sets with also 2 Shell Profiles
+
+![x](/static/2024-07-09-ise-tacacs/59.png)
+
+<br>
+
+APIC_Admin contains custom attribute "cisco-av-pair=shell:domains=all/admin/" to give it full permission
+
+![x](/static/2024-07-09-ise-tacacs/60.png)
+
+<br>
+
+Whereas APIC_guest contains custom attribute "cisco-av-pair=shell:domains=all//read-all" to only give read-only permission
+
+![x](/static/2024-07-09-ise-tacacs/61.png)
+
+<br>
+
+On APIC, go to Admin >> AAA >> Authentication >> Login Domains, create new Login Domain for Tacacs+ containing ISE Servers
+
+![x](/static/2024-07-09-ise-tacacs/62.png)
+
+![x](/static/2024-07-09-ise-tacacs/63.png)
+
+<br>
+
+That should do it, logging in with iseadmin now grants full admin access
+
+![x](/static/2024-07-09-ise-tacacs/64.png)
+
+![x](/static/2024-07-09-ise-tacacs/65.png)
+
+<br>
+
+Logging in with iseguest only grants read-only access
+
+![x](/static/2024-07-09-ise-tacacs/66.png)
+
+![x](/static/2024-07-09-ise-tacacs/67.png)
+
+<br>
+
+ISE Live Logs shows these users authenticating to ISE
+
+![x](/static/2024-07-09-ise-tacacs/68.png)
 
 <br>
 
