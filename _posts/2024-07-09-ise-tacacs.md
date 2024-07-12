@@ -407,13 +407,13 @@ next
 
 <br>
 
-Then create a User Groups with the TACACS-SERVERS as the member
+Then create a User Group with the TACACS-SERVERS as the member
 
 ![x](/static/2024-07-09-ise-tacacs/22.png)
 
 <br>
 
-Now we create a admin user to actually login to Fortigate, there's basically 2 ways to do this, the first one is by matching the exact ISE user on the Fortigate. This means every ISE user authenticating to Fortigate needs to also be created here, which is tideous
+Now we create an admin user to actually login to Fortigate, there's basically 2 ways to do this, the first one is by matching the exact ISE user on the Fortigate. This means every ISE user authenticating to Fortigate needs to also be created here, which is tideous
 
 ![x](/static/2024-07-09-ise-tacacs/24.png)
 
