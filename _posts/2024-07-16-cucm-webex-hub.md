@@ -59,7 +59,7 @@ And that same user can now login to Webex App
 
 ## Enabling CUCM Calling
 
-On that user >> Licenses, select edit the Calling License and select Register to Unififed Communication Manager (UCM)
+On that user >> Licenses, edit the Calling License and select Register to Unified Communication Manager (UCM)
 
 ![x](/static/2024-07-16-cucm-webex-hub/10.png)
 
@@ -67,19 +67,19 @@ On that user >> Licenses, select edit the Calling License and select Register to
 
 <br>
 
-Now on the Webex App, the user will have on option to register to phone service
+Now on the Webex App, the user will have an option to register to phone service
 
 ![x](/static/2024-07-16-cucm-webex-hub/12.png)
 
 <br>
 
-Fill in the CUCM details, wether its a Direct On-Premise Connection or through Expressway's Mobile Remote Access (MRA)
+Fill in the CUCM details, whether its a Direct On-Premise Connection or through Expressway's Mobile Remote Access (MRA)
 
 ![x](/static/2024-07-16-cucm-webex-hub/13.png)
 
 <br>
 
-Then login with the CUCM user, this doesn't have to have any correlations with the Webex User whatsoever
+Then login with the CUCM user, this doesn't have to have any correlations whatsoever with the Webex User
 
 ![x](/static/2024-07-16-cucm-webex-hub/14.png)
 
@@ -87,7 +87,7 @@ Then login with the CUCM user, this doesn't have to have any correlations with t
 
 <br>
 
-Now we can make a CUCM Calling in the Webex App
+Now we can make CUCM calls in the Webex App
 
 ![x](/static/2024-07-16-cucm-webex-hub/16.png)
 
@@ -147,13 +147,13 @@ That should do it for the configuration, now perform the Dry Run
 
 <br>
 
-On the Dry Run Report we can see the 2 user object to be added that match the LDAP search
+On the Dry Run Report we can see the 2 Object Users to be added that match the LDAP search
 
 ![x](/static/2024-07-16-cucm-webex-hub/25.png)
 
 <br>
 
-This matches the Webex User Groups on the AD that contains those same users
+This matches the "Webex Users" Group on the AD that contains those same users
 
 ![x](/static/2024-07-16-cucm-webex-hub/26.png)
 
@@ -183,7 +183,7 @@ Now these users are activated
 
 <br>
 
-And the can also login to Webex App and use the CUCM Calling phone service
+And they can also login to Webex App and use the CUCM Calling phone service
 
 ![x](/static/2024-07-16-cucm-webex-hub/31.png)
 
