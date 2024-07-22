@@ -93,6 +93,7 @@ On Operation >> TACACS Live Logs, we can see logs for both users authenticating
 ![x](/static/2024-07-09-ise-tacacs/07.png)
 
 <br>
+<br>
 
 ## Cisco ASA
 
@@ -209,6 +210,7 @@ Live Logs also shows the auth for both users
 ![x](/static/2024-07-09-ise-tacacs/09.png)
 
 <br>
+<br>
 
 ## Cisco WLC
 
@@ -263,6 +265,7 @@ The Live Logs shows the logging history as expected
 ![x](/static/2024-07-09-ise-tacacs/46.png)
 
 <br>
+<br>
 
 ## Cisco ACI
 
@@ -313,6 +316,7 @@ ISE Live Logs shows these users authenticating to ISE
 ![x](/static/2024-07-09-ise-tacacs/68.png)
 
 <br>
+<br>
 
 ## F5
 
@@ -362,6 +366,7 @@ On ISE Live Logs, we can see both users authenticating
 
 ![x](/static/2024-07-09-ise-tacacs/17.png)
 
+<br>
 <br>
 
 ## Fortigate
@@ -448,6 +453,7 @@ ISE Live Logs shows both users authenticating with its respective permission
 ![x](/static/2024-07-09-ise-tacacs/29.png)
 
 <br>
+<br>
 
 ## Juniper
 
@@ -530,6 +536,7 @@ The ISE Live Logs shows the authentication made by these 2 users on Juniper
 ![x](/static/2024-07-09-ise-tacacs/37.png)
 
 <br>
+<br>
 
 ## Check Point
 
@@ -596,6 +603,7 @@ And all the authentication logs can be viewed on Cisco ISE Tacacs Live Logs
 ![x](/static/2024-07-09-ise-tacacs/58.png)
 
 <br>
+<br>
 
 ## Palo Alto
 
@@ -627,15 +635,15 @@ Then on Device >> TACACS+, create a new profile containing the ISE servers
 
 <br>
 
-Then on Authentication Profile, select a new Profile with type of "TACACS+" and Server Profile created just now
+Then on Authentication Profile, create a new Profile with type of "TACACS+" and the Server Profile created just now
 
 ![x](/static/2024-07-09-ise-tacacs/70.png)
 
 <br>
 
-Then finally on Device >> Setup >> Authentication Settings, select the Authentication Profile
+Finally on Device >> Setup >> Authentication Settings, select the Authentication Profile
 
-![x](/static/2024-07-09-ise-tacacs/71.png)
+![x](/static/2024-07-09-ise-tacacs/73.png)
 
 <br>
 
