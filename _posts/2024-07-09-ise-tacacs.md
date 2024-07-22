@@ -597,6 +597,70 @@ And all the authentication logs can be viewed on Cisco ISE Tacacs Live Logs
 
 <br>
 
+## Palo Alto
+
+On ISE, create a new Policy Set to handle traffic from Palo Devices
+
+![x](/static/2024-07-09-ise-tacacs/74.png)
+
+<br>
+
+We also create 2 Tacacs Profiles with an attribute "PaloAlto-Admin-Role" and value of either "Read-Write" or "Read-Only", following the value of created Admin Roles on Palo Alto
+
+![x](/static/2024-07-09-ise-tacacs/75.png)
+
+![x](/static/2024-07-09-ise-tacacs/76.png)
+
+<br>
+
+On the Palo Device, create two Admin Roles for Read-Write and Read-Only roles
+
+![x](/static/2024-07-09-ise-tacacs/71.png)
+
+![x](/static/2024-07-09-ise-tacacs/72.png)
+
+<br>
+
+Then on Device >> TACACS+, create a new profile containing the ISE servers
+
+![x](/static/2024-07-09-ise-tacacs/69.png)
+
+<br>
+
+Then on Authentication Profile, select a new Profile with type of "TACACS+" and Server Profile created just now
+
+![x](/static/2024-07-09-ise-tacacs/70.png)
+
+<br>
+
+Then finally on Device >> Setup >> Authentication Settings, select the Authentication Profile
+
+![x](/static/2024-07-09-ise-tacacs/71.png)
+
+<br>
+
+Now we can login to the Palo Device using the "iseadmin" with "Read-Write" role
+
+![x](/static/2024-07-09-ise-tacacs/77.png)
+
+<br>
+
+And using the "iseguest" with "Read-Only" role
+
+![x](/static/2024-07-09-ise-tacacs/78.png)
+
+<br>
+
+On ISE we can see the logs for these authenticating users
+
+![x](/static/2024-07-09-ise-tacacs/79.png)
+
+<br>
+
+
+
+
+
 
 
 
