@@ -5,7 +5,7 @@ categories: [Security, Cisco Secure Network Analytics (Stealthwatch)]
 tags: [Stealthwatch]
 ---
 
-> Cisco Secure Network Analytics, formerly known as Stealthwatch, provides comprehensive visibility and security analytics for network traffic. It detects threats, accelerates threat response, and secures critical assets across various network environments.
+Cisco Secure Network Analytics, formerly known as Stealthwatch, provides comprehensive visibility and security analytics for network traffic. It detects threats, accelerates threat response, and secures critical assets across various network environments.
 > * **SMC (Stealthwatch Management Console)**: The central management and analysis point, it provides a unified interface for monitoring, alerting, and reporting on network activity and security events.
 > * **Flow Collector**: This component gathers and stores network telemetry data (NetFlow, sFlow, etc.) from various sources, which is then analyzed for potential security threats and anomalies.
 > * **Flow Sensor**: It monitors network traffic directly by capturing packets and generating flow records, using SPAN for network devices that do not have telemetry data (NetFlow, sFlow, etc.) capabilities.
@@ -121,7 +121,7 @@ Then follow the initial setup as well
 
 <br>
 
-The enter the SMC IP Address along with the Domain and the Collector Port
+Finally enter the SMC IP Address along with the Domain and the Collector Port
 
 ![x](/static/2024-07-26-stealthwatch/22.png)
 
@@ -151,7 +151,7 @@ On the Cisco Router, we'll configure the router so it sends netflow traffic to F
 
 ```shell
 flow record SW_RECORD
- desc netflow_to_stealthwatch
+ description netflow_to_stealthwatch
  match ipv4 tos
  match ipv4 protocol
  match ipv4 source address
@@ -185,11 +185,13 @@ flow record SW_RECORD
 
 > This configuration creates a flow record named SW_RECORD designed to send NetFlow data to Stealthwatch. The flow record specifies the fields to be matched and collected for network traffic monitoring and analysis.
 
+<br>
+
 ```shell
 flow exporter SW_EXPORTER
- desc export_stealthwatch
+ description export_stealthwatch
  destination 198.18.134.51
- source g1
+ source gigabitEthernet1
  transport udp 2055
  export-protocol ipfix
  template data timeout 30
@@ -199,6 +201,7 @@ flow exporter SW_EXPORTER
 
 > This configuration defines a flow exporter named SW_EXPORTER used to export flow records to Stealthwatch. The settings specify the destination, source interface, transport protocol, and options for exporting data.
 
+<br>
 
 ```shell
 flow monitor SW_MON
@@ -210,6 +213,7 @@ flow monitor SW_MON
 
 > Then this configuration defines a flow monitor named SW_MON, which uses the previously defined flow exporter and flow record to monitor and export network traffic data to Stealthwatch. The settings specify the exporter, cache timeouts, and record to be used.
 
+<br>
 
 ```shell
 interface gigabitEthernet1
@@ -287,14 +291,15 @@ Access the Flow Sensor's Web UI and Enable ERSPAN Decapsulation, because we will
 
 ![x](/static/2024-07-26-stealthwatch/33a.png)
 
-> Enabling ERSPAN (Encapsulated Remote Switched Port Analyzer) decapsulation on a flow sensor allows the sensor to process and analyze ERSPAN traffic. ERSPAN is a protocol used to mirror traffic from a source to a destination, encapsulating the mirrored packets in GRE (Generic Routing Encapsulation) and sending them over IP networks. Decapsulation is the process of removing this encapsulation to access the original mirrored packets.
+> ERSPAN (Encapsulated Remote Switched Port Analyzer) is a protocol used to mirror traffic from a source to a destination, encapsulating the mirrored packets in GRE (Generic Routing Encapsulation) and sending them over IP networks. Enabling ERSPAN  decapsulation on a flow sensor allows the sensor to process and analyze ERSPAN traffic. Decapsulation itself is the process of removing this encapsulation to access the original mirrored packets.
 
 <br>
 
-On the Network Device, enable ERSPAN to mirror traffic from a specified source interface and send it to Flow Sensor, encapsulated in GRE
+On the Network Device, enable ERSPAN to mirror traffic from a specified source interface and send it to Flow Sensor
 
 ```shell
 monitor session 1 type erspan-source
+ no shutdown
  source interface Gi3
  destination
   erspan-id 1
