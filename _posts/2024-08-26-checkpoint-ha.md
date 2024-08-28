@@ -1,6 +1,6 @@
 ---
 title: Checkpoint HA Cluster
-date: 2024-08-25 13:00:00 +0700
+date: 2024-08-26 13:00:00 +0700
 categories: [Security, Checkpoint]
 tags: [Checkpoint]
 ---
