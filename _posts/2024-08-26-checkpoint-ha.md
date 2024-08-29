@@ -1,8 +1,8 @@
 ---
-title: Checkpoint HA Cluster
+title: Check Point HA Cluster
 date: 2024-08-26 13:00:00 +0700
-categories: [Security, Checkpoint]
-tags: [Checkpoint]
+categories: [Security, Check Point]
+tags: [Check Point]
 ---
 
 A Check Point HA (High Availability) Cluster is a configuration that combines multiple Check Point firewalls to ensure redundancy and improve reliability. In a Check Point HA Cluster, there are two main modes: **Active/Standby** mode, where one firewall actively handles traffic while the other is on standby to take over if the active unit fails, and **Active/Active** mode, where both firewalls actively handle traffic, sharing the load to enhance performance and availability.
