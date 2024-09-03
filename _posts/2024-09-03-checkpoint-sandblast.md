@@ -77,7 +77,7 @@ Then on the File Types, we can see all the supprted types for sandboxing
 
 ## Emulating Threat
 
-To emulate threat, we'll download infected files from [Eicar](eicar.org)
+To emulate threat, we'll download infected files from [Eicar](https://www.eicar.org)
 
 ![x](/static/2024-09-03-checkpoint-sandblast/11.png)
 
