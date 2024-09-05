@@ -77,7 +77,7 @@ Then on the File Types, we can see all the supprted types for sandboxing
 
 ## Emulating Threat
 
-To emulate threat, we'll download infected files from [Eicar](https://www.eicar.org)
+To emulate threat, we'll download infected files from [Eicar](https://www.eicar.org) and save it on our file server
 
 ![x](/static/2024-09-03-checkpoint-sandblast/11.png)
 
@@ -111,9 +111,27 @@ That's because Check Point determines that the files are not safe and take the p
 
 <br>
 
+## Threat Extraction
 
+Check Point Threat Extraction is a cybersecurity solution designed to protect against document-based threats by removing potentially malicious content from files. It proactively cleans files by extracting and reconstructing them, stripping away exploitable content, such as embedded macros or active code, while preserving the original format. This ensures that only safe, sanitized files are delivered to users, reducing the risk of zero-day attacks and malware infections.
 
+![x](/static/2024-09-03-checkpoint-sandblast/18.png)
 
+<br>
+
+On the Client PC, if we try accessing malicious files like this [Test File](https://sophostest.com/Sandstorm/SBTestFile1.pdf), we will still be able to download it like normal
+
+![x](/static/2024-09-03-checkpoint-sandblast/19.png)
+
+<br>
+
+But behind the hood, Check Point runs an extraction to remove any potensially malicious threat inside the file, and delivering the cleaned up version of it 
+
+![x](/static/2024-09-03-checkpoint-sandblast/20.png)
+
+![x](/static/2024-09-03-checkpoint-sandblast/21.png)
+
+<br>
 
 
 
