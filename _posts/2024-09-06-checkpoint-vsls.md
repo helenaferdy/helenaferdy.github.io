@@ -153,7 +153,7 @@ Additionally, we can run "vsx_utl vsls" to change the load sharing configuration
 
 <br>
 
-If we try shutting down the Node 1, we can see all 100% load is now handled by Node 2
+If we try shutting down the Node 1, Node 2 will take over to handle all the 100% load
 
 ![x](/static/2024-09-06-checkpoint-vsls/27.png)
 
