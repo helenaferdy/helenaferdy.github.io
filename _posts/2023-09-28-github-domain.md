@@ -27,12 +27,6 @@ After completing payments and filling up some forms, the domain is up and active
 
 <br>
 
-Now go to the Github Repository >> Settings >> Pages, enter the custom domain
-
-![x](/static/2023-09-28-github-domain/02.png)
-
-<br>
-
 Next following the [Github Docs Regarding Custom Domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site), we have to configure the apex domain and www subdomain on the domain's DNS configuration
 
 ![x](/static/2023-09-28-github-domain/03.png)
@@ -63,7 +57,19 @@ Doing a *dig* command confirms that the custom domain points to the configured I
 
 <br>
 
-Now if we check on Github Repository, it shows that the site is hosted on the custom domain
+Now go to the Github Repository >> Settings >> Pages, enter the custom domain
+
+![x](/static/2023-09-28-github-domain/02.png)
+
+<br>
+
+After the DNS check, github will also take care of the certificate stuff to enable HTTPS
+
+![x](/static/2023-09-28-github-domain/05a.png)
+
+<br>
+
+After a while, now on Github Repository it shows that the site is hosted on the custom domain
 
 ![x](/static/2023-09-28-github-domain/08.png)
 
