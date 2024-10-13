@@ -1,5 +1,5 @@
 ---
-title: Check Point Threat Emulation (Sandblast)
+title: Check Point Sandblast
 date: 2024-09-03 09:00:00 +0700
 categories: [Security, Check Point]
 tags: [Check Point]

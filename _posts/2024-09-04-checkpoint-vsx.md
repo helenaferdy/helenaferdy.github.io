@@ -1,5 +1,5 @@
 ---
-title: Check Point VSX (Virtual System Extension)
+title: Check Point VSX
 date: 2024-09-04 09:00:00 +0700
 categories: [Security, Check Point]
 tags: [Check Point]

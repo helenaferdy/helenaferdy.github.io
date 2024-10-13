@@ -1,5 +1,5 @@
 ---
-title: Check Point HA Cluster
+title: Check Point ClusterXL
 date: 2024-08-26 13:00:00 +0700
 categories: [Security, Check Point]
 tags: [Check Point]
