@@ -1,8 +1,8 @@
 ---
-title: Cisco ISE Guest Portal
-date: 2024-11-05 10:30:00 +0700
-categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, RADIUS]
+title: Cloudflare Tunnel
+date: 2024-11-07 10:30:00 +0700
+categories: [Other, Cloudflare Tunnel]
+tags: []
 ---
 
 Cloudflare Tunnel enables secure remote access to internal networks or devices over the internet without requiring open inbound firewall ports. By establishing an outbound connection to Cloudflare's network, the tunnel directs internet traffic through a secure, encrypted pathway to internal systems. This setup allows internal systems to be accessible for remote management while protecting them from direct internet exposure and potential attacks.
