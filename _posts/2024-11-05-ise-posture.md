@@ -226,8 +226,118 @@ Because the AnyConnect agent has a remediation capability, it automaticaly enabl
 ![x](/static/2024-11-05-ise-posture/34.png)
 
 <br>
+<br>
+<br>
+<br>
+
+Oh yea, this is the configuration on the cisco switch side
+
+```text
+radius server ISE1
+ address ipv4 198.18.128.11 auth-port 1812 acct-port 1813
+ key helena
+
+radius server ISE2
+ address ipv4 198.18.128.12 auth-port 1812 acct-port 1813
+ key helena
 
 
+aaa group server radius ISE
+ server name ISE1
+ server name ISE2
+
+aaa authentication dot1x default group ISE
+aaa authorization network default group ISE
+aaa accounting dot1x default start-stop group ISE
+aaa accounting system default start-stop group ISE
+aaa accounting update periodic 5
+aaa accounting update newinfo periodic 2880
+!
+radius-server dead-criteria time 5 tries 3
+radius-server deadtime 15
+radius-server retry method reorder
+radius-server transaction max-tries 3
+!
+aaa server radius dynamic-author
+ client 198.18.128.11 server-key helena
+ client 198.18.128.12 server-key helena
+!
+device-sensor filter-list dhcp list DHCP-LIST
+ option name host-name
+ option name requested-address
+ option name parameter-request-list
+ option name class-identifier
+ option name client-identifier
+ option name user-class-id
+ device-sensor filter-spec dhcp include list DHCP-LIST
+!
+cdp run
+!
+device-sensor filter-list cdp list CDP-LIST
+ tlv name device-name
+ tlv name address-type
+ tlv name capabilities-type
+ tlv name version-type
+ tlv name platform-type
+!
+device-sensor filter-spec cdp include list CDP-LIST
+!
+lldp run
+!
+device-sensor filter-list lldp list LLDP-LIST
+ tlv name system-name
+ tlv name system-description
+ tlv name system-capabilities
+device-sensor filter-spec dhcp include list DHCP-LIST
+device-sensor filter-spec lldp include list LLDP-LIST
+device-sensor filter-spec cdp include list CDP-LIST
+device-sensor accounting
+device-sensor notify all-changes
+!
+device-sensor filter-spec lldp include list LLDP-LIST
+!
+radius-server vsa send accounting
+radius-server vsa send authentication
+radius-server attribute 6 on-for-login-auth
+radius-server attribute 6 support-multiple
+radius-server attribute 8 include-in-access-req
+radius-server attribute 25 access-request include
+radius-server attribute 31 mac format ietf upper-case
+radius-server attribute 31 send nas-port-detail mac-only
+!
+ip device tracking probe auto-source
+ip device tracking probe delay 10			
+!
+device-tracking tracking				
+device-tracking policy IPDT_POLICY			
+ no protocol udp					
+ tracking enable					
+!
+dot1x critical eapol
+!
+ip http server
+ip http active-session-modules none
+ip http secure-active-session-modules none
+ip domain-name belajar.local
+crypto key generate rsa general-keys mod 2048
+ip http secure-server
+ip http max-connections 48
+!
+dot1x system-auth-control
+!
+authentication mac-move permit
+!
+
+interface g1/1
+ switchport access vlan 10
+ switchport mode access
+ authentication host-mode multi-domain
+ authentication order dot1x mab
+ authentication priority dot1x mab 
+ authentication port-control auto
+ mab
+ dot1x pae authenticator
+```
 
 
 
