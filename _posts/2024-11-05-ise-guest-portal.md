@@ -119,28 +119,99 @@ On the NAD, we can see the "INET_ONLY" DACL is now pushed allowing endpoint to a
 
 ## Registered Portal
 
-Register Portal is used for guests to access the network using the pre-registered user, to configure that lets create a new Guest Portal named "Helena_Guest_Portal"
+Register Portal is used for guests to access the network using the pre-registered user, to configure that lets create a new Self-Registered Guest Portal named "Helena_Guest_Portal"
 
 ![x](/static/2024-11-05-ise-guest-portal/20.png)
 
 <br>
 
+For the Login Page configuration, we'll uncheck everything just to make it as simple as possible
 
+![x](/static/2024-11-05-ise-guest-portal/21.png)
 
+<br>
 
+Next modify the Policy Sets to point the Login Portal to the "GUEST_LOGIN" Authz Profile
 
+![x](/static/2024-11-05-ise-guest-portal/22.png)
 
+<br>
 
+This Authz Profile contains a web redirection pointing to the Guest Portal created just now
 
+![x](/static/2024-11-05-ise-guest-portal/23.png)
 
+<br>
 
+Now lets try connecting the endpoint to the network, here we can see we're given the Guest Login Portal Authz Rule
 
+![x](/static/2024-11-05-ise-guest-portal/25.png)
 
+<br>
 
+On the NAD, we can also see the DACL and Web Redirection URL pointing to the portal
 
+![x](/static/2024-11-05-ise-guest-portal/26.png)
 
+<br>
 
+On the Endpoint, we've been redirected to the portal and now we can use a registered user to login to the network
 
+![x](/static/2024-11-05-ise-guest-portal/27.png)
+
+![x](/static/2024-11-05-ise-guest-portal/28.png)
+
+<br>
+
+On the Live Logs we can see the Login rule, CoA and then the Inet Access rule being hit by the endpoint
+
+![x](/static/2024-11-05-ise-guest-portal/29.png)
+
+<br>
+
+### Self-Registering
+
+This Portal also has an option to allow user to create account for themselves, we can enable it here and put the registered user into Identity Group Contractor
+
+![x](/static/2024-11-05-ise-guest-portal/30.png)
+
+<br>
+
+Here we catch the registered user using the Contractor Identity Group to give them internet access
+
+![x](/static/2024-11-05-ise-guest-portal/30a.png)
+
+<br>
+
+Now when we access the portal, additional option to register for an account is visible and we can create the user
+
+![x](/static/2024-11-05-ise-guest-portal/31.png)
+
+![x](/static/2024-11-05-ise-guest-portal/32.png)
+
+![x](/static/2024-11-05-ise-guest-portal/33.png)
+
+<br>
+
+Now we can use the created user along with the generated password to login
+
+![x](/static/2024-11-05-ise-guest-portal/34.png)
+
+![x](/static/2024-11-05-ise-guest-portal/35.png)
+
+<br>
+
+Here's the Live Logs showing the entire process
+
+![x](/static/2024-11-05-ise-guest-portal/36.png)
+
+<br>
+
+And the created guest users can be seen on the Sponsor Portal
+
+![x](/static/2024-11-05-ise-guest-portal/37.png)
+
+<br>
 
 
 

@@ -22,7 +22,7 @@ Next go to Cloudflare, sign up for an account, and register the newly purchased 
 
 <br>
 
-Choose the Free version, this requires a payment method tho even though we'll not be charged. Here we use PayPal for this
+Choose the Free version, this requires a payment method even though we'll not be charged. Here we use PayPal for this
 
 ![x](/static/2024-11-07-cloudflare-tunnel/03.png)
 
@@ -91,7 +91,7 @@ After that the connector should be listed on Cloudflare Tunnel
 
 <br>
 
-Next create a Public Hostname that we will access from the internet, we we're trying to access the vCenter server on the Internal Network over Internet
+Next create a Public Hostname that we will access from the internet, here we're trying to access the vCenter server on the Internal Network over Internet
 
 ![x](/static/2024-11-07-cloudflare-tunnel/14.png)
 
