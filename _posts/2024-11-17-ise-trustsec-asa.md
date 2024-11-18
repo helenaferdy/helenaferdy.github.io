@@ -115,7 +115,7 @@ This mapping is propagated to ASA through SXP, allowing ASA to also has the very
 
 <br>
 
-And because this endpoint has an SGT_X SGT, it can access the internet without restrictions
+And because this endpoint has SGT_X, it can access the internet without restrictions
 
 ![x](/static/2024-11-17-ise-trustsec-asa/15.png)
 
@@ -142,6 +142,39 @@ Now if we try accessing the internet with endpoint with SGT_Y, we can only acces
 ![x](/static/2024-11-17-ise-trustsec-asa/19.png)
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Here's the radius configuration on switch side
+
+```
+radius server ISE
+ address ipv4 198.18.128.11 auth-port 1812 acct-port 1813
+ key helena
+
+aaa group server radius ISE_GROUP
+ server name ISE
+
+aaa new-model
+aaa authentication dot1x default group ISE_GROUP
+aaa authorization network default group ISE_GROUP
+aaa accounting dot1x default start-stop group ISE_GROUP
+
+dot1x system-auth-control
+
+interface range GigabitEthernet1/1
+ switchport host
+ switchport access vlan 10
+ authentication host-mode multi-domain
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ mab
+ dot1x pae authenticator
+```
 
 
 
