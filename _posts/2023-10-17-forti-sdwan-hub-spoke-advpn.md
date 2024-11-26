@@ -1,7 +1,7 @@
 ---
 title: Fortinet Hub-and-Spoke SD-WAN with ADVPN
 date: 2023-10-17 11:30:00 +0700
-categories: [SD-WAN, Fortinet SD-WAN]
+categories: [Software Defined Networking, Fortinet SD-WAN]
 tags: [SD-WAN, Fortigate, VPN]
 ---
 

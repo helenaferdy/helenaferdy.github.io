@@ -1,7 +1,7 @@
 ---
 title: Fortinet SD-WAN
 date: 2023-10-16 13:30:00 +0700
-categories: [SD-WAN, Fortinet SD-WAN]
+categories: [Software Defined Networking, Fortinet SD-WAN]
 tags: [SD-WAN, Fortigate]
 ---
 

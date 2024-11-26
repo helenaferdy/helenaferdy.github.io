@@ -73,7 +73,7 @@ Before configuring TrustSec, make sure the NAD alrady has radius configuration f
 ```
 cts sxp enable
 cts sxp default password helena  
-cts sxp default source-ip 
+cts sxp default source-ip 198.18.130.1
 cts sxp connection peer 198.18.128.11 password default mode local listener
 cts role-based enforcement
 
@@ -108,7 +108,7 @@ Command "show cts environment-data" shows the NAD has successfully downloaded th
 
 <br>
 
-Running "show cts role-based permission" shows SGT Matrix as rbac rules, this rules are also automatically applied as access-lists
+Running "show cts role-based permission" shows SGT Matrix rules, these rules are also automatically applied as access-lists
 
 ![x](/static/2024-11-16-ise-trustsec/16.png)
 
@@ -120,7 +120,7 @@ The command "show cts role-based sgt-map all" shows the IP-to-SGT mappings which
 
 <br>
 
-Talking about SXP, run "show cts sxp connections" to validate SXP connection to ISE
+Talking about SXP, run "show cts sxp connections" to verify SXP connection to ISE
 
 ![x](/static/2024-11-16-ise-trustsec/18.png)
 
@@ -140,7 +140,7 @@ To show all SGT Mappings obtained throgh SXP, run "show cts sxp sgt-map"
 
 ## Testing TrustSec
 
-Here we have devices all in the same subnet, where .100 with SGT_X can access .101 with SGT_Y just fine, but not able to access .102 with SGT_Z
+Here we have devices all in the same subnet, where .100 with SGT_X can access .101 with SGT_Y just fine, but not to .102 with SGT_Z
 
 ![x](/static/2024-11-16-ise-trustsec/20.png)
 
@@ -168,6 +168,9 @@ Run "cts refresh policy" to force the update on the NAD side
 
 And now the .100 client can still ping or access any port on .102, except for port 443
 
+![x](/static/2024-11-16-ise-trustsec/24.png)
+
+<br>
 
 
 
