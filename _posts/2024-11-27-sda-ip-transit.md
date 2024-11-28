@@ -101,7 +101,7 @@ On the Border side, the BGP neighborsip can also be seen to be established using
 
 And on the clients side, now we can connect to clients on the other sites as well as to the datacenter and to internet
 
-![x](/static/2024-11-27-sda-ip-transit/1.png)
+![x](/static/2024-11-27-sda-ip-transit/13.png)
 
 <br>
 
