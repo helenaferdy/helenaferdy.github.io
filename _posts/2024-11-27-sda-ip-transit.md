@@ -45,7 +45,7 @@ router bgp 65000
 
 ## Configuring IP Transit on DNAC
 
-On DNAC, create an IP Pool for Border Handoff for Jakarta site. This pool will later be used as a /30 p2p network between Core and Border
+On DNAC, create an IP Pool for Border Handoff for each site. This pool will later be used as a /30 p2p network between Core and Border
 
 ![x](/static/2024-11-27-sda-ip-transit/03.png)
 
@@ -59,7 +59,7 @@ Next on Provision >> IP Transit, create an IP Transit with the Core's BGP AS Num
 
 <br>
 
-And then assign this IP Transit to the border using the externally facing interface with the IP Pool created earlier
+On Jakarta Site, assign this IP Transit to the border using the externally facing interface with the IP Pool created earlier
 
 ![x](/static/2024-11-27-sda-ip-transit/06.png)
 
@@ -93,7 +93,7 @@ Now on the Core Switch, we should see the BGP neighborship established to the Bo
 
 <br>
 
-On the Border side, the BGP neighborsip is can also be seen to be established using the IP Address from the pool on the VLAN we configured on DNAC, and we can verify that Border is getting the external networks being advertised through this BGP neighborship
+On the Border side, the BGP neighborsip can also be seen to be established using the IP Address from the pool on the VLAN we configured on DNAC, and we can verify that Border is getting the external networks thats' being advertised through this BGP neighborship
 
 ![x](/static/2024-11-27-sda-ip-transit/12.png)
 
@@ -101,7 +101,7 @@ On the Border side, the BGP neighborsip is can also be seen to be established us
 
 And on the clients side, now we can connect to clients on the other sites as well as to the datacenter and to internet
 
-![x](/static/2024-11-27-sda-ip-transit/13.png)
+![x](/static/2024-11-27-sda-ip-transit/1.png)
 
 <br>
 
