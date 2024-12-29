@@ -5,7 +5,7 @@ categories: [Software Defined Networking, Cisco SD-Access]
 tags: [SD-Access]
 ---
 
-In Software-Defined Access (SDA), **IP Transit using BGP** enables communication between the SDA fabric and an external network. The **border node**, which also often acts as a control plane node, establishes BGP peering with the core router to exchange routing information. This allows proper advertisement of external routes into the fabric and fabric prefixes into the core network, allowing traffic flow between internal fabric devices and external networks.
+In Software-Defined Access (SDA), **IP Transit** enables communication between the SDA fabric and an external network. The border node establishes BGP peering with the core switch to exchange routing information. This allows proper advertisement of external routes into the fabric and fabric prefixes into the core network, allowing traffic flow between internal fabric devices and external networks.
 
 ![x](/static/2024-11-27-sda-ip-transit/01.png)
 
@@ -93,7 +93,7 @@ Now on the Core Switch, we should see the BGP neighborship established to the Bo
 
 <br>
 
-On the Border side, the BGP neighborsip can also be seen to be established using the IP Address from the pool on the VLAN we configured on DNAC, and we can verify that Border is getting the external networks thats' being advertised through this BGP neighborship
+On the Border side, the BGP neighborsip has also been established using the IP Address from the pool with the VLAN we configured on DNAC, and we can verify that Border is getting the external networks thats being advertised through this BGP neighborship
 
 ![x](/static/2024-11-27-sda-ip-transit/12.png)
 
