@@ -1,7 +1,7 @@
 ---
 title: PDF Embedding with Langchain & OpenAI
 date: 2024-01-07 07:30:00 +0700
-categories: [Artificial Intelligence, Langchain]
+categories: [Other, Artificial Intelligence]
 tags: [AI, Langchain, OpenAI, Python]
 ---
 
