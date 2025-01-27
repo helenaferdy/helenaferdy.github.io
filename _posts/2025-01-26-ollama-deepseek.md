@@ -11,7 +11,7 @@ Ollama is a platform that enables us to run large language models (LLMs) locally
 
 ## Ollama
 
-First lets download Ollama from [ollama.com](ollama.com), here we'll run it on Ubuntu Server
+First lets download [Ollama](https://ollama.com), here we'll run it on Ubuntu Server
 
 ![x](/static/2025-01-26-ollama-deepseek/01.png)
 
