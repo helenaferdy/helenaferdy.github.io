@@ -1,5 +1,5 @@
 ---
-title: Deepsek with Ollama
+title: Deepseek with Ollama
 date: 2025-01-26 07:30:00 +0700
 categories: [Other, Artificial Intelligence]
 tags: [AI, Ollama, Deepseek]
