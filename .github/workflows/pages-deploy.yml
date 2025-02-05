@@ -61,7 +61,7 @@ jobs:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@main
+        uses: actions/upload-pages-artifact@v1
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
