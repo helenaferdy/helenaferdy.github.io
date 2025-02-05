@@ -57,7 +57,7 @@ jobs:
       - name: Upload Jekyll site artifact
         uses: actions/upload-artifact@v4  # Force use of v4
         with:
-          name: github-pages
+          name: site-artifact
           path: "_site${{ steps.pages.outputs.base_path }}"
 
       # - name: Upload site artifact
