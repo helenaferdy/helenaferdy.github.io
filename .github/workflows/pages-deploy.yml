@@ -60,6 +60,7 @@ jobs:
         with:
           name: site-artifact
           path: "_site${{ steps.pages.outputs.base_path }}"
+          if-no-files-found: ignore
 
 
       # - name: Upload site artifact
@@ -77,3 +78,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        
