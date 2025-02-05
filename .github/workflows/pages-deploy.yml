@@ -54,16 +54,16 @@ jobs:
         run: |
           bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
 
-
       - name: Upload Jekyll site artifact
         uses: actions/upload-artifact@v4  # Force use of v4
         with:
-          name: site-artifact
+          name: github-pages
           path: "_site${{ steps.pages.outputs.base_path }}"
 
-
-      - name: Debug Build Output
-        run: ls -lah _site
+      # - name: Upload site artifact
+      #   uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     path: "_site${{ steps.pages.outputs.base_path }}"
 
   deploy:
     environment:
@@ -75,4 +75,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        
