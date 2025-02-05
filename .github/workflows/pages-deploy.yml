@@ -60,10 +60,10 @@ jobs:
           name: site-artifact
           path: "_site${{ steps.pages.outputs.base_path }}"
 
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: "_site${{ steps.pages.outputs.base_path }}"
+      # - name: Upload site artifact
+      #   uses: actions/upload-pages-artifact@v2
+      #   with:
+      #     path: "_site${{ steps.pages.outputs.base_path }}"
 
   deploy:
     environment:
