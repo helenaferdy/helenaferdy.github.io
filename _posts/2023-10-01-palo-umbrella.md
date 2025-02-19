@@ -2,7 +2,7 @@
 title: Palo Alto - SIG Tunnel to Cisco Umbrella
 date: 2023-10-01 17:30:00 +0700
 categories: [Security, Palo Alto]
-tags: [Palo Alto, Umbrella, SIG, Proxy]
+tags: [Palo Alto, Umbrella]
 ---
 
 <br>

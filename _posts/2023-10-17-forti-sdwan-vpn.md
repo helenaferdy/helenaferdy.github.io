@@ -2,7 +2,7 @@
 title: Fortinet SD-WAN with IPSec VPN
 date: 2023-10-17 07:30:00 +0700
 categories: [Software Defined Networking, Fortinet SD-WAN]
-tags: [SD-WAN, Fortigate, VPN]
+tags: [SD-WAN, Fortigate]
 ---
 
 <br>

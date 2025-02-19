@@ -2,7 +2,7 @@
 title: Check Point IPSec VPN with Cisco Router
 date: 2024-06-02 17:30:00 +0700
 categories: [Security, Check Point]
-tags: [Check Point, VPN]
+tags: [Check Point]
 ---
 
 A site-to-site IPsec VPN between a Check Point firewall and a Cisco router involves establishing a secure, encrypted connection over the internet to link two separate networks. This configuration ensures that data transmitted between the networks is protected and authenticated, through the use of IPsec protocols and appropriate configuration on both the Check Point device and the Cisco router.

@@ -2,7 +2,7 @@
 title: Cisco Expressway Mobile Remote Access (MRA)
 date: 2024-06-07 09:30:00 +0700
 categories: [Collaboration, Expressway]
-tags: [Expressway, CUCM]
+tags: [Collaboration]
 ---
 
 Mobile and Remote Access (MRA) allows remote and mobile workers to securely access the corporate collaboration services without the need for a VPN. It facilitates secure connections for voice, video, instant messaging, and presence directly through the Expressway edge and core servers, enabling seamless communication as if users were within the corporate network.

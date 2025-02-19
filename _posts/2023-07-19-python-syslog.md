@@ -2,7 +2,7 @@
 title: Syslog Server with Python
 date: 2023-07-19 11:30:00 +0700
 categories: [Python, Syslog]
-tags: [Syslog, Python]
+tags: [Syslog]
 ---
 
 A syslog server is a central logging server that gathers and stores log messages sent by various devices, applications, and systems across a network. <br>

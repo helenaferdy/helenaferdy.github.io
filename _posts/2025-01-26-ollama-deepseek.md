@@ -2,7 +2,7 @@
 title: Deepseek with Ollama
 date: 2025-01-26 07:30:00 +0700
 categories: [Other, Artificial Intelligence]
-tags: [AI, Ollama, Deepseek]
+tags: []
 ---
 
 Ollama is a platform that enables us to run large language models (LLMs) locally on our machine. It can be used to deploy DeepSeek, a powerful LLM capable of tasks like text generation, summarization, and conversational AI. To make interacting with DeepSeek more intuitive, OpenWebUI can be used to serve as the front-end, offering a user-friendly web interface for inputting queries and receiving responses. 

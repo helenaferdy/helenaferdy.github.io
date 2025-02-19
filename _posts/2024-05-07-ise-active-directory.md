@@ -2,7 +2,7 @@
 title: Cisco ISE Active Directory Integration
 date: 2024-05-07 10:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, Active Directory]
+tags: [ISE]
 ---
 
 <br>

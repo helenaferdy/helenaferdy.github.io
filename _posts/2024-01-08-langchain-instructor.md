@@ -2,7 +2,7 @@
 title: PDF Embedding with Instructor & Langchain
 date: 2024-01-08 07:30:00 +0700
 categories: [Other, Artificial Intelligence]
-tags: [AI, Langchain, OpenAI, Python, HuggingFace]
+tags: []
 ---
 
 <br>

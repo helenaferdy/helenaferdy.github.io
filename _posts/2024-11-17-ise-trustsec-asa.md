@@ -2,7 +2,7 @@
 title: Cisco ISE TrustSec with ASA
 date: 2024-11-17 09:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, RADIUS, ASA]
+tags: [ISE, ASA]
 ---
 
 Cisco ISE TrustSec enables dynamic and scalable network segmentation by assigning Security Group Tags (SGTs) to users and devices based on their identity and policies. When integrating Cisco ISE with Cisco ASA, SXP (Security Group Tag Exchange Protocol) is used to propagate these SGTs from ISE to the ASA, even if the ASA doesn’t have direct Layer 2 adjacency to the tagged devices.

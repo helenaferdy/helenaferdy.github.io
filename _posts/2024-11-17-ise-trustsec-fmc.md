@@ -2,7 +2,7 @@
 title: Cisco ISE TrustSec with FTD
 date: 2024-11-17 10:30:00 +0700
 categories: [Security, Cisco Firepower Threat Defense (FTD)]
-tags: [FMC, FTD, ISE]
+tags: [FTD, ISE]
 ---
 
 Cisco ISE integrates with FTD through FMC to leverage Security Group Tags (SGTs) for policy enforcement. ISE assigns SGTs to users and devices based on authentication, while FMC configures FTD to apply security policies based on these SGTs, enabling dynamic, identity-based access control for network traffic and enhancing visibility and security.

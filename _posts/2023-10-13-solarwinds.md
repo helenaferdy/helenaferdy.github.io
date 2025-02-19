@@ -2,7 +2,7 @@
 title: Solarwinds - Server & Application Monitor
 date: 2023-10-13 13:30:00 +0700
 categories: [Monitoring Tools, Solarwinds]
-tags: [Solarwinds]
+tags: []
 ---
 
 <br>

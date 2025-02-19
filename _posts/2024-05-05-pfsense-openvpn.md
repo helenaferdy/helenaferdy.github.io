@@ -2,7 +2,7 @@
 title: pfSense OpenVPN Remote Access
 date: 2024-05-05 07:30:00 +0700
 categories: [Security, pfSense]
-tags: [pfSense, OpenVPN, VPN]
+tags: [pfSense]
 ---
 
 <br>

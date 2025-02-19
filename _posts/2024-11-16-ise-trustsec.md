@@ -2,7 +2,7 @@
 title: Cisco ISE TrustSec
 date: 2024-11-16 09:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, RADIUS]
+tags: [ISE]
 ---
 
 Cisco TrustSec (CTS) is a security architecture that simplifies policy enforcement in network environments by using software-defined segmentation. It employs **Security Group Tags (SGTs)** to classify network traffic dynamically, enabling granular access control without relying on complex IP-based ACLs. TrustSec uses **Cisco TrustSec-capable devices** to propagate SGTs throughout the network, ensuring policy consistency. 

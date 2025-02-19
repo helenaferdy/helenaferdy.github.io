@@ -2,7 +2,7 @@
 title: Cisco ISE TACACS+ with F5 Virtual Server
 date: 2024-07-15 10:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, TACACS, F5]
+tags: [ISE, F5]
 ---
 
 This configuration examines the use of an F5 Virtual Server as a load balancer for Cisco ISE TACACS+ servers. By configuring the F5 to balance TACACS+ traffic, it optimizes resource utilization and enhances fault tolerance across Cisco ISE instances, ensuring reliable and efficient management of network device access and security policies.

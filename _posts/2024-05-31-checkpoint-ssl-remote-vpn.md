@@ -2,7 +2,7 @@
 title: Check Point SSL Remote Access VPN
 date: 2024-05-31 17:30:00 +0700
 categories: [Security, Check Point]
-tags: [Check Point, VPN]
+tags: [Check Point]
 ---
 
 Checkpoint SSL remote access VPN provides secure and encrypted connections for remote users to access corporate networks. It ensures data protection and privacy by using SSL/TLS encryption, allowing users to securely connect to their organization's resources from any location over the internet.

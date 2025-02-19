@@ -2,7 +2,7 @@
 title: OSPF Network Types
 date: 2023-09-01 10:30:00 +0700
 categories: [Networking, OSPF]
-tags: [OSPF]
+tags: []
 ---
 
 <br>

@@ -2,7 +2,7 @@
 title: ESXi Firmware Upgrade
 date: 2023-10-08 11:30:00 +0700
 categories: [VMware, ESXi]
-tags: [ESXi]
+tags: [VMWare]
 ---
 
 <br>
