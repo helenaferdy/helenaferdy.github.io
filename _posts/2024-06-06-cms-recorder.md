@@ -2,7 +2,7 @@
 title: CMS Recorder
 date: 2024-06-06 17:30:00 +0700
 categories: [Collaboration, Cisco Meeting Server (CMS)]
-tags: [Collaboration]
+tags: [CMS]
 ---
 
 As seen on below's CMS components, we have installed the Core CMS, and to enable recording we will install addition CMS node but only for the Recorder component

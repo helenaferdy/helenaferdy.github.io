@@ -2,7 +2,7 @@
 title: CUCM Calling in Webex App 
 date: 2024-07-16 09:30:00 +0700
 categories: [Collaboration, Unified Communications Manager (CUCM)]
-tags: [Collaboration]
+tags: [CUCM]
 ---
 
 

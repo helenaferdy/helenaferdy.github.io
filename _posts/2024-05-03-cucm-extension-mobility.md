@@ -2,7 +2,7 @@
 title: CUCM Extension Mobility
 date: 2024-05-03 17:30:00 +0700
 categories: [Collaboration, Unified Communications Manager (CUCM)]
-tags: [Collaboration]
+tags: [CUCM]
 ---
 
 CUCM Extension Mobility is a feature that allows users to log in to any Cisco IP phones and temporarily adopt their personal settings, such as phone number, speed dials, and services, regardless of their physical location. Extension Mobility is particularly useful in environments where employees frequently move between different workstations or share phones.
