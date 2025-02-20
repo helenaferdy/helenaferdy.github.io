@@ -45,7 +45,7 @@ social:
     - https://github.com/helenaferdy # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/senaperdiana/
+    - https://linkedin.com/in/senaperdiana/
 
 google_site_verification: # fill in to your verification string
 
@@ -76,7 +76,8 @@ theme_mode: # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://pbs.twimg.com/profile_images/1870996550304034816/HaUhI3D7_400x400.jpg
+avatar: https://media.licdn.com/dms/image/v2/D5603AQEXV1yWi58hqQ/profile-displayphoto-shrink_200_200/B56ZUXWCZUGoAY-/0/1739853410025?e=1745452800&v=beta&t=tPduGfL-IAJpx4e_N75UqnQWvweu9xC8m-oRVnFEtDE
+#https://pbs.twimg.com/profile_images/1870996550304034816/HaUhI3D7_400x400.jpg
 
 
 # boolean type, the global switch for TOC in posts.
