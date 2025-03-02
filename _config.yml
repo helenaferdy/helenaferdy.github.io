@@ -99,9 +99,9 @@ comments:
     category: General
     category_id: DIC_kwDOJ6-gvs4CnewS
     mapping: # optional, default to 'pathname'
-    input_position: top
+    input_position: bottom
     lang: # optional, default to the value of `site.lang`
-    reactions_enabled: # optional, default to the value of `1`
+    reactions_enabled: 0
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
