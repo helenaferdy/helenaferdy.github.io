@@ -27,17 +27,17 @@ export PYTHONPATH=$PYTHONPATH:/home/admin/cp/cp_mgmt_api_python_sdk-master/
 
 <br>
 
-Next we run the tool with additional parameter for the tool to skip all the existing objects
+Next we run the tool with additional parameter for the tool to skip all the existing objects, then select import and point it to the exported policy
 
 ```
-python3 ExportImportPolicyPackage-master/import_export_package.py --skip-duplicate-objects True, select import and point it to the exported policy
+python3 ExportImportPolicyPackage-master/import_export_package.py --skip-duplicate-objects True
 ```
 
 ![x](/static/2025-05-24-cp-migrate/02.png)
 
 <br>
 
-Next all we need to change is the custom name for the imported package, and select hit run
+Next all we need to change is the custom name for the imported package, and select run
 
 ![x](/static/2025-05-24-cp-migrate/03.png)
 
@@ -45,7 +45,7 @@ Next all we need to change is the custom name for the imported package, and sele
 
 <br>
 
-Now all the objects, policies, and NAT have been imported as a new policy package
+Now all the objects, policies, and NAT rules have been imported as a new policy package
 
 ![x](/static/2025-05-24-cp-migrate/05.png)
 
@@ -53,7 +53,7 @@ Now all the objects, policies, and NAT have been imported as a new policy packag
 
 ## From Different Firewall
 
-First download 1 file from the SK named 'Check Point SmartMove Tool' and place it on our windows machine along with exported policy
+First download the 'Check Point SmartMove Tool' file from the SK and place it on our windows machine along with exported policy
 
 ![x](/static/2025-05-24-cp-migrate/05a.png)
 
