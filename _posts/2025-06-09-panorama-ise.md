@@ -1,6 +1,6 @@
 ---
-title: Palo Alto Panorama
-date: 2025-06-05 07:30:00 +0700
+title: Palo Alto & ISE PxGrid with Panorama
+date: 2025-06-09 07:30:00 +0700
 categories: [Security, Palo Alto]
 tags: [Palo Alto]
 ---
