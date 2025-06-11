@@ -93,17 +93,17 @@ Make sure the status is success and synced.
 Now we can create a Dynamic Object and map it to an SGT
 
 ```
-'cts.svr_<pxgrid_server_name>.sgt_<sgt_name>'
+'cts.svr_<pxgrid server name>.sgt_<sgt name>'
+
+## if more than 1 pxgrid server
+'cts.svr_<pxgrid1 server name>.sgt_<sgt name>' or 'cts.svr_<pxgrid2 server name>.sgt_<sgt name>'
 ```
 
 ![x](/static/2025-06-09-panorama-ise/13.png)
 
-> for more than 1 pxgrid server :
-> ```  'cts.svr_<pxgrid1_server_name>.sgt_<sgt_name>' or 'cts.svr_<pxgrid2_server_name>.sgt_<sgt_name>'  ```
-
 <br>
 
-Next we can use the Dynamic Object in the Policy Rule
+Next we can use the Dynamic Object in the Policy Rules
 
 ![x](/static/2025-06-09-panorama-ise/14.png)
 
