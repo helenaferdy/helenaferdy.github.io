@@ -1,6 +1,6 @@
 ---
 title: FortiAuthenticator
-date: 2025-06-30 07w:00:00 +0700
+date: 2025-06-30 07:00:00 +0700
 categories: [Security, Fortigate]
 tags: [Fortigate]
 ---
