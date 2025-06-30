@@ -42,7 +42,7 @@ Then on the Network Template, here we configure SD-WAN Interface Profile based o
 
 <br>
 
-Next on the Network Interface, configure the Primary WAN Interface with IP Address & Next Hop with SD-WAN enabled
+Next on the Network Interface, configure the Primary WAN Interface with IP Address & Next Hop, with SD-WAN enabled
 
 ![x](/static/2025-06-11-palo-sdwan/05.png)
 
@@ -122,7 +122,7 @@ Now we configure the actual SD-WAN configurations, first off we add the HUB to t
 
 <br>
 
-To the same for the branches
+Also add the branc devices with type branch
 
 ![x](/static/2025-06-11-palo-sdwan/17.png)
 
@@ -134,7 +134,7 @@ Next on the VPN Clusters, create an VPN Address Pool, this pool will be used dyn
 
 <br>
 
-And finally we can create the VPN Cluster with Hub and Spoke type, add all the devices following their roles and hit commit & push
+And finally we can create the VPN Cluster with Hub and Spoke type, add all the devices according to their roles and hit commit & push
 
 ![x](/static/2025-06-11-palo-sdwan/19.png)
 
