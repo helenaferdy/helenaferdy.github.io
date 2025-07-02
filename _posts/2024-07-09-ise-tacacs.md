@@ -2,7 +2,7 @@
 title: Cisco ISE TACACS Configurations (Fortigate, F5, Juniper, etc)
 date: 2024-07-09 10:30:00 +0700
 categories: [Security, Cisco Identity Service Engine (ISE)]
-tags: [ISE, Fortigate, F5, Check Point, ASA, Palo Alto]
+tags: [ISE, Fortinet, F5, Check Point, ASA, Palo Alto]
 ---
 
 <br>

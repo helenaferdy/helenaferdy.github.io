@@ -1,8 +1,8 @@
 ---
 title: Fortinet SD-WAN Configuration with Fortimanager Templates
 date: 2023-10-26 01:30:00 +0700
-categories: [Software Defined Networking, Fortinet SD-WAN]
-tags: [SD-WAN, Fortigate]
+categories: [Security, Fortinet]
+tags: [SD-WAN, Fortinet]
 ---
 
 <br>

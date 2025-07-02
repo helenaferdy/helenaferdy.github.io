@@ -1,8 +1,8 @@
 ---
 title: FortiAuthenticator
 date: 2025-06-30 07:00:00 +0700
-categories: [Security, Fortigate]
-tags: [Fortigate]
+categories: [Security, Fortinet]
+tags: [Fortinet]
 ---
 
 FortiAuthenticator is Fortinet’s centralized authentication management solution that provides secure identity and access services for enterprise networks. It supports user authentication through various methods like RADIUS, LDAP, SAML, and certificate-based login, and integrates with Fortinet devices (like FortiGate) to enforce user-based policies, enable SSO, and improve visibility and control over network access.

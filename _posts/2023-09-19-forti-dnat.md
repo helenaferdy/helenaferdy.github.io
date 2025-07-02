@@ -1,8 +1,8 @@
 ---
 title: Fortigate Destination NAT & Port Forwarding
 date: 2023-09-19 09:30:00 +0700
-categories: [Security, Fortigate]
-tags: [Fortigate]
+categories: [Security, Fortinet]
+tags: [Fortinet]
 ---
 
 <br>
