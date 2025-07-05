@@ -23,9 +23,9 @@ When deploying on lab with trial fortigates VM, we have to enable low encrytion 
 
 ```
 config system global
-set enc-algorithm low
-set oftp-ssl-protocol sslv3
-set ssl-low-encryption enable
+ set enc-algorithm low
+ set oftp-ssl-protocol sslv3
+ set ssl-low-encryption enable
 end
 ```
 
@@ -117,7 +117,7 @@ Switch to Syslog ADOM, we will see the device in Device Manager
 
 <br>
 
-And the logs can be also be viewed on 'Log View'
+And now the syslog from the device can be seen on 'Log View'
 
 ![x](/static/2025-07-03-fortianalyzer/19.png)
 
