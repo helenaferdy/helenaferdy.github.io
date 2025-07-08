@@ -5,7 +5,7 @@ categories: [Security, Check Point]
 tags: [Check Point]
 ---
 
-Check Point Threat Emulation, also known as SandBlast, is a security solution that proactively defends against advanced threats by simulating and analyzing potentially malicious files in a secure, isolated environment (sandbox). This technology detects and prevents zero-day attacks, ransomware, and other sophisticated malware by executing suspicious files in a virtual environment to observe their behavior before they can impact the network.
+Check Point Threat Emulation SandBlast is a security solution that proactively defends against advanced threats by simulating and analyzing potentially malicious files in a secure, isolated environment (sandbox). This technology detects and prevents zero-day attacks, ransomware, and other sophisticated malware by executing suspicious files in a virtual environment to observe their behavior before they can impact the network.
 
 ![x](/static/2024-09-03-checkpoint-sandblast/00.png)
 

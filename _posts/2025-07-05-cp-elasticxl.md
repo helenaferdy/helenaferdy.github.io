@@ -71,13 +71,13 @@ There's also a new tool called Insights that can be run on clish, this gives us 
 
 <br>
 
-If there's a failure on the member 01, the next member will take over as the role of managament
+If there's a failure on the member 01, the next member will take over the role of management
 
 ![x](/static/2025-07-05-cp-elasticxl/11.png)
 
 <br>
 
-The filure event is also shown on the Insights
+The failure event is also shown on the Insights
 
 ![x](/static/2025-07-05-cp-elasticxl/12.png)
 
@@ -89,7 +89,7 @@ If we bring back member 01 up, it'll automatically take over the management role
 
 <br>
 
-In ElasticXL, one "Pivot" gateway acts as the entry point for all network traffic, receiving incoming connections. It then intelligently distributes these connections across all active ElasticXL cluster members using an internal distribution matrix, similar to Maestro. So effectively its a load sharing active-active configuration.
+In ElasticXL, one "Pivot" gateway acts as the entry point for all network traffic receiving incoming connections. It then intelligently distributes these connections across all active cluster members using an internal distribution matrix, similar to Maestro. So effectively it's a load sharing active-active configuration. <br>
 To see which member handles the traffic, there's a ConnView Tool on the Insights
 
 ![x](/static/2025-07-05-cp-elasticxl/14.png)
