@@ -2,7 +2,7 @@
 title: Cisco ISE TrustSec with Palo Alto Panorama
 date: 2025-06-09 07:30:00 +0700
 categories: [Security, Palo Alto]
-tags: [Palo Alto]
+tags: [Palo Alto, ISE]
 ---
 
 
