@@ -5,7 +5,7 @@ categories: [Security, Cisco Adaptive Security Appliance (ASA)]
 tags: [ASA]
 ---
 
-Cisco ASA AnyConnect VPN Certificate Authentication enhances security by providing strong, encrypted authentication while reducing reliance on passwords. It can be used as the sole authentication method for a seamless, passwordless experience or combined with password-based authentication for added security through integration with Cisco ISE or Cisco Duo.
+Cisco ASA AnyConnect VPN Certificate Authentication enhances security by providing strong, encrypted authentication while reducing reliance on passwords. It can be used as the sole authentication method for a seamless, passwordless experience or combined with password-based authentication for added security through integration with NAC or MFA.
 
 
 ## ASA Certificate
