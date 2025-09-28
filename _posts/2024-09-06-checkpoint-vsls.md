@@ -1,5 +1,5 @@
 ---
-title: Check Point VSX Cluster
+title: Check Point VSX Cluster & MDS
 date: 2024-09-06 09:00:00 +0700
 categories: [Security, Check Point]
 tags: [Check Point]
