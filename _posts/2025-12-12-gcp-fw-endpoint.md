@@ -11,7 +11,7 @@ A **Firewall Endpoint** is a managed, zonal resource within Cloud NGFW Enterpris
 
 ## Security Profiles
 
-First we need to create a Security Profiles, first one is for IPS Profile. Here we set the Deny Override for pretty much every alert apart for Informational
+First we need to create Security Profiles, first one is for IPS Profile. Here we set the Deny Override for pretty much every alert apart for Informational
 
 ![x](/static/2025-12-12-gcp-fw-endpoint/01.png)
 
