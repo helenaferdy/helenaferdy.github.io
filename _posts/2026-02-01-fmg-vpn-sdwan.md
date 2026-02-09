@@ -15,7 +15,7 @@ In this lab we will deploy Fortinet's Hub-and-spokes VPN SD-WAN solution with VP
 
 ## VPN Manager
 
-VPN Managaer is a centralized tool in FortiManager 7.6 to design, configure, and deploy IPsec and SSL VPNs across multiple FortiGate devices using templates and topology-based workflows. <br>
+VPN Manager is a centralized tool in FortiManager 7.6 to design, configure, and deploy IPsec and SSL VPNs across multiple FortiGate devices using templates and topology-based workflows. <br>
 First we will create a VPN Community with Remote Access type for Dial-Up VPN.
 
 ![x](/static/2026-02-01-fmg-vpn-sdwan/02.png)
