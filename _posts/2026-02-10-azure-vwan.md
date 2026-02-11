@@ -15,7 +15,7 @@ In this lab, we leverage this hub-and-spoke relationship to build a centralized 
 
 ## Virtual Networks
 
-Following from previous deployment, we already have zelena-vnet configured with 2 subnets for our Fortigate Firewall. Next we will create 2 additional vnets for our apps
+Following from previous (Azure)[https://helenaferdy.github.io/posts/azure/] deployment, we already have zelena-vnet configured with 2 subnets for our Fortigate Firewall. Next we will create 2 additional vnets for our apps
 
 ![x](/static/2026-02-10-azure-vwan/01.png)
 
