@@ -18,9 +18,9 @@ timezone: Asia/Jakarta
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Sena Perdiana # the main title
+title: Kadek Sena Perdiana
 
-tagline: jack of all trades, master of none. # it will display as the sub-title
+tagline: jack of all trades, master of none.
 
 description: >- # used by seo meta and the atom feed
   jack of all trades, master of none.
@@ -37,7 +37,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Sena Perdiana
+  name: Kadek Sena Perdiana
   email: senaferdy79@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
