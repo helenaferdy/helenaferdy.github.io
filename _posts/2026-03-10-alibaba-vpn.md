@@ -106,7 +106,7 @@ On vSwitch's Route Tables, we can see the the route to our VPN is automatically 
 
 ## Check Point
 
-Now configre the Check Point side, add an Interoperable Device and point it to Alibaba's Public IP
+Now we configure the Check Point side, add an Interoperable Device and point it to Alibaba's Public IP
 
 ![x](/static/2026-03-10-alibaba-vpn/16.png)
 
@@ -114,7 +114,7 @@ Now configre the Check Point side, add an Interoperable Device and point it to A
 
 <br>
 
-Then create a Start VPN Community
+Then create a Star VPN Community
 
 ![x](/static/2026-03-10-alibaba-vpn/18.png)
 
@@ -132,7 +132,7 @@ We also need firewall policy to allow traffic between the 2 subnets
 
 <br>
 
-Next we create the Tunnel Interface, use the Interoperable Device as the peer and add a unused private subnet for p2p communication
+Next we create the Tunnel Interface, use the Interoperable Device as the peer and add unused private subnet for p2p communication
 
 ![x](/static/2026-03-10-alibaba-vpn/23.png)
 
@@ -144,7 +144,7 @@ Then we steer the traffic going to 10.0.2.0/24 to use the VTI as the next hop
 
 <br>
 
-Import the newly made interfaces into smartconsole
+Import the newly made tunnel interface into smartconsole
 
 ![x](/static/2026-03-10-alibaba-vpn/25.png)
 
@@ -172,7 +172,7 @@ We can also verify it on Check Point side using Smart View
 
 <br>
 
-On on-prem, our client on 10.21.0.21 can connect to 10.0.2.93 that sits on Alibaba Cloud using the configured VPN
+On on-prem side, our client on 10.21.0.21 can connect to 10.0.2.93 that sits on Alibaba Cloud using the configured VPN
 
 ![x](/static/2026-03-10-alibaba-vpn/30.png)
 
@@ -184,7 +184,7 @@ So is for the connection for the other way around, verifying that our VPN is abl
 
 <br>
 
-On CP side, the logs for the traffic between these 2 subnets can be observe here
+Inside Check Point, the logs for the traffic between these 2 subnets can be observed here
 
 ![x](/static/2026-03-10-alibaba-vpn/32.png)
 
