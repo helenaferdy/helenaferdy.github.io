@@ -1,7 +1,7 @@
 ---
 title: Cisco ThousandEyes
 date: 2026-04-28 07:30:00 +0700
-categories: [Monitoring Tools, FTD]
+categories: [Monitoring Tools, ThousandEyes]
 tags: [ThousandEyes]
 ---
 
