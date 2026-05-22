@@ -169,7 +169,7 @@ refactor: true
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  (function () {
     const deck = document.querySelector('.competency-deck');
     if (deck) {
       // Position at the very end before the deck is visible
@@ -196,7 +196,7 @@ refactor: true
         requestAnimationFrame(step);
       }, 50);
     }
-  });
+  })();
 </script>
 
 <!-- Custom Sleek Tag Explorer -->
