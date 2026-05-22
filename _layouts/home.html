@@ -1,0 +1,477 @@
+---
+layout: page
+refactor: true
+---
+
+{% include lang.html %}
+
+{% if paginator.page == 1 or paginator == nil %}
+<!-- Sleek Horizontally Scrollable 7-Pillar Competency Deck -->
+<div class="competency-matrix-container" style="margin-bottom: 1.25rem;">
+
+  <div class="competency-deck" style="opacity: 0; transition: opacity 0.4s ease;">
+    <!-- Pillar 1: Network Security -->
+    <div class="competency-card" style="border-top: 4px solid #DA291C;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper security-bg">
+          <i class="fas fa-shield-alt competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Network Security</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Check Point:</strong> ClusterXL, VSX, VSNext, MDS, IPS, Remote/IPSec VPN, SandBlast, Harmony,
+            Identity Awareness, Infinity Portal, CoreXL, SecureXL.</li>
+          <li><strong>Fortinet:</strong> FortiGate Firewalls, Clustering, SD-WAN,
+            FortiManager, FortiAuthenticator, FortiWeb WAF, FortiAnalyzer, Security Fabric.</li>
+          <li><strong>Palo Alto Networks:</strong> Site-to-Site & Remote Access VPNs, Security Policies, NAT,
+            Decryption, User-ID, Panorama, Palo Alto SD-WAN, IPS, Panorama-ISE integration, LDAP mappings.</li>
+          <li><strong>Cisco Secure:</strong> ASA, FTD, FMC, IPsec VPNs with certificates/Duo, Cisco Umbrella SIG, Cisco
+            Stealthwatch, Security Cloud Control.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 2: Identity & App Delivery -->
+    <div class="competency-card" style="border-top: 4px solid #049FD9;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper identity-bg">
+          <i class="fas fa-network-wired competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Identity & App Delivery</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Cisco ISE:</strong> 802.1X Wired/Wireless, MAB, TACACS+ Device Administration, Profiling & Posture
+            Assessment, Active Directory integration, Guest Portals, TrustSec tag-based segmentation.</li>
+          <li><strong>F5 BIG-IP:</strong> Local Traffic Manager (LTM), Global Traffic Manager (GTM/DNS) server load
+            balancing, SSL Offloading, custom iRules scripting.</li>
+          <li><strong>Duo Security:</strong> Multi-Factor Authentication (MFA) proxy-level integration with Cisco ASA,
+            ISE, Check Point, Fortinet, and Palo Alto.</li>
+          <li><strong>Entra ID & ADFS:</strong> Azure AD IDP configurations, identity protection, Active Directory
+            Federation Services (ADFS) single-sign-on integration.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 3: Enterprise Collaboration -->
+    <div class="competency-card" style="border-top: 4px solid #4F46E5;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper collab-bg" style="background: rgba(79, 70, 229, 0.1); color: #4F46E5;">
+          <i class="fas fa-headset competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Enterprise Collaboration</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Cisco UCM & Unity:</strong> CUCM administration, EM/Extension Mobility, Unity Connection
+            voicemail, CUCM Single-Sign-On (SSO), Cloud Connected UC (CCUC).</li>
+          <li><strong>Contact Center:</strong> Packaged CCE (PCCE), UCCX scripting, CVP (Customer Voice Portal), ECE
+            (Enterprise Chat and Email) interactions.</li>
+          <li><strong>Expressway & CMS:</strong> Expressway-C/E Mobile Remote Access (MRA) and B2B federation, Cisco
+            Meeting Server (CMS) conferencing and CMS Recorder.</li>
+          <li><strong>Voice Gateways:</strong> Cisco VG analog gateways, voice translation rules, Cisco Secure Common
+            Client (SCC).</li>
+          <li><strong>Compliance Recording:</strong> NICE and Calabrio Call Recording integrations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 4: Routing & Core Networking -->
+    <div class="competency-card" style="border-top: 4px solid #10B981;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper routing-bg" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+          <i class="fas fa-route competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Routing & Core</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Cisco SD-WAN:</strong> cEdge/vEdge onboarding, templates, DIA (Direct Internet Access), traffic
+            routing policies.</li>
+          <li><strong>Cisco SD-Access:</strong> SDA design, fabric routing, IP Transit, LISP & VXLAN overlay control.
+          </li>
+          <li><strong>Routing Protocols:</strong> OSPF advanced topologies (LSA/network types), eBGP/iBGP scalable
+            designs, MPLS WAN routing, Policy-Based Routing (PBR), IP SLA path tracking, EEM scripting.</li>
+          <li><strong>L2/L3 Infrastructure:</strong> PVLANs (Private VLANs), DHCP Snooping, VXLAN overlay networks,
+            high-availability switching.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 5: Multi-Cloud Architecture -->
+    <div class="competency-card" style="border-top: 4px solid #0078D4;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper cloud-bg">
+          <i class="fas fa-cloud competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Multi-Cloud</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Microsoft Azure:</strong> vWAN hubs, ExpressRoute, HA VPN, Application Gateway, Azure Load
+            Balancers, Entra ID hybrid mesh.</li>
+          <li><strong>Amazon Web Services:</strong> Transit Gateway (TGW) orchestration, Gateway Load Balancer (GWLB)
+            security insertion, ALB application load balancers, VGW VPN virtual gateways.</li>
+          <li><strong>Google Cloud:</strong> Network Connectivity Center (NCC) routing, HA VPN, Classic VPN, Load
+            Balancing, Firewall Endpoints, FortiGate security integration.</li>
+          <li><strong>Alibaba Cloud:</strong> Cloud Enterprise Network (CEN) inter-region mesh, ALB (Application Load
+            Balancer), VPN Gateways, cross-border routing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 6: Systems & Infrastructure -->
+    <div class="competency-card" style="border-top: 4px solid #8B5CF6;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper systems-bg" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
+          <i class="fas fa-server competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Systems & Infra</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>VMware Virtualization:</strong> vCenter, Cisco UCS Manager, UCS Manager, ESXi.</li>
+          <li><strong>Microsoft Stack:</strong> Active Directory Domain Services, Enterprise Certificate Authority (CA),
+            AD Group Policy Objects (GPO), ADFS identity, Hyper-V virtualization.</li>
+          <li><strong>Storage Systems:</strong> TrueNAS Core/SCALE configurations, StarWind Virtual SAN, TrueNAS
+            replication topologies, Distributed File System (DFS), DRBD high-availability storage.</li>
+          <li><strong>Database Systems:</strong> SQL Server Always On, SQL Server Agent Jobs,
+            Replication, Linked Servers.</li>
+          <li><strong>Reverse Proxy & Filtering:</strong> Nginx web services, Squid proxy caching, Artica secure proxy.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 7: Automation, Telemetry & AI -->
+    <div class="competency-card" style="border-top: 4px solid #06B6D4;">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper automation-bg" style="background: rgba(6, 182, 212, 0.1); color: #06B6D4;">
+          <i class="fas fa-cogs competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">Automation & AI</h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Network Automation:</strong> Python scripting via Netmiko SSH libraries, automated configuration
+            parsing, custom Flask web microframework.</li>
+          <li><strong>Telemetry & Monitoring:</strong> InfluxDB, Prometheus, Grafana visualization dashboards, SNMP Node
+            Exporter telemetry, RSyslog central parsing, Grok filters, alert notifications via Telegram.</li>
+          <li><strong>Systems Operations:</strong> Linux server administration, Linux LVM storage sizing, Docker
+            container hosting, Nessus vulnerability scanning, Zabbix & PRTG & SolarWinds enterprise monitoring.</li>
+          <li><strong>AI Orchestration:</strong> Local AI models via Ollama and LM Studio, DeepSeek integration,
+            LangChain agent frameworks, Instructor structured output validation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const deck = document.querySelector('.competency-deck');
+    if (deck) {
+      // Position at the very end before the deck is visible
+      deck.scrollLeft = deck.scrollWidth;
+      // Fade in so user sees the last card first
+      requestAnimationFrame(function () {
+        deck.style.opacity = '1';
+      });
+      // Immediately scroll back to the first card (super fast)
+      setTimeout(function () {
+        var start = deck.scrollLeft;
+        var distance = -start;
+        var duration = 500; // ms – quick but visible scroll
+        var startTime = null;
+        function ease(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var progress = Math.min((ts - startTime) / duration, 1);
+          deck.scrollLeft = start + distance * ease(progress);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }, 50);
+    }
+  });
+</script>
+
+<!-- Custom Sleek Tag Explorer -->
+<div class="tag-cloud-card" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+  <div id="tag-cloud-wrapper" class="tag-cloud-wrapper collapsed">
+    {% assign tag_strings = "" | split: "" %}
+    {% for tag in site.tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign tag_size = tag[1] | size %}
+    <!-- Pad size with leading zeros to ensure correct string sorting -->
+    {% assign size_padded = tag_size | plus: 10000 | append: "" | slice: 1, 4 %}
+    {% assign tag_string = size_padded | append: "::" | append: tag_name %}
+    {% assign tag_strings = tag_strings | push: tag_string %}
+    {% endfor %}
+
+    <!-- Sort ascending, then reverse for descending (highest post count first) -->
+    {% assign sorted_tag_strings = tag_strings | sort | reverse %}
+
+    {% assign has_hidden_tags = false %}
+    {% for tag_string in sorted_tag_strings %}
+    {% assign parts = tag_string | split: "::" %}
+    {% assign tag_count = parts[0] | plus: 0 %}
+    {% assign tag_name = parts[1] %}
+    {% assign tag_slug = tag_name | slugify %}
+
+    <!-- Logo Selection -->
+    {% capture tag_logo %}
+    {% if tag_slug contains 'checkpoint' or tag_slug contains 'check-point' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #DA291C; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path
+        d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 17.91c-3.41-1.01-6-4.9-6-9.1V6.26l6-2.25 6 2.25v4.55c0 4.2-2.59 8.09-6 9.1zM12 7c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+    </svg>
+    {% elsif tag_slug contains 'forti' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #C8102E; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M2 2h9v9H2V2zm11 0h9v9h-9V2zM2 13h9v9H2v-9zm11 0h9v9h-9v-9z" />
+    </svg>
+    {% elsif tag_slug contains 'palo' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #005A70; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M12 2L2 22h20L12 2zm0 4.8L18.4 19H5.6L12 6.8zM11 11v5h2v-5h-2z" />
+    </svg>
+    {% elsif tag_slug == 'f5' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <circle cx="12" cy="12" r="11" fill="#E4002B" /><text x="12" y="16.5" fill="#FFF"
+        font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="13" text-anchor="middle">f5</text>
+    </svg>
+    {% elsif tag_slug contains 'duo' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #53B02C; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2c1.66 0 3 1.34 3 3v2c0 1.66-1.34 3-3 3zm0-2c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1h-1v4h1z" />
+    </svg>
+    {% elsif tag_slug contains 'cisco' or tag_slug contains 'ise' or tag_slug contains 'asa' or tag_slug contains 'ftd'
+    or tag_slug contains 'cucm' or tag_slug contains 'umbrella' or tag_slug contains 'sd-wan' or tag_slug contains
+    'sd-access' or tag_slug contains 'thousandeyes' or tag_slug contains 'stealthwatch' or tag_slug contains
+    'secure-endpoint' or tag_slug contains 'cce' or tag_slug contains 'acs' or tag_slug contains 'ccx' or tag_slug
+    contains 'cms' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #049FD9; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <rect x="2" y="10" width="1.5" height="4" rx="0.75" />
+      <rect x="4.5" y="8" width="1.5" height="8" rx="0.75" />
+      <rect x="7" y="5" width="1.5" height="14" rx="0.75" />
+      <rect x="9.5" y="7" width="1.5" height="10" rx="0.75" />
+      <rect x="12" y="10" width="1.5" height="4" rx="0.75" />
+      <rect x="14.5" y="7" width="1.5" height="10" rx="0.75" />
+      <rect x="17" y="5" width="1.5" height="14" rx="0.75" />
+      <rect x="19.5" y="8" width="1.5" height="8" rx="0.75" />
+      <rect x="22" y="10" width="1.5" height="4" rx="0.75" />
+    </svg>
+    {% elsif tag_slug contains 'aws' or tag_slug contains 'amazon' %}
+    <i class="fab fa-aws me-1" style="color: #FF9900; font-size: 0.9rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'azure' or tag_slug contains 'entra' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #0078D4; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M5.4 20L1.7 13.6 11.2 3h5.9L5.4 20zm6.5 0l7.3-10.4L22.3 14 15.6 20H11.9z" />
+    </svg>
+    {% elsif tag_slug contains 'gcp' or tag_slug contains 'google' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #4285F4; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path
+        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z" />
+    </svg>
+    {% elsif tag_slug contains 'alibaba' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #FF6A00; display: inline-block; vertical-align: middle; margin-right: 4px; font-weight: bold;">
+      <path d="M4 4h4v2H6v12h2v2H4V4zm12 0h4v16h-4v-2h2V6h-2V4zm-5 7h2v2h-2v-2z" />
+    </svg>
+    {% elsif tag_slug contains 'splunk' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #F25A24; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M4 18h2v-6H4v6zm4 0h2v-10H8v10zm4 0h2v-14h-2v14zm4 0h2v-8h-2v8zm4 0h2v-5h-2v5z" />
+    </svg>
+    {% elsif tag_slug contains 'truenas' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #0095D9; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+    </svg>
+    {% elsif tag_slug contains 'pfsense' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #8F1D21; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path
+        d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 17.9c-2.9-1.02-5-4.44-5-8.15V6.3l5-1.88 5 1.88v3.72l-10 4.5v1.23c1.2 1.48 2.9 2.5 5 2.8z" />
+    </svg>
+    {% elsif tag_slug contains 'hyper-v' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #00BCF2; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm3 3h6v2H9V9zm0 4h6v2H9v-2z" />
+    </svg>
+    {% elsif tag_slug contains 'linux' %}
+    <i class="fab fa-linux me-1" style="color: var(--text-color); font-size: 0.9rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'sql' or tag_slug contains 'database' or tag_slug contains 'db' %}
+    <i class="fas fa-database me-1" style="color: #CC292B; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'docker' %}
+    <i class="fab fa-docker me-1" style="color: #2496ED; font-size: 0.9rem; vertical-align: middle;"></i>
+    {% else %}
+    <i class="fas fa-hashtag text-muted-color me-1" style="font-size: 0.8rem; vertical-align: middle;"></i>
+    {% endif %}
+    {% endcapture %}
+
+    {% assign is_collapsed = false %}
+    {% if tag_count <= 3 %} {% assign is_collapsed=true %} {% assign has_hidden_tags=true %} {% endif %} <a
+      href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}"
+      class="dashboard-tag-pill{% if is_collapsed %} collapsed-tag{% endif %}">
+      {{ tag_logo }}
+      <span>{{ tag_name }}</span>
+      <span class="dashboard-tag-count">{{ tag_count }}</span>
+      </a>
+      {% endfor %}
+
+      {% if has_hidden_tags %}
+      <button id="toggle-all-tags" class="dashboard-tag-pill toggle-btn" onclick="toggleTags()"
+        aria-label="Toggle tags visibility">
+        <i id="toggle-icon" class="fas fa-chevron-down text-muted-color"></i>
+      </button>
+
+      <script>
+        function toggleTags() {
+          const wrapper = document.getElementById('tag-cloud-wrapper');
+          const icon = document.getElementById('toggle-icon');
+          const isCollapsed = wrapper.classList.toggle('collapsed');
+
+          if (isCollapsed) {
+            icon.className = 'fas fa-chevron-down text-muted-color';
+          } else {
+            icon.className = 'fas fa-chevron-up text-muted-color';
+          }
+        }
+      </script>
+      {% endif %}
+  </div>
+</div>
+
+<div class="section-title-wrapper"
+  style="padding-top: 0.75rem; padding-bottom: 0px; margin-top: 0.75rem; margin-bottom: 0px;">
+  <h3 class="section-title-label"
+    style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color);">
+    <i class="fas fa-feather-alt text-muted-color" style="font-size: 0.95rem;"></i>
+    <span>Blog Posts</span>
+  </h3>
+</div>
+{% endif %}
+
+{% if paginator.page > 1 %}
+<div class="section-title-wrapper"
+  style="padding-top: 0.25rem; padding-bottom: 0px; margin-top: 0; margin-bottom: 0px;">
+  <h3 class="section-title-label"
+    style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color);">
+    <i class="fas fa-feather-alt text-muted-color" style="font-size: 0.95rem;"></i>
+    <span>Blog Posts</span>
+    <i class="fas fa-chevron-right text-muted-color" style="font-size: 0.65rem;"></i>
+    <span style="font-weight: 500; color: var(--text-muted-color);">Page {{ paginator.page }} of {{
+      paginator.total_pages }}</span>
+  </h3>
+</div>
+{% endif %}
+
+<!-- Standard Original Chirpy Post Stream Listing -->
+
+{% assign pinned = site.posts | where: 'pin', 'true' %}
+{% assign default = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+
+{% assign posts = '' | split: '' %}
+
+<!-- Get pinned posts -->
+
+{% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign pinned_num = pinned.size | minus: offset %}
+
+{% if pinned_num > 0 %}
+{% for i in (offset..pinned.size) limit: pinned_num %}
+{% assign posts = posts | push: pinned[i] %}
+{% endfor %}
+{% else %}
+{% assign pinned_num = 0 %}
+{% endif %}
+
+<!-- Get default posts -->
+
+{% assign default_beg = offset | minus: pinned.size %}
+
+{% if default_beg < 0 %} {% assign default_beg=0 %} {% endif %} {% assign default_num=paginator.posts | size | minus:
+  pinned_num %} {% assign default_end=default_beg | plus: default_num | minus: 1 %} {% if default_num> 0 %}
+  {% for i in (default_beg..default_end) %}
+  {% assign posts = posts | push: default[i] %}
+  {% endfor %}
+  {% endif %}
+
+  <div id="post-list">
+    {% for post in posts %}
+    <a href="{{ post.url | relative_url }}" class="card-wrapper">
+      <div class="card post-preview flex-md-row-reverse">
+        {% if post.image %}
+        {% if post.image.lqip %}
+        {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
+        {% endif %}
+
+        {% assign src = post.image.path | default: post.image %}
+        {% unless src contains '//' %}
+        {% assign src = post.img_path | append: '/' | append: src | replace: '//', '/' %}
+        {% endunless %}
+
+        {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+
+        <img src="{{ src }}" w="17" h="10" alt="{{ alt }}" {{ lqip }}>
+        {% endif %}
+
+        <div class="card-body d-flex flex-column">
+          <h1 class="card-title my-2 mt-md-0">
+            {{ post.title }}
+          </h1>
+
+          <div class="card-text post-content mt-0 mb-2">
+            <p>
+              {% include no-linenos.html content=post.content %}
+              {{ content | markdownify | strip_html | truncate: 200 | escape }}
+            </p>
+          </div>
+
+          <div class="post-meta flex-grow-1 d-flex align-items-end">
+            <div class="me-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw me-1"></i>
+              {% include datetime.html date=post.date lang=lang %}
+
+              <!-- categories -->
+              {% if post.categories.size > 0 %}
+              <i class="far fa-folder-open fa-fw me-1"></i>
+              <span class="categories">
+                {% for category in post.categories %}
+                {{ category }}
+                {%- unless forloop.last -%},{%- endunless -%}
+                {% endfor %}
+              </span>
+              {% endif %}
+            </div>
+
+            {% if post.pin %}
+            <div class="pin ms-1">
+              <i class="fas fa-thumbtack fa-fw"></i>
+              <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+            </div>
+            {% endif %}
+          </div>
+          <!-- .post-meta -->
+        </div>
+        <!-- .card-body -->
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <!-- #post-list -->
+
+  {% if paginator.total_pages > 1 %}
+  {% include post-paginator.html %}
+  {% endif %}

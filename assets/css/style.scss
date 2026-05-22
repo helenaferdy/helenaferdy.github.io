@@ -1,0 +1,328 @@
+---
+---
+
+@import 'jekyll-theme-chirpy';
+
+/* ==========================================================================
+   FROSTED GLASS SIDEBAR & FORCED DARK MODE
+   ========================================================================== */
+
+#sidebar {
+  background: rgba(25, 25, 30, 0.35) !important;
+  backdrop-filter: blur(28px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.6) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Hide the light/dark mode toggle — forced dark mode */
+.mode-toggle {
+  display: none !important;
+}
+
+/* ==========================================================================
+   SLEEK TECHNOLOGY TAG EXPLORER
+   ========================================================================== */
+
+.tag-cloud-card {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.015);
+  transition: all 0.3s ease;
+}
+
+.tag-cloud-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.dashboard-tag-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--button-bg, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--btn-border-color);
+  color: var(--text-color) !important;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+.tag-logo {
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+}
+
+.dashboard-tag-pill:hover {
+  background: var(--card-bg);
+  border-color: var(--link-color);
+  transform: translateY(-2.5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-tag-pill:hover span {
+  color: var(--link-color) !important;
+}
+
+.dashboard-tag-pill:hover .tag-logo {
+  transform: scale(1.15);
+}
+
+.dashboard-tag-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-muted-color);
+  padding: 0.15rem 0.45rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-left: 0.2rem;
+}
+
+html[data-mode="dark"] .dashboard-tag-count {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-tag-pill:hover .dashboard-tag-count {
+  background: var(--link-color);
+  color: #fff;
+}
+
+/* Collapsed Tag Logic */
+.tag-cloud-wrapper.collapsed .collapsed-tag {
+  display: none !important;
+}
+
+/* Toggle Button Reset & Styles */
+.dashboard-tag-pill.toggle-btn {
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+  user-select: none;
+  padding: 0.4rem 0.65rem; /* Symmetrical padding for compact, balanced icon-only shape */
+}
+
+/* ==========================================================================
+   SLEEK INTERACTIVE HORIZONTAL COMPETENCY DECK
+   ========================================================================== */
+
+.competency-deck {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-border-color) transparent;
+  
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-border-color);
+    border-radius: 10px;
+    
+    &:hover {
+      background-color: var(--link-color);
+    }
+  }
+}
+
+.competency-card {
+  flex: 0 0 85%;
+  max-width: 350px;
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.015);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 0;
+    border-radius: 12px;
+    pointer-events: none;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--link-color) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  @media (min-width: 768px) {
+    flex: 0 0 350px;
+  }
+}
+
+.competency-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  position: relative;
+  z-index: 1;
+}
+
+.competency-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  &.security-bg {
+    background: rgba(218, 41, 28, 0.1);
+    color: #DA291C;
+  }
+  
+  &.identity-bg {
+    background: rgba(4, 159, 217, 0.1);
+    color: #049FD9;
+  }
+  
+  &.cloud-bg {
+    background: rgba(0, 120, 212, 0.1);
+    color: #0078D4;
+  }
+}
+
+.competency-icon {
+  font-size: 1.1rem;
+}
+
+.competency-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.competency-card-body {
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+.competency-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  
+  li {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-muted-color);
+    position: relative;
+    padding-left: 0.85rem;
+    
+    &::before {
+      content: '•';
+      color: var(--link-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    
+    strong {
+      color: var(--text-color);
+    }
+  }
+}
+
+/* ==========================================================================
+   LAYOUT SPACING OPTIMIZATIONS (Compact & Sleek Top Spacing)
+   ========================================================================== */
+
+#main-wrapper {
+  padding-top: 1rem !important;
+}
+
+@media (min-width: 1200px) {
+  #main-wrapper {
+    padding-top: 1.25rem !important;
+  }
+}
+
+.post {
+  padding-top: 0.25rem !important;
+}
+
+/* Squeeze topbar spacing */
+#topbar-wrapper {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Squeeze spacing of post / page titles */
+.post > h1[data-toc-skip] {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Tighter gap on competency deck */
+.competency-matrix-container {
+  margin-top: 0.25rem !important;
+}
+
+/* Hide breadcrumb on all home pagination list pages specifically to remove "Home" breadcrumb text */
+body:has(#post-list) #breadcrumb {
+  visibility: hidden !important;
+}
+
+/* ---- Homepage-specific aggressive top spacing reduction ---- */
+body:has(#post-list) #main-wrapper {
+  padding-top: 0 !important;
+}
+
+body:has(#post-list) #topbar-wrapper {
+  margin-bottom: 0 !important;
+}
+
+body:has(#post-list) .post {
+  padding-top: 0 !important;
+}
+
+body:has(#post-list) .row.mb-5 {
+  margin-top: 0 !important;
+}
+
+body:has(#post-list) .competency-matrix-container {
+  margin-top: 0 !important;
+}
