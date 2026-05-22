@@ -9,7 +9,7 @@ refactor: true
 <!-- Sleek Horizontally Scrollable 7-Pillar Competency Deck -->
 <div class="competency-matrix-container" style="margin-bottom: 1.25rem;">
 
-  <div class="competency-deck" style="transition: opacity 0.4s ease;">
+  <div class="competency-deck">
     <!-- Pillar 1: Network Security -->
     <div class="competency-card" style="border-top: 4px solid #DA291C;">
       <div class="competency-card-header">
@@ -167,47 +167,6 @@ refactor: true
     </div>
   </div>
 </div>
-
-<script>
-  (function () {
-    const deck = document.querySelector('.competency-deck');
-    if (deck) {
-      // Hide the deck immediately without transition to avoid initial flash
-      deck.style.transition = 'none';
-      deck.style.opacity = '0';
-      
-      // Position at the very end before it fades in
-      deck.scrollLeft = deck.scrollWidth;
-      
-      // Force a reflow/repaint to apply the scroll position and opacity
-      deck.offsetHeight;
-      
-      // Restore transition and fade in
-      deck.style.transition = 'opacity 0.4s ease';
-      requestAnimationFrame(function () {
-        deck.style.opacity = '1';
-      });
-      
-      // Immediately scroll back to the first card (quick but visible scroll)
-      setTimeout(function () {
-        var start = deck.scrollLeft;
-        var distance = -start;
-        var duration = 500; // ms
-        var startTime = null;
-        function ease(t) {
-          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        }
-        function step(ts) {
-          if (!startTime) startTime = ts;
-          var progress = Math.min((ts - startTime) / duration, 1);
-          deck.scrollLeft = start + distance * ease(progress);
-          if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      }, 50);
-    }
-  })();
-</script>
 
 <!-- Custom Sleek Tag Explorer -->
 <div class="tag-cloud-card" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
