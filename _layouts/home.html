@@ -9,7 +9,7 @@ refactor: true
 <!-- Sleek Horizontally Scrollable 7-Pillar Competency Deck -->
 <div class="competency-matrix-container" style="margin-bottom: 1.25rem;">
 
-  <div class="competency-deck" style="opacity: 0; transition: opacity 0.4s ease;">
+  <div class="competency-deck" style="transition: opacity 0.4s ease;">
     <!-- Pillar 1: Network Security -->
     <div class="competency-card" style="border-top: 4px solid #DA291C;">
       <div class="competency-card-header">
@@ -172,17 +172,27 @@ refactor: true
   (function () {
     const deck = document.querySelector('.competency-deck');
     if (deck) {
-      // Position at the very end before the deck is visible
+      // Hide the deck immediately without transition to avoid initial flash
+      deck.style.transition = 'none';
+      deck.style.opacity = '0';
+      
+      // Position at the very end before it fades in
       deck.scrollLeft = deck.scrollWidth;
-      // Fade in so user sees the last card first
+      
+      // Force a reflow/repaint to apply the scroll position and opacity
+      deck.offsetHeight;
+      
+      // Restore transition and fade in
+      deck.style.transition = 'opacity 0.4s ease';
       requestAnimationFrame(function () {
         deck.style.opacity = '1';
       });
-      // Immediately scroll back to the first card (super fast)
+      
+      // Immediately scroll back to the first card (quick but visible scroll)
       setTimeout(function () {
         var start = deck.scrollLeft;
         var distance = -start;
-        var duration = 500; // ms – quick but visible scroll
+        var duration = 500; // ms
         var startTime = null;
         function ease(t) {
           return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
