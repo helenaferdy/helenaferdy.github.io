@@ -9,6 +9,72 @@ refactor: true
 <!-- Sleek Horizontally Scrollable 7-Pillar Competency Deck -->
 <div class="competency-matrix-container" style="margin-bottom: 1.25rem;">
 
+  <style>
+    /* Collapse Competency Details on Mobile & Tablet Viewports */
+    .competency-expand-btn {
+      background: transparent !important;
+      border: none !important;
+      padding: 2px 6px !important;
+      cursor: pointer !important;
+      display: none !important; /* Hidden on desktop */
+      align-items: center !important;
+      justify-content: center !important;
+      color: var(--text-muted-color) !important;
+      font-size: 0.85rem !important;
+      transition: all 0.25s ease !important;
+      vertical-align: middle !important;
+      outline: none !important;
+      border-radius: 4px !important;
+      margin-left: 0.35rem !important;
+      box-shadow: none !important;
+    }
+    
+    .competency-expand-btn:hover {
+      color: var(--link-color) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+    
+    .competency-expand-icon {
+      transition: transform 0.25s ease !important;
+      display: inline-block !important;
+    }
+    
+    .competency-deck.all-expanded .competency-expand-icon {
+      transform: rotate(180deg) !important;
+    }
+    
+    @media (max-width: 991px) {
+      .competency-expand-btn {
+        display: inline-flex !important; /* Show arrow button on mobile/tablet */
+      }
+      
+      /* Hide long details on mobile/tablet by default */
+      .detail-text {
+        display: none !important;
+      }
+      
+      /* When expanded, show all details */
+      .competency-deck.all-expanded .detail-text {
+        display: inline !important;
+      }
+      
+      /* Make collapsed cards extra compact */
+      .competency-card {
+        padding: 0.65rem 0.85rem !important;
+      }
+      
+      .competency-list {
+        gap: 0.4rem !important;
+      }
+      
+      /* Scale FontAwesome icons in tag pills on mobile/tablet immediately */
+      .dashboard-tag-pill i {
+        font-size: 0.525rem !important;
+        margin-right: 0 !important;
+      }
+    }
+  </style>
+
   <div class="competency-deck">
     <!-- Pillar 1: Network Security -->
     <div class="competency-card" style="border-top: 4px solid #DA291C;">
@@ -207,16 +273,7 @@ refactor: true
         event.stopPropagation();
       }
       const deck = document.querySelector('.competency-deck');
-      const isExpanded = deck.classList.toggle('all-expanded');
-      
-      const icons = deck.querySelectorAll('.competency-expand-icon');
-      icons.forEach(icon => {
-        if (isExpanded) {
-          icon.className = 'fas fa-chevron-up competency-expand-icon';
-        } else {
-          icon.className = 'fas fa-chevron-down competency-expand-icon';
-        }
-      });
+      deck.classList.toggle('all-expanded');
     }
   </script>
 </div>
