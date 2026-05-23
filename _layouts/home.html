@@ -72,10 +72,22 @@ refactor: true
         gap: 0.4rem !important;
       }
       
-      /* Scale FontAwesome icons in tag pills on mobile/tablet immediately */
+      /* Scale tag elements on mobile/tablet immediately */
+      .dashboard-tag-pill {
+        font-size: 0.65rem !important;
+        padding: 0.2rem 0.48rem !important;
+        gap: 0.25rem !important;
+      }
+      .tag-logo {
+        width: 10.5px !important;
+        height: 10.5px !important;
+      }
       .dashboard-tag-pill i {
-        font-size: 0.6rem !important;
+        font-size: 0.65rem !important;
         margin-right: 0 !important;
+      }
+      .dashboard-tag-pill.toggle-btn {
+        padding: 0.2rem 0.48rem !important;
       }
     }
   </style>
@@ -272,24 +284,23 @@ refactor: true
   </div>
 
   <script>
-    function toggleCompetencies(event) {
+    window.toggleCompetencies = function(event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();
       }
       const deck = document.querySelector('.competency-deck');
-      deck.classList.toggle('all-expanded');
-    }
+      if (deck) {
+        deck.classList.toggle('all-expanded');
+      }
+    };
     
-    function expandCompetencies(event) {
-      // Only run on mobile/tablet viewports (< 992px)
-      if (window.innerWidth >= 992) return;
-      
+    window.expandCompetencies = function(event) {
       const deck = document.querySelector('.competency-deck');
-      if (!deck.classList.contains('all-expanded')) {
+      if (deck && !deck.classList.contains('all-expanded')) {
         deck.classList.add('all-expanded');
       }
-    }
+    };
   </script>
 </div>
 

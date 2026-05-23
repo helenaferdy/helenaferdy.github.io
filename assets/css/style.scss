@@ -319,17 +319,17 @@ body:has(#post-list) .competency-matrix-container {
     gap: 0.25rem !important;
   }
   .dashboard-tag-pill {
-    font-size: 0.6rem !important; /* 1 point bigger than 0.525rem */
-    padding: 0.16rem 0.42rem !important;
+    font-size: 0.65rem !important; /* 1 point bigger than 0.6rem */
+    padding: 0.2rem 0.48rem !important;
     gap: 0.25rem !important;
     border-radius: 12px !important;
   }
   .tag-logo {
-    width: 9.5px !important;
-    height: 9.5px !important;
+    width: 10.5px !important;
+    height: 10.5px !important;
   }
   .dashboard-tag-pill i {
-    font-size: 0.6rem !important;
+    font-size: 0.65rem !important;
     margin-right: 0 !important;
   }
   .dashboard-tag-count {
@@ -338,5 +338,5 @@ body:has(#post-list) .competency-matrix-container {
     border-radius: 6px !important;
   }
   .dashboard-tag-pill.toggle-btn {
-    padding: 0.16rem 0.42rem !important;
+    padding: 0.2rem 0.48rem !important;
   }}
