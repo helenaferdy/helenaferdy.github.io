@@ -64,6 +64,11 @@
   vertical-align: middle;
 }
 
+.dashboard-tag-pill i {
+  font-size: 0.7rem !important;
+  margin-right: 0 !important;
+}
+
 .dashboard-tag-pill:hover {
   background: var(--card-bg);
   border-color: var(--link-color);
@@ -232,6 +237,29 @@ html[data-mode="dark"] .dashboard-tag-count {
   display: inline-flex;
   align-items: center;
   color: var(--text-color);
+  width: 100%;
+  justify-content: space-between;
+}
+
+.competency-expand-btn {
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted-color);
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+  vertical-align: middle;
+  outline: none;
+  border-radius: 4px;
+  
+  &:hover {
+    color: var(--link-color);
+    background: rgba(0, 0, 0, 0.05);
+  }
 }
 
 .competency-card-body {
@@ -345,6 +373,10 @@ body:has(#post-list) .competency-matrix-container {
     width: 8px !important;
     height: 8px !important;
   }
+  .dashboard-tag-pill i {
+    font-size: 0.525rem !important;
+    margin-right: 0 !important;
+  }
   .dashboard-tag-count {
     font-size: 0.48rem !important;
     padding: 0.02rem 0.2rem !important;
@@ -352,5 +384,28 @@ body:has(#post-list) .competency-matrix-container {
   }
   .dashboard-tag-pill.toggle-btn {
     padding: 0.15rem 0.35rem !important;
+  }
+
+  /* Collapse Competency Cards on Mobile */
+  .competency-card {
+    padding: 0.65rem 0.85rem !important;
+    transition: all 0.3s ease;
+  }
+  
+  .competency-list {
+    gap: 0.4rem !important;
+  }
+  
+  .detail-text {
+    display: none !important;
+  }
+  
+  /* When expanded, show all details */
+  .competency-deck.all-expanded .detail-text {
+    display: inline !important;
+  }
+  
+  .competency-expand-btn {
+    display: inline-flex !important; /* Show the expand arrow button */
   }
 }

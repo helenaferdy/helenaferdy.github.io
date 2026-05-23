@@ -16,18 +16,23 @@ refactor: true
         <div class="competency-icon-wrapper security-bg">
           <i class="fas fa-shield-alt competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Network Security</h4>
+        <h4 class="competency-card-title">
+          Network Security
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>Check Point:</strong> ClusterXL, VSX, VSNext, MDS, IPS, Remote/IPSec VPN, SandBlast, Harmony,
-            Identity Awareness, Infinity Portal, CoreXL, SecureXL.</li>
-          <li><strong>Fortinet:</strong> FortiGate Firewalls, Clustering, SD-WAN,
-            FortiManager, FortiAuthenticator, FortiWeb WAF, FortiAnalyzer, Security Fabric.</li>
-          <li><strong>Palo Alto Networks:</strong> Site-to-Site & Remote Access VPNs, Security Policies, NAT,
-            Decryption, User-ID, Panorama, Palo Alto SD-WAN, IPS, Panorama-ISE integration, LDAP mappings.</li>
-          <li><strong>Cisco Secure:</strong> ASA, FTD, FMC, IPsec VPNs with certificates/Duo, Cisco Umbrella SIG, Cisco
-            Stealthwatch, Security Cloud Control.</li>
+          <li><strong>Check Point:</strong><span class="detail-text"> ClusterXL, VSX, VSNext, MDS, IPS, Remote/IPSec VPN, SandBlast, Harmony,
+            Identity Awareness, Infinity Portal, CoreXL, SecureXL.</span></li>
+          <li><strong>Fortinet:</strong><span class="detail-text"> FortiGate Firewalls, Clustering, SD-WAN,
+            FortiManager, FortiAuthenticator, FortiWeb WAF, FortiAnalyzer, Security Fabric.</span></li>
+          <li><strong>Palo Alto Networks:</strong><span class="detail-text"> Site-to-Site & Remote Access VPNs, Security Policies, NAT,
+            Decryption, User-ID, Panorama, Palo Alto SD-WAN, IPS, Panorama-ISE integration, LDAP mappings.</span></li>
+          <li><strong>Cisco Secure:</strong><span class="detail-text"> ASA, FTD, FMC, IPsec VPNs with certificates/Duo, Cisco Umbrella SIG, Cisco
+            Stealthwatch, Security Cloud Control.</span></li>
         </ul>
       </div>
     </div>
@@ -38,18 +43,23 @@ refactor: true
         <div class="competency-icon-wrapper identity-bg">
           <i class="fas fa-network-wired competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Identity & App Delivery</h4>
+        <h4 class="competency-card-title">
+          Identity & App Delivery
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>Cisco ISE:</strong> 802.1X Wired/Wireless, MAB, TACACS+ Device Administration, Profiling & Posture
-            Assessment, Active Directory integration, Guest Portals, TrustSec tag-based segmentation.</li>
-          <li><strong>F5 BIG-IP:</strong> Local Traffic Manager (LTM), Global Traffic Manager (GTM/DNS) server load
-            balancing, SSL Offloading, custom iRules scripting.</li>
-          <li><strong>Duo Security:</strong> Multi-Factor Authentication (MFA) proxy-level integration with Cisco ASA,
-            ISE, Check Point, Fortinet, and Palo Alto.</li>
-          <li><strong>Entra ID & ADFS:</strong> Azure AD IDP configurations, identity protection, Active Directory
-            Federation Services (ADFS) single-sign-on integration.</li>
+          <li><strong>Cisco ISE:</strong><span class="detail-text"> 802.1X Wired/Wireless, MAB, TACACS+ Device Administration, Profiling & Posture
+            Assessment, Active Directory integration, Guest Portals, TrustSec tag-based segmentation.</span></li>
+          <li><strong>F5 BIG-IP:</strong><span class="detail-text"> Local Traffic Manager (LTM), Global Traffic Manager (GTM/DNS) server load
+            balancing, SSL Offloading, custom iRules scripting.</span></li>
+          <li><strong>Duo Security:</strong><span class="detail-text"> Multi-Factor Authentication (MFA) proxy-level integration with Cisco ASA,
+            ISE, Check Point, Fortinet, and Palo Alto.</span></li>
+          <li><strong>Entra ID & ADFS:</strong><span class="detail-text"> Azure AD IDP configurations, identity protection, Active Directory
+            Federation Services (ADFS) single-sign-on integration.</span></li>
         </ul>
       </div>
     </div>
@@ -60,19 +70,24 @@ refactor: true
         <div class="competency-icon-wrapper collab-bg" style="background: rgba(79, 70, 229, 0.1); color: #4F46E5;">
           <i class="fas fa-headset competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Enterprise Collaboration</h4>
+        <h4 class="competency-card-title">
+          Enterprise Collaboration
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>Cisco UCM & Unity:</strong> CUCM administration, EM/Extension Mobility, Unity Connection
-            voicemail, CUCM Single-Sign-On (SSO), Cloud Connected UC (CCUC).</li>
-          <li><strong>Contact Center:</strong> Packaged CCE (PCCE), UCCX scripting, CVP (Customer Voice Portal), ECE
-            (Enterprise Chat and Email) interactions.</li>
-          <li><strong>Expressway & CMS:</strong> Expressway-C/E Mobile Remote Access (MRA) and B2B federation, Cisco
-            Meeting Server (CMS) conferencing and CMS Recorder.</li>
-          <li><strong>Voice Gateways:</strong> Cisco VG analog gateways, voice translation rules, Cisco Secure Common
-            Client (SCC).</li>
-          <li><strong>Compliance Recording:</strong> NICE and Calabrio Call Recording integrations.</li>
+          <li><strong>Cisco UCM & Unity:</strong><span class="detail-text"> CUCM administration, EM/Extension Mobility, Unity Connection
+            voicemail, CUCM Single-Sign-On (SSO), Cloud Connected UC (CCUC).</span></li>
+          <li><strong>Contact Center:</strong><span class="detail-text"> Packaged CCE (PCCE), UCCX scripting, CVP (Customer Voice Portal), ECE
+            (Enterprise Chat and Email) interactions.</span></li>
+          <li><strong>Expressway & CMS:</strong><span class="detail-text"> Expressway-C/E Mobile Remote Access (MRA) and B2B federation, Cisco
+            Meeting Server (CMS) conferencing and CMS Recorder.</span></li>
+          <li><strong>Voice Gateways:</strong><span class="detail-text"> Cisco VG analog gateways, voice translation rules, Cisco Secure Common
+            Client (SCC).</span></li>
+          <li><strong>Compliance Recording:</strong><span class="detail-text"> NICE and Calabrio Call Recording integrations.</span></li>
         </ul>
       </div>
     </div>
@@ -83,18 +98,22 @@ refactor: true
         <div class="competency-icon-wrapper routing-bg" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
           <i class="fas fa-route competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Routing & Core</h4>
+        <h4 class="competency-card-title">
+          Routing & Core
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>Cisco SD-WAN:</strong> cEdge/vEdge onboarding, templates, DIA (Direct Internet Access), traffic
-            routing policies.</li>
-          <li><strong>Cisco SD-Access:</strong> SDA design, fabric routing, IP Transit, LISP & VXLAN overlay control.
-          </li>
-          <li><strong>Routing Protocols:</strong> OSPF advanced topologies (LSA/network types), eBGP/iBGP scalable
-            designs, MPLS WAN routing, Policy-Based Routing (PBR), IP SLA path tracking, EEM scripting.</li>
-          <li><strong>L2/L3 Infrastructure:</strong> PVLANs (Private VLANs), DHCP Snooping, VXLAN overlay networks,
-            high-availability switching.</li>
+          <li><strong>Cisco SD-WAN:</strong><span class="detail-text"> cEdge/vEdge onboarding, templates, DIA (Direct Internet Access), traffic
+            routing policies.</span></li>
+          <li><strong>Cisco SD-Access:</strong><span class="detail-text"> SDA design, fabric routing, IP Transit, LISP & VXLAN overlay control.</span></li>
+          <li><strong>Routing Protocols:</strong><span class="detail-text"> OSPF advanced topologies (LSA/network types), eBGP/iBGP scalable
+            designs, MPLS WAN routing, Policy-Based Routing (PBR), IP SLA path tracking, EEM scripting.</span></li>
+          <li><strong>L2/L3 Infrastructure:</strong><span class="detail-text"> PVLANs (Private VLANs), DHCP Snooping, VXLAN overlay networks,
+            high-availability switching.</span></li>
         </ul>
       </div>
     </div>
@@ -105,18 +124,23 @@ refactor: true
         <div class="competency-icon-wrapper cloud-bg">
           <i class="fas fa-cloud competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Multi-Cloud</h4>
+        <h4 class="competency-card-title">
+          Multi-Cloud
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>Microsoft Azure:</strong> vWAN hubs, ExpressRoute, HA VPN, Application Gateway, Azure Load
-            Balancers, Entra ID hybrid mesh.</li>
-          <li><strong>Amazon Web Services:</strong> Transit Gateway (TGW) orchestration, Gateway Load Balancer (GWLB)
-            security insertion, ALB application load balancers, VGW VPN virtual gateways.</li>
-          <li><strong>Google Cloud:</strong> Network Connectivity Center (NCC) routing, HA VPN, Classic VPN, Load
-            Balancing, Firewall Endpoints, FortiGate security integration.</li>
-          <li><strong>Alibaba Cloud:</strong> Cloud Enterprise Network (CEN) inter-region mesh, ALB (Application Load
-            Balancer), VPN Gateways, cross-border routing.</li>
+          <li><strong>Microsoft Azure:</strong><span class="detail-text"> vWAN hubs, ExpressRoute, HA VPN, Application Gateway, Azure Load
+            Balancers, Entra ID hybrid mesh.</span></li>
+          <li><strong>Amazon Web Services:</strong><span class="detail-text"> Transit Gateway (TGW) orchestration, Gateway Load Balancer (GWLB)
+            security insertion, ALB application load balancers, VGW VPN virtual gateways.</span></li>
+          <li><strong>Google Cloud:</strong><span class="detail-text"> Network Connectivity Center (NCC) routing, HA VPN, Classic VPN, Load
+            Balancing, Firewall Endpoints, FortiGate security integration.</span></li>
+          <li><strong>Alibaba Cloud:</strong><span class="detail-text"> Cloud Enterprise Network (CEN) inter-region mesh, ALB (Application Load
+            Balancer), VPN Gateways, cross-border routing.</span></li>
         </ul>
       </div>
     </div>
@@ -127,19 +151,23 @@ refactor: true
         <div class="competency-icon-wrapper systems-bg" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
           <i class="fas fa-server competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Systems & Infra</h4>
+        <h4 class="competency-card-title">
+          Systems & Infra
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>VMware Virtualization:</strong> vCenter, Cisco UCS Manager, UCS Manager, ESXi.</li>
-          <li><strong>Microsoft Stack:</strong> Active Directory Domain Services, Enterprise Certificate Authority (CA),
-            AD Group Policy Objects (GPO), ADFS identity, Hyper-V virtualization.</li>
-          <li><strong>Storage Systems:</strong> TrueNAS Core/SCALE configurations, StarWind Virtual SAN, TrueNAS
-            replication topologies, Distributed File System (DFS), DRBD high-availability storage.</li>
-          <li><strong>Database Systems:</strong> SQL Server Always On, SQL Server Agent Jobs,
-            Replication, Linked Servers.</li>
-          <li><strong>Reverse Proxy & Filtering:</strong> Nginx web services, Squid proxy caching, Artica secure proxy.
-          </li>
+          <li><strong>VMware Virtualization:</strong><span class="detail-text"> vCenter, Cisco UCS Manager, ESXi.</span></li>
+          <li><strong>Microsoft Stack:</strong><span class="detail-text"> Active Directory Domain Services, Enterprise Certificate Authority (CA),
+            AD Group Policy Objects (GPO), ADFS identity, Hyper-V virtualization.</span></li>
+          <li><strong>Storage Systems:</strong><span class="detail-text"> TrueNAS Core/SCALE configurations, StarWind Virtual SAN, TrueNAS
+            replication topologies, Distributed File System (DFS), DRBD high-availability storage.</span></li>
+          <li><strong>Database Systems:</strong><span class="detail-text"> SQL Server Always On, SQL Server Agent Jobs,
+            Replication, Linked Servers.</span></li>
+          <li><strong>Reverse Proxy & Filtering:</strong><span class="detail-text"> Nginx web services, Squid proxy caching, Artica secure proxy.</span></li>
         </ul>
       </div>
     </div>
@@ -150,22 +178,47 @@ refactor: true
         <div class="competency-icon-wrapper automation-bg" style="background: rgba(6, 182, 212, 0.1); color: #06B6D4;">
           <i class="fas fa-cogs competency-icon"></i>
         </div>
-        <h4 class="competency-card-title">Automation & AI</h4>
+        <h4 class="competency-card-title">
+          Automation & AI
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
       </div>
       <div class="competency-card-body">
         <ul class="competency-list">
-          <li><strong>Network Automation:</strong> Python scripting via Netmiko SSH libraries, automated configuration
-            parsing, custom Flask web microframework.</li>
-          <li><strong>Telemetry & Monitoring:</strong> InfluxDB, Prometheus, Grafana visualization dashboards, SNMP Node
-            Exporter telemetry, RSyslog central parsing, Grok filters, alert notifications via Telegram.</li>
-          <li><strong>Systems Operations:</strong> Linux server administration, Linux LVM storage sizing, Docker
-            container hosting, Nessus vulnerability scanning, Zabbix & PRTG & SolarWinds enterprise monitoring.</li>
-          <li><strong>AI Orchestration:</strong> Local AI models via Ollama and LM Studio, DeepSeek integration,
-            LangChain agent frameworks, Instructor structured output validation.</li>
+          <li><strong>Network Automation:</strong><span class="detail-text"> Python scripting via Netmiko SSH libraries, automated configuration
+            parsing, custom Flask web microframework.</span></li>
+          <li><strong>Telemetry & Monitoring:</strong><span class="detail-text"> InfluxDB, Prometheus, Grafana visualization dashboards, SNMP Node
+            Exporter telemetry, RSyslog central parsing, Grok filters, alert notifications via Telegram.</span></li>
+          <li><strong>Systems Operations:</strong><span class="detail-text"> Linux server administration, Linux LVM storage sizing, Docker
+            container hosting, Nessus vulnerability scanning, Zabbix & PRTG & SolarWinds enterprise monitoring.</span></li>
+          <li><strong>AI Orchestration:</strong><span class="detail-text"> Local AI models via Ollama and LM Studio, DeepSeek integration,
+            LangChain agent frameworks, Instructor structured output validation.</span></li>
         </ul>
       </div>
     </div>
   </div>
+
+  <script>
+    function toggleCompetencies(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const deck = document.querySelector('.competency-deck');
+      const isExpanded = deck.classList.toggle('all-expanded');
+      
+      const icons = deck.querySelectorAll('.competency-expand-icon');
+      icons.forEach(icon => {
+        if (isExpanded) {
+          icon.className = 'fas fa-chevron-up competency-expand-icon';
+        } else {
+          icon.className = 'fas fa-chevron-down competency-expand-icon';
+        }
+      });
+    }
+  </script>
 </div>
 
 <!-- Custom Sleek Tag Explorer -->
