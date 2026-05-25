@@ -1,0 +1,4 @@
+- name: fwconvert.senaperdiana.com
+  url: https://fwconvert.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Firewall Configuration Converter
