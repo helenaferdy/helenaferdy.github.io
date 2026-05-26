@@ -1,3 +1,7 @@
+- name: fwctraffic.senaperdiana.com
+  url: https://fwctraffic.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Firewall Traffic Inspector
 - name: fwconvert.senaperdiana.com
   url: https://fwconvert.senaperdiana.com
   icon: fas fa-exchange-alt
