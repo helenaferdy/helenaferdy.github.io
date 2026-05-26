@@ -1,8 +1,8 @@
-- name: fwctraffic.senaperdiana.com
-  url: https://fwctraffic.senaperdiana.com
+- name: Firewall Traffic Inspector
+  url: https://fwtraffic.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall Traffic Inspector
-- name: fwconvert.senaperdiana.com
+- name: Firewall Converter
   url: https://fwconvert.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall Configuration Converter
