@@ -1,3 +1,7 @@
+- name: CVE Monitor
+  url: https://cve.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Firewall CVE Monitor
 - name: Firewall Traffic Visualizer
   url: https://fwtraffic.senaperdiana.com
   icon: fas fa-exchange-alt
