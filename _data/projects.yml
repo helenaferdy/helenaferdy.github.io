@@ -1,4 +1,4 @@
-- name: Firewall Traffic Inspector
+- name: Firewall Traffic Visualizer
   url: https://fwtraffic.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall Traffic Inspector

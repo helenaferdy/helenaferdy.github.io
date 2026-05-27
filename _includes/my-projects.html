@@ -1,43 +1,51 @@
 <!-- My Other Projects panel component -->
 
 {% if site.data.projects and site.data.projects.size > 0 %}
-  <div id="access-projects" style="margin-bottom: 2.5rem !important;">
+  <div id="access-projects" class="mb-4">
     <div class="panel-heading">MY OTHER PROJECTS</div>
-    <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+    <div class="projects-container mt-3">
       {% for project in site.data.projects %}
-        <li class="project-item text-truncate lh-lg mb-1" style="position: relative; padding-left: 1.1rem !important;">
-          <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-link" style="font-weight: 500;">
-            {{ project.name }}
-          </a>
-        </li>
+        <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-spotlight-card d-block mb-3 p-3">
+          <div class="project-title">{{ project.name }}</div>
+          <div class="project-url-sub">{{ project.url | replace: "https://", "" | replace: "http://", "" }}</div>
+        </a>
       {% endfor %}
-    </ul>
+    </div>
   </div>
 
   <style>
-    #access-projects .project-link::before {
-      content: "•";
-      color: currentColor;
-      font-size: 1.6rem;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-52%);
-      transition: color 0.25s ease;
-    }
-    #access-projects .project-item {
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    #access-projects .project-item:hover {
-      transform: translateX(4px);
-    }
-    #access-projects .project-link {
-      color: var(--text-muted-color);
-      transition: color 0.25s ease;
+    .project-spotlight-card {
+      background: var(--card-bg, rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--main-border-color, rgba(255, 255, 255, 0.08));
+      border-radius: 8px;
       text-decoration: none !important;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    #access-projects .project-item:hover .project-link {
-      color: var(--link-color) !important;
+    
+    .project-spotlight-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--link-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+    
+    .project-spotlight-card:hover .project-title {
+      color: var(--link-color);
+    }
+    
+    .project-url-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted-color);
+      margin-top: 0.2rem;
+      opacity: 0.85;
+      font-family: var(--font-family-monospace, monospace);
     }
   </style>
 {% endif %}
