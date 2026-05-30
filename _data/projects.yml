@@ -10,3 +10,7 @@
   url: https://fwconvert.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall Configuration Converter
+- name: Internet Traceroute
+  url: https://itrace.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Internet Traceroute
