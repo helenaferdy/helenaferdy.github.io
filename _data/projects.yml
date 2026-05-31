@@ -1,3 +1,7 @@
+- name: Threat Honeypot
+  url: https://honeypot.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Threat Honeypot
 - name: CVE Monitor
   url: https://cve.senaperdiana.com
   icon: fas fa-exchange-alt
