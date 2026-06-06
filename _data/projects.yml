@@ -10,10 +10,14 @@
   url: https://fwtraffic.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall Traffic Inspector
-- name: Firewall Converter
+- name: Firewall Policy Auditor
+  url: https://fwaudit.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Firewall Policy Auditor
+- name: Firewall Policy Converter
   url: https://fwconvert.senaperdiana.com
   icon: fas fa-exchange-alt
-  description: Firewall Configuration Converter
+  description: Firewall Policy Converter
 - name: Internet Traceroute
   url: https://itrace.senaperdiana.com
   icon: fas fa-exchange-alt
