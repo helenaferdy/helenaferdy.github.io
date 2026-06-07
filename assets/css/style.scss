@@ -340,3 +340,22 @@ body:has(#post-list) .competency-matrix-container {
   .dashboard-tag-pill.toggle-btn {
     padding: 0.2rem 0.48rem !important;
   }}
+
+/* Post page sticky sidebar layout to prevent TOC and Projects collision */
+.sticky-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari/Chrome */
+  }
+}
+
+/* Override post.scss to disable individual TOC sticking, since the wrapper handles it */
+#toc-wrapper {
+  position: static !important;
+}
+

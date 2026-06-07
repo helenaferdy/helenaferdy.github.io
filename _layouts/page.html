@@ -43,14 +43,27 @@ layout: default
 
   <!-- panel -->
   <div id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
-    <div class="access">
-      {% include my-projects.html lang=lang %}
-    </div>
+    {% if page.layout == 'post' %}
+      <div class="sticky-sidebar">
+        {% for _include in layout.panel_includes %}
+          {% assign _include_path = _include | append: '.html' %}
+          {% include {{ _include_path }} lang=lang %}
+        {% endfor %}
 
-    {% for _include in layout.panel_includes %}
-      {% assign _include_path = _include | append: '.html' %}
-      {% include {{ _include_path }} lang=lang %}
-    {% endfor %}
+        <div class="access">
+          {% include my-projects.html lang=lang %}
+        </div>
+      </div>
+    {% else %}
+      <div class="access">
+        {% include my-projects.html lang=lang %}
+      </div>
+
+      {% for _include in layout.panel_includes %}
+        {% assign _include_path = _include | append: '.html' %}
+        {% include {{ _include_path }} lang=lang %}
+      {% endfor %}
+    {% endif %}
   </div>
 </div>
 

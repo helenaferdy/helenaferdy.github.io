@@ -1,19 +1,36 @@
 <!-- My Other Projects panel component -->
 
 {% if site.data.projects and site.data.projects.size > 0 %}
-  <div id="access-projects" class="mb-4">
-    <div class="panel-heading">MY OTHER PROJECTS</div>
-    <div class="projects-container mt-3">
-      {% for project in site.data.projects %}
-        <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-spotlight-card d-block mb-3 p-3">
-          <div class="project-title">{{ project.name }}</div>
-          <div class="project-url-sub">{{ project.url | replace: "https://", "" | replace: "http://", "" }}</div>
-        </a>
-      {% endfor %}
+  {% if page.layout == 'post' %}
+    <!-- Compact list view for post pages to save vertical space -->
+    <div id="access-projects" class="mb-4">
+      <div class="panel-heading">MY OTHER PROJECTS</div>
+      <div class="projects-compact-list mt-3">
+        {% for project in site.data.projects %}
+          <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-compact-item d-block">
+            <div class="project-title-compact">{{ project.name }}</div>
+            <div class="project-url-compact">{{ project.url | replace: "https://", "" | replace: "http://", "" }}</div>
+          </a>
+        {% endfor %}
+      </div>
     </div>
-  </div>
+  {% else %}
+    <!-- Standard card view for main pages -->
+    <div id="access-projects" class="mb-4">
+      <div class="panel-heading">MY OTHER PROJECTS</div>
+      <div class="projects-container mt-3">
+        {% for project in site.data.projects %}
+          <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-spotlight-card d-block mb-3 p-3">
+            <div class="project-title">{{ project.name }}</div>
+            <div class="project-url-sub">{{ project.url | replace: "https://", "" | replace: "http://", "" }}</div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 
   <style>
+    /* Standard Card Styles */
     .project-spotlight-card {
       background: var(--card-bg, rgba(255, 255, 255, 0.03));
       border: 1px solid var(--main-border-color, rgba(255, 255, 255, 0.08));
@@ -46,6 +63,41 @@
       margin-top: 0.2rem;
       opacity: 0.85;
       font-family: var(--font-family-monospace, monospace);
+    }
+
+    /* Compact List Styles for Post Page */
+    .project-compact-item {
+      text-decoration: none !important;
+      border-left: 2px solid var(--main-border-color, rgba(255, 255, 255, 0.08));
+      padding-left: 0.75rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    
+    .project-compact-item:hover {
+      border-left-color: var(--link-color);
+      padding-left: 0.9rem;
+    }
+    
+    .project-title-compact {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-color);
+      line-height: 1.2;
+      transition: color 0.2s ease;
+    }
+    
+    .project-compact-item:hover .project-title-compact {
+      color: var(--link-color);
+    }
+    
+    .project-url-compact {
+      font-size: 0.65rem;
+      color: var(--text-muted-color);
+      opacity: 0.8;
+      font-family: var(--font-family-monospace, monospace);
+      margin-top: 0.1rem;
+      line-height: 1.1;
     }
   </style>
 {% endif %}
