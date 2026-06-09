@@ -1,7 +1,7 @@
 ---
 title: Burp Suite
 date: 2026-06-04 11:30:00 +0700
-categories: [Security, Burp Suite]
+categories: [Other, Burp Suite]
 tags: [Burp Suite]
 ---
 
