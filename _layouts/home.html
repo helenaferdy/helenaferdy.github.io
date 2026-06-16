@@ -244,67 +244,57 @@ refactor: true
   </div>
 
   <script>
-    // Define functions globally for compatibility with any cached HTML containing inline onclick handlers
     window.toggleCard = function(card, event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();
       }
-      
-      const titleText = card.querySelector('.competency-card-title').innerText.trim();
-      const iconWrapper = card.querySelector('.competency-icon-wrapper');
-      const bodyContent = card.querySelector('.competency-card-body').innerHTML;
-      
-      const sheet = document.getElementById('expertise-bottom-sheet');
+
+      var titleText = card.querySelector('.competency-card-title').innerText.trim();
+      var iconWrapper = card.querySelector('.competency-icon-wrapper');
+      var bodyContent = card.querySelector('.competency-card-body').innerHTML;
+
+      var sheet = document.getElementById('expertise-bottom-sheet');
       if (sheet) {
-        // Set title and icon
         sheet.querySelector('.bottom-sheet-title').innerText = titleText;
         sheet.querySelector('.bottom-sheet-icon').innerHTML = iconWrapper.innerHTML;
-        
-        // Transfer background & text color classes to bottom-sheet icon
-        const sheetIconSpan = sheet.querySelector('.bottom-sheet-icon');
+
+        var sheetIconSpan = sheet.querySelector('.bottom-sheet-icon');
         sheetIconSpan.className = 'bottom-sheet-icon ' + iconWrapper.className;
-        
-        // Load the competency card body list
+
         sheet.querySelector('.bottom-sheet-body').innerHTML = bodyContent;
-        
-        // Open the bottom sheet
+
         sheet.classList.add('is-open');
-        document.body.style.overflow = 'hidden'; // prevent background scrolling
+        document.body.style.overflow = 'hidden';
       }
     };
 
     window.closeBottomSheet = function() {
-      const sheet = document.getElementById('expertise-bottom-sheet');
+      var sheet = document.getElementById('expertise-bottom-sheet');
       if (sheet) {
         sheet.classList.remove('is-open');
-        document.body.style.overflow = ''; // restore background scrolling
+        document.body.style.overflow = '';
       }
     };
 
-    // Global event delegation for clicks - bulletproof against caching, timing, and dynamic layout swaps
     document.addEventListener('click', function(event) {
-      // 1. Competency card click (or any element inside it)
-      const card = event.target.closest('.competency-card');
+      var card = event.target.closest('.competency-card');
       if (card) {
         window.toggleCard(card, event);
         return;
       }
 
-      // 2. Bottom sheet backdrop click
       if (event.target.closest('.bottom-sheet-backdrop')) {
         window.closeBottomSheet();
         return;
       }
 
-      // 3. Bottom sheet close button click
       if (event.target.closest('.bottom-sheet-close')) {
         window.closeBottomSheet();
         return;
       }
     });
 
-    // Escape key listener to close active overlays
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         window.closeBottomSheet();
@@ -519,10 +509,10 @@ refactor: true
 
       <script>
         window.toggleTags = function() {
-          const wrapper = document.getElementById('tag-cloud-wrapper');
-          const icon = document.getElementById('toggle-icon');
+          var wrapper = document.getElementById('tag-cloud-wrapper');
+          var icon = document.getElementById('toggle-icon');
           if (wrapper && icon) {
-            const isCollapsed = wrapper.classList.toggle('collapsed');
+            var isCollapsed = wrapper.classList.toggle('collapsed');
             if (isCollapsed) {
               icon.className = 'fas fa-chevron-down text-muted-color';
             } else {
@@ -531,9 +521,8 @@ refactor: true
           }
         };
 
-        // Event delegation for toggle tags button
         document.addEventListener('click', function(event) {
-          const toggleTagsBtn = event.target.closest('#toggle-all-tags');
+          var toggleTagsBtn = event.target.closest('#toggle-all-tags');
           if (toggleTagsBtn) {
             window.toggleTags();
           }
