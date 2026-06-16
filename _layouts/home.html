@@ -244,8 +244,8 @@ refactor: true
   </div>
 
   <script>
-    // Define functions
-    function toggleCard(card, event) {
+    // Define functions globally for compatibility with any cached HTML containing inline onclick handlers
+    window.toggleCard = function(card, event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();
@@ -272,54 +272,44 @@ refactor: true
         sheet.classList.add('is-open');
         document.body.style.overflow = 'hidden'; // prevent background scrolling
       }
-    }
+    };
 
-    function closeBottomSheet() {
+    window.closeBottomSheet = function() {
       const sheet = document.getElementById('expertise-bottom-sheet');
       if (sheet) {
         sheet.classList.remove('is-open');
         document.body.style.overflow = ''; // restore background scrolling
       }
-    }
+    };
 
-    function initCompetencyCards() {
-      // 1. Bind competency cards
-      const cards = document.querySelectorAll('.competency-card');
-      cards.forEach(function(card) {
-        card.addEventListener('click', function(event) {
-          toggleCard(this, event);
-        });
-      });
-
-      // 2. Bind bottom sheet backdrop
-      const backdrop = document.querySelector('.bottom-sheet-backdrop');
-      if (backdrop) {
-        backdrop.addEventListener('click', function() {
-          closeBottomSheet();
-        });
+    // Global event delegation for clicks - bulletproof against caching, timing, and dynamic layout swaps
+    document.addEventListener('click', function(event) {
+      // 1. Competency card click (or any element inside it)
+      const card = event.target.closest('.competency-card');
+      if (card) {
+        window.toggleCard(card, event);
+        return;
       }
 
-      // 3. Bind bottom sheet close button
-      const closeBtn = document.querySelector('.bottom-sheet-close');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-          closeBottomSheet();
-        });
+      // 2. Bottom sheet backdrop click
+      if (event.target.closest('.bottom-sheet-backdrop')) {
+        window.closeBottomSheet();
+        return;
       }
 
-      // 4. Bind Escape key
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          closeBottomSheet();
-        }
-      });
-    }
+      // 3. Bottom sheet close button click
+      if (event.target.closest('.bottom-sheet-close')) {
+        window.closeBottomSheet();
+        return;
+      }
+    });
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCompetencyCards);
-    } else {
-      initCompetencyCards();
-    }
+    // Escape key listener to close active overlays
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        window.closeBottomSheet();
+      }
+    });
   </script>
 </div>
 
@@ -528,29 +518,26 @@ refactor: true
       </button>
 
       <script>
-        function initToggleTags() {
-          const toggleTagsBtn = document.getElementById('toggle-all-tags');
-          if (toggleTagsBtn) {
-            toggleTagsBtn.addEventListener('click', function() {
-              const wrapper = document.getElementById('tag-cloud-wrapper');
-              const icon = document.getElementById('toggle-icon');
-              if (wrapper && icon) {
-                const isCollapsed = wrapper.classList.toggle('collapsed');
-                if (isCollapsed) {
-                  icon.className = 'fas fa-chevron-down text-muted-color';
-                } else {
-                  icon.className = 'fas fa-chevron-up text-muted-color';
-                }
-              }
-            });
+        window.toggleTags = function() {
+          const wrapper = document.getElementById('tag-cloud-wrapper');
+          const icon = document.getElementById('toggle-icon');
+          if (wrapper && icon) {
+            const isCollapsed = wrapper.classList.toggle('collapsed');
+            if (isCollapsed) {
+              icon.className = 'fas fa-chevron-down text-muted-color';
+            } else {
+              icon.className = 'fas fa-chevron-up text-muted-color';
+            }
           }
-        }
+        };
 
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initToggleTags);
-        } else {
-          initToggleTags();
-        }
+        // Event delegation for toggle tags button
+        document.addEventListener('click', function(event) {
+          const toggleTagsBtn = event.target.closest('#toggle-all-tags');
+          if (toggleTagsBtn) {
+            window.toggleTags();
+          }
+        });
       </script>
       {% endif %}
   </div>
