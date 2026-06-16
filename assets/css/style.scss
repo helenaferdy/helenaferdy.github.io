@@ -364,3 +364,16 @@ body:has(#post-list) .competency-matrix-container {
   position: static !important;
 }
 
+/* Sidebar profile font sizes adjustment to fit on single lines */
+#sidebar {
+  .site-title {
+    font-size: 1.12rem !important;
+    white-space: nowrap !important;
+  }
+  .site-subtitle {
+    font-size: 0.71rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+

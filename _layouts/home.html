@@ -381,11 +381,38 @@ refactor: true
       <path
         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2c1.66 0 3 1.34 3 3v2c0 1.66-1.34 3-3 3zm0-2c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1h-1v4h1z" />
     </svg>
-    {% elsif tag_slug contains 'cisco' or tag_slug contains 'ise' or tag_slug contains 'asa' or tag_slug contains 'ftd'
-    or tag_slug contains 'cucm' or tag_slug contains 'umbrella' or tag_slug contains 'sd-wan' or tag_slug contains
-    'sd-access' or tag_slug contains 'thousandeyes' or tag_slug contains 'stealthwatch' or tag_slug contains
-    'secure-endpoint' or tag_slug contains 'cce' or tag_slug contains 'acs' or tag_slug contains 'ccx' or tag_slug
-    contains 'cms' %}
+    {% elsif tag_slug contains 'thousandeyes' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #5F259F; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+    </svg>
+    {% elsif tag_slug contains 'umbrella' %}
+    <i class="fas fa-umbrella me-1" style="color: #00A3E0; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'stealthwatch' %}
+    <i class="fas fa-binoculars me-1" style="color: #2E7D32; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'secure-endpoint' %}
+    <i class="fas fa-shield-virus me-1" style="color: #C2185B; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'ise' %}
+    <i class="fas fa-user-shield me-1" style="color: #008080; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'ftd' %}
+    <i class="fas fa-fire-alt me-1" style="color: #E64A19; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'asa' %}
+    <i class="fas fa-shield-alt me-1" style="color: #0288D1; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'cucm' %}
+    <i class="fas fa-phone-alt me-1" style="color: #0D47A1; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'sd-wan' %}
+    <i class="fas fa-route me-1" style="color: #007A87; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'sd-access' %}
+    <i class="fas fa-sitemap me-1" style="color: #4A90E2; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'cce' or tag_slug contains 'ccx' %}
+    <i class="fas fa-headset me-1" style="color: #FF8F00; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'cms' %}
+    <i class="fas fa-video me-1" style="color: #1565C0; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'vg' %}
+    <i class="fas fa-tty me-1" style="color: #37474F; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'acs' %}
+    <i class="fas fa-key me-1" style="color: #78909C; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'cisco' %}
     <svg class="tag-logo" viewBox="0 0 24 24"
       style="width: 14px; height: 14px; fill: #049FD9; display: inline-block; vertical-align: middle; margin-right: 4px;">
       <rect x="2" y="10" width="1.5" height="4" rx="0.75" />
@@ -443,6 +470,47 @@ refactor: true
     <i class="fas fa-database me-1" style="color: #CC292B; font-size: 0.85rem; vertical-align: middle;"></i>
     {% elsif tag_slug contains 'docker' %}
     <i class="fab fa-docker me-1" style="color: #2496ED; font-size: 0.9rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'sentinelone' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #7C3AED; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M12 2L2 7v6c0 5.52 4.48 10 10 10s10-4.48 10-10V7l-10-5zm-1 14.5c-1.93 0-3.5-1.57-3.5-3.5h1.5c0 1.1.9 2 2 2s2-.9 2-2c0-1.1-.9-2-2-2-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5h-1.5c0-1.1-.9-2-2-2-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5z"/>
+    </svg>
+    {% elsif tag_slug contains 'wazuh' %}
+    <svg class="tag-logo" viewBox="0 0 48 48"
+      style="width: 14px; height: 14px; fill: #3585F8; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path fill="#3585f8" d="M24 0C10.971 0 0 10.971 0 24s10.629 24 24 24 24-10.629 24-24S37.029 0 24 0m1.371 32.914-4.114-13.029-4.114 13.029h-3.086L8.571 14.743H12l3.771 12.343 3.772-12.343h3.086l3.77 12.343 3.772-12.343H33.6l-5.143 18.171zm10.971.343c-1.714 0-2.743-1.372-2.743-2.743 0-1.714 1.372-2.743 2.743-2.743 1.372 0 2.743 1.371 2.743 2.743s-1.028 2.743-2.743 2.743"/>
+    </svg>
+    {% elsif tag_slug contains 'elastic' %}
+    <svg class="tag-logo" viewBox="0 0 256 256"
+      style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path fill="#F4BD19" d="m100.085 110.364 57.043 26.119 57.669-50.565a64.3 64.3 0 0 0 1.253-12.746c0-35.52-28.834-64.355-64.355-64.355-21.313 0-41.162 10.447-53.072 27.998l-9.612 49.73 11.074 23.82z"/>
+      <path fill="#3CBEB1" d="M40.953 170.75c-.835 4.179-1.253 8.567-1.253 12.955 0 35.52 29.043 64.564 64.564 64.564 21.522 0 41.372-10.656 53.49-28.208l9.403-49.729-12.746-24.238-57.251-26.118z"/>
+      <path fill="#E9478C" d="m40.536 71.918 39.073 9.194 8.775-44.506c-5.432-4.179-11.91-6.268-18.805-6.268-16.925 0-30.924 13.79-30.924 30.924 0 3.552.627 7.313 1.88 10.656z"/>
+      <path fill="#2C458F" d="M37.192 81.32c-17.551 5.642-29.67 22.567-29.67 40.954 0 17.97 11.074 34.059 27.79 40.327l54.953-49.73-10.03-21.52-43.043-10.03z"/>
+      <path fill="#95C63D" d="M167.784 219.852c5.432 4.18 11.91 6.478 18.596 6.478 16.925 0 30.924-13.79 30.924-30.924q0-5.642-1.88-10.657l-39.073-9.193z"/>
+      <path fill="#176655" d="m175.724 165.317 43.043 10.03c17.551-5.85 29.67-22.566 29.67-40.954 0-17.97-11.074-33.849-27.79-40.326l-56.415 49.311 11.492 21.94z"/>
+    </svg>
+    {% elsif tag_slug contains 'sophos' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #005495; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zm-1-6l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/>
+    </svg>
+    {% elsif tag_slug contains 'vmware' %}
+    <svg class="tag-logo" viewBox="0 0 24 24"
+      style="width: 14px; height: 14px; fill: #0095D9; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path fill-rule="evenodd" d="M5.574 0c-.959 0-1.728.754-1.728 1.68v5.744H1.728C.77 7.424 0 8.18 0 9.104v12.438c0 .926.77 1.68 1.728 1.68H14.58c.96 0 1.753-.754 1.753-1.68v-2.045h5.939c.958 0 1.728-.757 1.728-1.68V5.38c0-.924-.77-1.655-1.728-1.655h-2.118V1.68c0-.926-.771-1.68-1.728-1.68zm0 .95h12.852c.42 0 .755.323.755.73v2.044H9.42c-.957 0-1.753.731-1.753 1.655v2.045H4.82V1.68c0-.407.332-.73.755-.73m3.846 3.7h9.76v9.443a.76.76 0 0 1-.754.755h-2.093V9.103c0-.923-.794-1.68-1.753-1.68h-5.94V5.38c0-.406.36-.73.779-.73m10.734 0h2.118c.42 0 .754.323.754.73v12.437c0 .406-.334.73-.754.73h-5.94v-2.75h2.094c.957 0 1.728-.778 1.728-1.704zM1.728 8.372h2.118v5.72c0 .926.769 1.704 1.728 1.704h2.093v2.02c0 .923.796 1.68 1.753 1.68h5.939v2.045c0 .406-.356.73-.779.73H1.728a.735.735 0 0 1-.754-.73V9.103c0-.405.329-.73.754-.73m3.091 0h2.848v6.475H5.574a.757.757 0 0 1-.755-.755zm3.822 0h5.94c.422 0 .778.325.778.73v5.745H8.641zm0 7.424h6.718v2.75h-5.94c-.419 0-.778-.324-.778-.73z"/>
+    </svg>
+    {% elsif tag_slug contains 'burp' %}
+    <svg class="tag-logo" viewBox="0 0 50 50"
+      style="width: 14px; height: 14px; fill: #FF6633; display: inline-block; vertical-align: middle; margin-right: 4px;">
+      <path d="M 8 4 C 5.792969 4 4 5.792969 4 8 L 4 42 C 4 44.207031 5.792969 46 8 46 L 24 46 L 24 38.585938 L 32.585938 30 L 24 30 L 24 21 L 12.585938 21 L 24 9.585938 L 24 4 Z M 26 4 L 26 10.414063 L 17.414063 19 L 26 19 L 26 28 L 37.414063 28 L 26 39.414063 L 26 46 L 42 46 C 44.207031 46 46 44.207031 46 42 L 46 8 C 46 5.792969 44.207031 4 42 4 Z"/>
+    </svg>
+    {% elsif tag_slug contains 'proxy' %}
+    <i class="fas fa-exchange-alt me-1" style="color: #6366F1; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'calabrio' %}
+    <i class="fas fa-headset me-1" style="color: #8B5CF6; font-size: 0.85rem; vertical-align: middle;"></i>
+    {% elsif tag_slug contains 'nice' %}
+    <i class="fas fa-tape me-1" style="color: #3B82F6; font-size: 0.85rem; vertical-align: middle;"></i>
     {% else %}
     <i class="fas fa-hashtag text-muted-color me-1" style="font-size: 0.8rem; vertical-align: middle;"></i>
     {% endif %}
