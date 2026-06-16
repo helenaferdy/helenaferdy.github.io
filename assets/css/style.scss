@@ -25,11 +25,10 @@
    ========================================================================== */
 
 .tag-cloud-card {
-  background: var(--card-bg);
-  border: 1px solid var(--main-border-color);
-  border-radius: 12px;
-  padding: 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.015);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.75rem 0 !important;
   transition: all 0.3s ease;
 }
 
@@ -105,66 +104,33 @@ html[data-mode="dark"] .dashboard-tag-count {
    ========================================================================== */
 
 .competency-deck {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--main-border-color) transparent;
-  
-  &::-webkit-scrollbar {
-    height: 6px;
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--main-border-color);
-    border-radius: 10px;
-    
-    &:hover {
-      background-color: var(--link-color);
-    }
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  padding: 0.25rem 0 0.75rem 0;
+  margin: 0;
 }
 
 .competency-card {
-  flex: 0 0 85%;
-  max-width: 350px;
-  scroll-snap-align: start;
-  background: var(--card-bg);
-  border: 1px solid var(--main-border-color);
-  border-radius: 12px;
-  padding: 0.85rem 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.015);
-  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: #1b1b22;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.07) !important; /* Overrides inline top borders */
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 0;
-    border-radius: 12px;
-    pointer-events: none;
-  }
-  
 
-  
-  @media (min-width: 768px) {
-    flex: 0 0 350px;
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--link-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -172,19 +138,24 @@ html[data-mode="dark"] .dashboard-tag-count {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0;
+  width: 100%;
   position: relative;
   z-index: 1;
 }
 
 .competency-icon-wrapper {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  
+  .competency-icon {
+    font-size: 0.9rem;
+  }
   
   &.security-bg {
     background: rgba(218, 41, 28, 0.1);
@@ -203,56 +174,52 @@ html[data-mode="dark"] .dashboard-tag-count {
 }
 
 .competency-icon {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .competency-card-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   margin: 0 !important;
   padding: 0 !important;
   line-height: 1.2 !important;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  color: var(--text-color);
+  color: #E0E0E0 !important; /* High contrast bright off-white */
   width: 100%;
-  justify-content: space-between;
+}
+
+.competency-expand-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 0.25rem !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--text-muted-color) !important;
+  font-size: 0.75rem !important;
+  transition: all 0.25s ease !important;
+  outline: none !important;
+  border-radius: 4px !important;
+  margin-left: auto !important;
+  pointer-events: none !important;
+}
+
+.competency-expand-icon {
+  transition: transform 0.25s ease !important;
+  display: inline-block !important;
 }
 
 .competency-card-body {
-  position: relative;
-  z-index: 1;
-  flex-grow: 1;
+  display: none !important;
 }
 
 .competency-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  
-  li {
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: var(--text-muted-color);
-    position: relative;
-    padding-left: 0.85rem;
-    
-    &::before {
-      content: '•';
-      color: var(--link-color);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    
-    strong {
-      color: var(--text-color);
-    }
-  }
 }
 
 /* ==========================================================================
@@ -376,4 +343,599 @@ body:has(#post-list) .competency-matrix-container {
   }
 }
 
+/* ==========================================================================
+   MOBILE RESPONSIVE OPTIMIZATIONS (Smaller Viewports Layout & Behavior)
+   ========================================================================== */
+
+/* 1. Projects Carousel (Viewport < 1200px) */
+@media (max-width: 1199px) {
+  .mobile-only-projects {
+    margin-bottom: 1.5rem;
+
+    .panel-heading {
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.2px !important;
+      color: var(--text-muted-color) !important;
+      margin-bottom: 0.5rem !important;
+    }
+  }
+
+  .projects-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.75rem !important; /* Premium tight gap */
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0.25rem 0 0.75rem 0 !important; /* Zero horizontal padding to align naturally with core padding */
+    margin-left: 0 !important; /* Align exactly within parent padding */
+    margin-right: 0 !important;
+    margin-top: 0.75rem !important;
+    
+    /* Hide scrollbar completely to remove stray line */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none !important; /* Chrome, Safari, Opera */
+    }
+  }
+
+  .project-spotlight-card {
+    flex: 0 0 180px !important; /* Fixed equal width based on widest title */
+    width: 180px !important;
+    max-width: 270px !important;
+    height: 56px !important; /* Fixed height to align all cards */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;
+    padding: 0.45rem 0.65rem !important; /* Reduced vertical & horizontal padding */
+    background: #1b1b22 !important; /* Lightened slate/obsidian dark background */
+    border: 1px solid rgba(255, 255, 255, 0.07) !important; /* Crisp white/7% border */
+    border-radius: 8px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .mobile-only-projects {
+    .project-title {
+      font-size: 0.85rem !important; /* Reduced font size */
+      font-weight: 700 !important;
+      display: block !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important; /* Prevent text wrapping to 2 rows */
+    }
+    
+    .project-url-sub {
+      font-size: 0.58rem !important; /* Reduced font size of FQDN */
+      margin-top: 0px !important; /* Bring URL text closer to title */
+      line-height: 1.1 !important;
+      white-space: nowrap !important; /* Prevent text wrapping */
+    }
+  }
+}
+
+/* 2. Competency Cards 2-Column Grid & Bottom-Sheet Modal (Viewport < 992px) */
+@media (max-width: 991px) {
+  .competency-deck {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2-column grid */
+    gap: 0.5rem !important; /* Tighter gap */
+    overflow-x: visible !important;
+    padding: 0.25rem 0.25rem !important;
+  }
+
+  .competency-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    scroll-snap-align: none !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 0.65rem !important; /* Tighter padding */
+    margin-bottom: 0 !important;
+    background: #1b1b22 !important; /* Lightened obsidian slate dark */
+    border: 1px solid rgba(255, 255, 255, 0.07) !important; /* Crisp white/7% border overrides inline 4px colored border-top */
+    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+    display: flex !important;
+    flex-direction: row !important; /* Put icon next to title horizontally */
+    align-items: center !important;
+    justify-content: flex-start !important; /* Align left */
+    text-align: left !important;
+    min-height: auto !important; /* Remove height constraint */
+    cursor: pointer !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: var(--link-color) !important;
+    }
+  }
+
+  .competency-card-header {
+    display: flex !important;
+    flex-direction: row !important; /* Align logo and title horizontally */
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    cursor: pointer !important;
+  }
+
+  .competency-icon-wrapper {
+    width: 28px !important; /* Compact icon wrapper */
+    height: 28px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    .competency-icon {
+      font-size: 0.85rem !important; /* Tighter icon font-size */
+    }
+  }
+
+  .competency-card-title {
+    font-size: 0.78rem !important; /* Compact text size */
+    font-weight: 600 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* Push chevron to the right */
+    flex-grow: 1 !important;
+    margin: 0 !important;
+    width: auto !important;
+    line-height: 1.2 !important;
+    color: var(--text-color) !important;
+  }
+
+
+
+  .competency-card-body {
+    display: none !important; /* Hide body text inside grid cards */
+  }
+  
+  /* Bottom Sheet Overlay Styles */
+  .expertise-bottom-sheet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+  }
+
+  .expertise-bottom-sheet.is-open {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .bottom-sheet-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .expertise-bottom-sheet.is-open .bottom-sheet-backdrop {
+    opacity: 1;
+  }
+
+  .bottom-sheet-container {
+    position: relative;
+    width: 100%;
+    max-height: 80%;
+    background: #1b1b22; /* Lightened obsidian/slate dark background */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px 20px 0 0;
+    padding: 1.25rem 1.25rem 2.25rem 1.25rem;
+    z-index: 2001;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .expertise-bottom-sheet.is-open .bottom-sheet-container {
+    transform: translateY(0);
+  }
+
+  .bottom-sheet-handle {
+    width: 36px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin: 0 auto 1rem auto;
+    flex-shrink: 0;
+  }
+
+  .bottom-sheet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .bottom-sheet-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    
+    .competency-icon {
+      font-size: 1rem !important;
+    }
+  }
+
+  .bottom-sheet-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  .bottom-sheet-close {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: var(--text-muted-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+
+  .bottom-sheet-body {
+    overflow-y: auto;
+    flex-grow: 1;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 0.25rem;
+
+    .competency-card-body {
+      display: block !important;
+    }
+
+    .detail-text {
+      display: inline !important;
+    }
+
+    .competency-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.85rem !important;
+      padding-left: 0 !important;
+
+      li {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+        color: var(--text-muted-color) !important;
+        padding-left: 1rem !important;
+
+        &::before {
+          font-size: 1rem !important;
+          color: var(--link-color) !important;
+        }
+        
+        strong {
+          color: var(--text-color) !important;
+        }
+      }
+    }
+  }
+}
+
+/* 3. Streamlined Tag Cloud & Header Alignments (Viewport < 768px) */
+@media (max-width: 768px) {
+  .mobile-only-projects .panel-heading {
+    text-align: right !important; /* Move header to be aligned right */
+  }
+
+  .tag-cloud-card {
+    padding: 0.5rem 0 !important;
+    border: none !important; /* Soften Tag Container box border line */
+    background: transparent !important; /* sit cleanly on main background */
+    box-shadow: none !important;
+  }
+
+  .tag-cloud-wrapper {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.35rem !important;
+    padding: 0.25rem 1rem 0.5rem 1rem !important; /* Inner padding for edge-to-edge scrolling */
+    margin-left: -1rem !important; /* Stretch tag track to viewport edges */
+    margin-right: -1rem !important;
+    
+    /* Hide scrollbar completely to remove stray line */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none !important; /* Chrome, Safari, Opera */
+    }
+
+    /* Override collapsed state, show all tags in the horizontal row */
+    &.collapsed .collapsed-tag {
+      display: inline-flex !important;
+    }
+  }
+
+  #toggle-all-tags {
+    display: none !important;
+  }
+
+  .dashboard-tag-pill {
+    flex-shrink: 0 !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* 4. Blog Post Previews Typography, Alignments & Padding (Viewport < 768px) */
+@media (max-width: 767px) {
+  .post-preview {
+    background: #1b1b22 !important; /* Lighten card background */
+    border: 1px solid rgba(255, 255, 255, 0.07) !important; /* Crisp white/7% border definition */
+    border-radius: 10px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .post-preview .card-body {
+    padding: 1.1rem 1.1rem !important;
+    min-height: auto !important;
+  }
+
+  .post-preview .card-text.post-content p {
+    line-height: 1.6 !important;
+    font-size: 0.78rem !important; /* Reduced by 1 point (from ~0.85rem) */
+  }
+
+  .post-preview .post-meta {
+    font-size: 0.68rem !important; /* Reduced by 1 point (from ~0.75rem) */
+  }
+}
+
+/* ==========================================================================
+   DESKTOP HIDDEN SIDE DRAWER (Viewport >= 992px)
+   ========================================================================== */
+@media (min-width: 992px) {
+  .expertise-bottom-sheet {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2000 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    transition: visibility 0.35s ease !important;
+  }
+
+  .expertise-bottom-sheet.is-open {
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+
+  .bottom-sheet-backdrop {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    opacity: 0 !important;
+    transition: opacity 0.35s ease !important;
+    z-index: 2001 !important;
+  }
+
+  .expertise-bottom-sheet.is-open .bottom-sheet-backdrop {
+    opacity: 1 !important;
+  }
+
+  .bottom-sheet-container {
+    position: relative !important;
+    width: 440px !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    background: #16161b !important; /* Elevated obsidian/slate dark background */
+    border-left: 1px solid rgba(255, 255, 255, 0.08) !important; /* Very thin border */
+    border-top: none !important;
+    border-radius: 0 !important;
+    padding: 2.25rem 2.5rem 2.25rem 2rem !important;
+    z-index: 2002 !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .expertise-bottom-sheet.is-open .bottom-sheet-container {
+    transform: translateX(0) !important;
+  }
+
+  .bottom-sheet-handle {
+    display: none !important;
+  }
+
+  .bottom-sheet-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.85rem !important;
+    margin-bottom: 1.75rem !important;
+    flex-shrink: 0 !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .bottom-sheet-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    
+    .competency-icon {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  .bottom-sheet-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin: 0 !important;
+  }
+
+  .bottom-sheet-close {
+    margin-left: auto !important;
+    background: transparent !important;
+    border: none !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 1.75rem !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    transition: color 0.2s ease !important;
+    
+    &:hover {
+      color: #FFFFFF !important;
+    }
+  }
+
+  .bottom-sheet-body {
+    overflow-y: auto !important;
+    flex-grow: 1 !important;
+    padding-right: 0.5rem !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent !important;
+
+    &::-webkit-scrollbar {
+      width: 4px !important;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent !important;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-radius: 2px !important;
+    }
+
+    .competency-card-body {
+      display: block !important;
+    }
+
+    .detail-text {
+      display: inline !important;
+    }
+
+    .competency-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1.25rem !important;
+      padding-left: 0 !important;
+
+      li {
+        font-size: 0.88rem !important;
+        line-height: 1.65 !important;
+        color: #E0E0E0 !important; /* High-contrast off-white text */
+        padding-left: 1.25rem !important;
+        position: relative !important;
+        list-style-type: none !important;
+
+        &::before {
+          content: '•' !important;
+          color: var(--link-color) !important;
+          font-size: 1.25rem !important;
+          position: absolute !important;
+          left: 0 !important;
+          top: -0.1rem !important;
+        }
+        
+        strong {
+          color: #FFFFFF !important;
+          font-weight: 700 !important;
+          display: inline !important;
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   DESKTOP SIDEBAR PROJECTS REFRESH (Viewport >= 1200px)
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .projects-container {
+    margin-top: 0.75rem !important;
+  }
+  
+  .project-spotlight-card {
+    background: #1b1b22 !important; /* Obsidian slate dark background */
+    border: 1px solid rgba(255, 255, 255, 0.07) !important; /* Crisp white/7% border */
+    border-radius: 8px !important;
+    padding: 0.65rem 0.85rem !important; /* Compact padding */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    margin-bottom: 0.75rem !important;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: var(--link-color) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+    }
+  }
+
+  .project-title {
+    font-size: 1rem !important; /* Increased title size */
+    font-weight: 700 !important; /* Premium and bold */
+    color: var(--text-color) !important;
+    line-height: 1.2 !important;
+  }
+  
+  .project-spotlight-card:hover .project-title {
+    color: var(--link-color) !important;
+  }
+  
+  .project-url-sub {
+    font-size: 0.72rem !important;
+    color: rgba(255, 255, 255, 0.6) !important; /* Increased contrast for muted URL */
+    margin-top: 0.15rem !important;
+    line-height: 1.1 !important;
+    opacity: 1 !important;
+  }
+}
 
