@@ -87,7 +87,9 @@ refactor: true
         margin-right: 0 !important;
       }
       .dashboard-tag-pill.toggle-btn {
-        padding: 0.2rem 0.48rem !important;
+        padding: 0.35rem 2.5rem !important; /* Extremely wide and tall for mobile touch safety */
+        min-width: 70px !important;
+        justify-content: center;
       }
     }
   </style>
@@ -120,6 +122,28 @@ refactor: true
       </div>
     </div>
 
+    <!-- Pillar 1.5: EDR/XDR & SIEM -->
+    <div class="competency-card" style="border-top: 4px solid #F97316;" onclick="expandCompetencies(event)">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper" style="background: rgba(249, 115, 22, 0.1); color: #F97316;">
+          <i class="fas fa-crosshairs competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">
+          EDR/XDR & SIEM
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>SentinelOne:</strong><span class="detail-text"> Singularity EDR/XDR agents, behavioral/static AI engines, threat mitigation (kill, quarantine, remediation, rollback), Deep Visibility S1QL threat hunting, local firewall control, hash blocklisting.</span></li>
+          <li><strong>Elastic Security:</strong><span class="detail-text"> SIEM log ingestion, Fleet agent policies, syslog proxies, ES|QL queries, prebuilt detection rules, Elastic Defend NGAV, network host containment, AI Attack Discovery (Claude 4.6).</span></li>
+          <li><strong>Wazuh EDR:</strong><span class="detail-text"> Wazuh Cloud SIEM, FIM real-time content diffs, Windows Defender logs, automated SOAR Active Response firewall blocks, MITRE ATT&CK mappings, SCA compliance benchmarks, IT hygiene.</span></li>
+        </ul>
+      </div>
+    </div>
+
     <!-- Pillar 2: Identity & App Delivery -->
     <div class="competency-card" style="border-top: 4px solid #049FD9;" onclick="expandCompetencies(event)">
       <div class="competency-card-header">
@@ -143,60 +167,6 @@ refactor: true
             ISE, Check Point, Fortinet, and Palo Alto.</span></li>
           <li><strong>Entra ID & ADFS:</strong><span class="detail-text"> Azure AD IDP configurations, identity protection, Active Directory
             Federation Services (ADFS) single-sign-on integration.</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Pillar 3: Enterprise Collaboration -->
-    <div class="competency-card" style="border-top: 4px solid #4F46E5;" onclick="expandCompetencies(event)">
-      <div class="competency-card-header">
-        <div class="competency-icon-wrapper collab-bg" style="background: rgba(79, 70, 229, 0.1); color: #4F46E5;">
-          <i class="fas fa-headset competency-icon"></i>
-        </div>
-        <h4 class="competency-card-title">
-          Enterprise Collaboration
-          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
-            <i class="fas fa-chevron-down competency-expand-icon"></i>
-          </button>
-        </h4>
-      </div>
-      <div class="competency-card-body">
-        <ul class="competency-list">
-          <li><strong>Cisco UCM & Unity:</strong><span class="detail-text"> CUCM administration, EM/Extension Mobility, Unity Connection
-            voicemail, CUCM Single-Sign-On (SSO), Cloud Connected UC (CCUC).</span></li>
-          <li><strong>Contact Center:</strong><span class="detail-text"> Packaged CCE (PCCE), UCCX scripting, CVP (Customer Voice Portal), ECE
-            (Enterprise Chat and Email) interactions.</span></li>
-          <li><strong>Expressway & CMS:</strong><span class="detail-text"> Expressway-C/E Mobile Remote Access (MRA) and B2B federation, Cisco
-            Meeting Server (CMS) conferencing and CMS Recorder.</span></li>
-          <li><strong>Voice Gateways:</strong><span class="detail-text"> Cisco VG analog gateways, voice translation rules, Cisco Secure Common
-            Client (SCC).</span></li>
-          <li><strong>Compliance Recording:</strong><span class="detail-text"> NICE and Calabrio Call Recording integrations.</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Pillar 4: Routing & Core Networking -->
-    <div class="competency-card" style="border-top: 4px solid #10B981;" onclick="expandCompetencies(event)">
-      <div class="competency-card-header">
-        <div class="competency-icon-wrapper routing-bg" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
-          <i class="fas fa-route competency-icon"></i>
-        </div>
-        <h4 class="competency-card-title">
-          Routing & Core
-          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
-            <i class="fas fa-chevron-down competency-expand-icon"></i>
-          </button>
-        </h4>
-      </div>
-      <div class="competency-card-body">
-        <ul class="competency-list">
-          <li><strong>Cisco SD-WAN:</strong><span class="detail-text"> cEdge/vEdge onboarding, templates, DIA (Direct Internet Access), traffic
-            routing policies.</span></li>
-          <li><strong>Cisco SD-Access:</strong><span class="detail-text"> SDA design, fabric routing, IP Transit, LISP & VXLAN overlay control.</span></li>
-          <li><strong>Routing Protocols:</strong><span class="detail-text"> OSPF advanced topologies (LSA/network types), eBGP/iBGP scalable
-            designs, MPLS WAN routing, Policy-Based Routing (PBR), IP SLA path tracking, EEM scripting.</span></li>
-          <li><strong>L2/L3 Infrastructure:</strong><span class="detail-text"> PVLANs (Private VLANs), DHCP Snooping, VXLAN overlay networks,
-            high-availability switching.</span></li>
         </ul>
       </div>
     </div>
@@ -278,6 +248,60 @@ refactor: true
             container hosting, Nessus vulnerability scanning, Zabbix & PRTG & SolarWinds enterprise monitoring.</span></li>
           <li><strong>AI Orchestration:</strong><span class="detail-text"> Local AI models via Ollama and LM Studio, DeepSeek integration,
             LangChain agent frameworks, Instructor structured output validation.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 4: Routing & Core Networking -->
+    <div class="competency-card" style="border-top: 4px solid #10B981;" onclick="expandCompetencies(event)">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper routing-bg" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+          <i class="fas fa-route competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">
+          Routing & Core
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Cisco SD-WAN:</strong><span class="detail-text"> cEdge/vEdge onboarding, templates, DIA (Direct Internet Access), traffic
+            routing policies.</span></li>
+          <li><strong>Cisco SD-Access:</strong><span class="detail-text"> SDA design, fabric routing, IP Transit, LISP & VXLAN overlay control.</span></li>
+          <li><strong>Routing Protocols:</strong><span class="detail-text"> OSPF advanced topologies (LSA/network types), eBGP/iBGP scalable
+            designs, MPLS WAN routing, Policy-Based Routing (PBR), IP SLA path tracking, EEM scripting.</span></li>
+          <li><strong>L2/L3 Infrastructure:</strong><span class="detail-text"> PVLANs (Private VLANs), DHCP Snooping, VXLAN overlay networks,
+            high-availability switching.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pillar 3: Enterprise Collaboration -->
+    <div class="competency-card" style="border-top: 4px solid #4F46E5;" onclick="expandCompetencies(event)">
+      <div class="competency-card-header">
+        <div class="competency-icon-wrapper collab-bg" style="background: rgba(79, 70, 229, 0.1); color: #4F46E5;">
+          <i class="fas fa-headset competency-icon"></i>
+        </div>
+        <h4 class="competency-card-title">
+          Enterprise Collaboration
+          <button class="competency-expand-btn" onclick="toggleCompetencies(event)" aria-label="Expand details">
+            <i class="fas fa-chevron-down competency-expand-icon"></i>
+          </button>
+        </h4>
+      </div>
+      <div class="competency-card-body">
+        <ul class="competency-list">
+          <li><strong>Cisco UCM & Unity:</strong><span class="detail-text"> CUCM administration, EM/Extension Mobility, Unity Connection
+            voicemail, CUCM Single-Sign-On (SSO), Cloud Connected UC (CCUC).</span></li>
+          <li><strong>Contact Center:</strong><span class="detail-text"> Packaged CCE (PCCE), UCCX scripting, CVP (Customer Voice Portal), ECE
+            (Enterprise Chat and Email) interactions.</span></li>
+          <li><strong>Expressway & CMS:</strong><span class="detail-text"> Expressway-C/E Mobile Remote Access (MRA) and B2B federation, Cisco
+            Meeting Server (CMS) conferencing and CMS Recorder.</span></li>
+          <li><strong>Voice Gateways:</strong><span class="detail-text"> Cisco VG analog gateways, voice translation rules, Cisco Secure Common
+            Client (SCC).</span></li>
+          <li><strong>Compliance Recording:</strong><span class="detail-text"> NICE and Calabrio Call Recording integrations.</span></li>
         </ul>
       </div>
     </div>

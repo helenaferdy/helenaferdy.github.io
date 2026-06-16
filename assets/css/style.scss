@@ -95,7 +95,9 @@ html[data-mode="dark"] .dashboard-tag-count {
   font-family: inherit;
   outline: none;
   user-select: none;
-  padding: 0.2rem 0.45rem; /* Symmetrical padding for compact, balanced icon-only shape */
+  padding: 0.22rem 1.5rem; /* Wider padding for easier target access */
+  min-width: 60px;
+  justify-content: center;
 }
 
 /* ==========================================================================
@@ -338,8 +340,11 @@ body:has(#post-list) .competency-matrix-container {
     border-radius: 6px !important;
   }
   .dashboard-tag-pill.toggle-btn {
-    padding: 0.2rem 0.48rem !important;
-  }}
+    padding: 0.35rem 2.5rem !important; /* Extremely wide and tall for mobile touch safety */
+    min-width: 70px !important;
+    justify-content: center;
+  }
+}
 
 /* Post page sticky sidebar layout to prevent TOC and Projects collision */
 .sticky-sidebar {
