@@ -18,7 +18,7 @@ refactor: true
 
   <div class="competency-deck">
     <!-- Pillar 1: Network Security -->
-    <div class="competency-card" style="border-top: 4px solid #DA291C;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #DA291C;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper security-bg">
           <i class="fas fa-shield-alt competency-icon"></i>
@@ -45,7 +45,7 @@ refactor: true
     </div>
 
     <!-- Pillar 1.5: EDR/XDR & SIEM -->
-    <div class="competency-card" style="border-top: 4px solid #F97316;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #F97316;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper" style="background: rgba(249, 115, 22, 0.1); color: #F97316;">
           <i class="fas fa-crosshairs competency-icon"></i>
@@ -67,7 +67,7 @@ refactor: true
     </div>
 
     <!-- Pillar 2: Identity & App Delivery -->
-    <div class="competency-card" style="border-top: 4px solid #049FD9;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #049FD9;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper identity-bg">
           <i class="fas fa-network-wired competency-icon"></i>
@@ -94,7 +94,7 @@ refactor: true
     </div>
 
     <!-- Pillar 5: Multi-Cloud Architecture -->
-    <div class="competency-card" style="border-top: 4px solid #0078D4;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #0078D4;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper cloud-bg">
           <i class="fas fa-cloud competency-icon"></i>
@@ -121,7 +121,7 @@ refactor: true
     </div>
 
     <!-- Pillar 6: Systems & Infrastructure -->
-    <div class="competency-card" style="border-top: 4px solid #8B5CF6;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #8B5CF6;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper systems-bg" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
           <i class="fas fa-server competency-icon"></i>
@@ -148,7 +148,7 @@ refactor: true
     </div>
 
     <!-- Pillar 7: Automation, Telemetry & AI -->
-    <div class="competency-card" style="border-top: 4px solid #06B6D4;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #06B6D4;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper automation-bg" style="background: rgba(6, 182, 212, 0.1); color: #06B6D4;">
           <i class="fas fa-cogs competency-icon"></i>
@@ -175,7 +175,7 @@ refactor: true
     </div>
 
     <!-- Pillar 4: Routing & Core Networking -->
-    <div class="competency-card" style="border-top: 4px solid #10B981;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #10B981;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper routing-bg" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
           <i class="fas fa-route competency-icon"></i>
@@ -201,7 +201,7 @@ refactor: true
     </div>
 
     <!-- Pillar 3: Enterprise Collaboration -->
-    <div class="competency-card" style="border-top: 4px solid #4F46E5;" onclick="toggleCard(this, event)">
+    <div class="competency-card" style="border-top: 4px solid #4F46E5;">
       <div class="competency-card-header">
         <div class="competency-icon-wrapper collab-bg" style="background: rgba(79, 70, 229, 0.1); color: #4F46E5;">
           <i class="fas fa-headset competency-icon"></i>
@@ -231,20 +231,21 @@ refactor: true
 
   <!-- Mobile Bottom Sheet Overlay for Technical Expertise -->
   <div id="expertise-bottom-sheet" class="expertise-bottom-sheet">
-    <div class="bottom-sheet-backdrop" onclick="closeBottomSheet()"></div>
+    <div class="bottom-sheet-backdrop"></div>
     <div class="bottom-sheet-container">
       <div class="bottom-sheet-handle"></div>
       <div class="bottom-sheet-header">
         <span class="bottom-sheet-icon"></span>
         <h3 class="bottom-sheet-title"></h3>
-        <button class="bottom-sheet-close" onclick="closeBottomSheet()" aria-label="Close">&times;</button>
+        <button class="bottom-sheet-close" aria-label="Close">&times;</button>
       </div>
       <div class="bottom-sheet-body"></div>
     </div>
   </div>
 
   <script>
-    window.toggleCard = function(card, event) {
+    // Define functions
+    function toggleCard(card, event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();
@@ -271,21 +272,54 @@ refactor: true
         sheet.classList.add('is-open');
         document.body.style.overflow = 'hidden'; // prevent background scrolling
       }
-    };
+    }
 
-    window.closeBottomSheet = function() {
+    function closeBottomSheet() {
       const sheet = document.getElementById('expertise-bottom-sheet');
       if (sheet) {
         sheet.classList.remove('is-open');
         document.body.style.overflow = ''; // restore background scrolling
       }
-    };
+    }
 
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        window.closeBottomSheet();
+    function initCompetencyCards() {
+      // 1. Bind competency cards
+      const cards = document.querySelectorAll('.competency-card');
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(event) {
+          toggleCard(this, event);
+        });
+      });
+
+      // 2. Bind bottom sheet backdrop
+      const backdrop = document.querySelector('.bottom-sheet-backdrop');
+      if (backdrop) {
+        backdrop.addEventListener('click', function() {
+          closeBottomSheet();
+        });
       }
-    });
+
+      // 3. Bind bottom sheet close button
+      const closeBtn = document.querySelector('.bottom-sheet-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          closeBottomSheet();
+        });
+      }
+
+      // 4. Bind Escape key
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          closeBottomSheet();
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCompetencyCards);
+    } else {
+      initCompetencyCards();
+    }
   </script>
 </div>
 
@@ -488,22 +522,34 @@ refactor: true
       {% endfor %}
 
       {% if has_hidden_tags %}
-      <button id="toggle-all-tags" class="dashboard-tag-pill toggle-btn" onclick="toggleTags()"
+      <button id="toggle-all-tags" class="dashboard-tag-pill toggle-btn"
         aria-label="Toggle tags visibility">
         <i id="toggle-icon" class="fas fa-chevron-down text-muted-color"></i>
       </button>
 
       <script>
-        function toggleTags() {
-          const wrapper = document.getElementById('tag-cloud-wrapper');
-          const icon = document.getElementById('toggle-icon');
-          const isCollapsed = wrapper.classList.toggle('collapsed');
-
-          if (isCollapsed) {
-            icon.className = 'fas fa-chevron-down text-muted-color';
-          } else {
-            icon.className = 'fas fa-chevron-up text-muted-color';
+        function initToggleTags() {
+          const toggleTagsBtn = document.getElementById('toggle-all-tags');
+          if (toggleTagsBtn) {
+            toggleTagsBtn.addEventListener('click', function() {
+              const wrapper = document.getElementById('tag-cloud-wrapper');
+              const icon = document.getElementById('toggle-icon');
+              if (wrapper && icon) {
+                const isCollapsed = wrapper.classList.toggle('collapsed');
+                if (isCollapsed) {
+                  icon.className = 'fas fa-chevron-down text-muted-color';
+                } else {
+                  icon.className = 'fas fa-chevron-up text-muted-color';
+                }
+              }
+            });
           }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initToggleTags);
+        } else {
+          initToggleTags();
         }
       </script>
       {% endif %}
