@@ -1,0 +1,132 @@
+<!-- The Top Bar -->
+
+<div id="topbar-wrapper">
+  <div
+    id="topbar"
+    class="container d-flex align-items-center justify-content-between h-100"
+  >
+    <span id="breadcrumb">
+      {% assign paths = page.url | split: '/' %}
+
+      {% if paths.size == 0 or page.layout == 'home' %}
+        <!-- index page -->
+        <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
+
+      {% else %}
+        {% for item in paths %}
+          {% if forloop.first %}
+            <span>
+              <a href="{{ '/' | relative_url }}">
+                {{ site.data.locales[include.lang].tabs.home | capitalize }}
+              </a>
+            </span>
+
+          {% elsif forloop.last %}
+            {% if page.collection == 'tabs' %}
+              <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+            {% else %}
+              <span>{{ page.title }}</span>
+            {% endif %}
+
+          {% elsif page.layout == 'category' or page.layout == 'tag' %}
+            <span>
+              <a href="{{ item | relative_url }}">
+                {{ site.data.locales[include.lang].tabs[item] | default: page.title }}
+              </a>
+            </span>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </span>
+    <!-- endof #breadcrumb -->
+
+    <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
+
+    <div id="topbar-title">
+      {% if page.layout == 'home' %}
+        <!-- title hidden on home page -->
+      {% elsif page.collection == 'tabs' or page.layout == 'page' %}
+        {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}
+        {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}
+      {% else %}
+        {{- site.data.locales[include.lang].layout[page.layout] | default: page.layout | capitalize -}}
+      {% endif %}
+    </div>
+
+    <i id="search-trigger" class="fas fa-search fa-fw"></i>
+    <i id="projects-trigger" class="fas fa-briefcase fa-fw"></i>
+    <span id="search-wrapper" class="align-items-center">
+      <i class="fas fa-search fa-fw"></i>
+      <input
+        class="form-control"
+        id="search-input"
+        type="search"
+        aria-label="search"
+        autocomplete="off"
+        placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
+      >
+    </span>
+    <span id="search-cancel">{{ site.data.locales[include.lang].search.cancel }}</span>
+  </div>
+</div>
+
+<!-- Mobile Sliding Projects Drawer Overlay -->
+<div id="projects-drawer" class="projects-drawer">
+  <div class="projects-drawer-backdrop"></div>
+  <div class="projects-drawer-container">
+    <div class="projects-drawer-header">
+      <div class="projects-drawer-title-wrapper">
+        <i class="fas fa-briefcase projects-drawer-icon"></i>
+        <h3 class="projects-drawer-title">My Projects</h3>
+      </div>
+      <button class="projects-drawer-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="projects-drawer-body">
+      {% if site.data.projects and site.data.projects.size > 0 %}
+        <div class="projects-drawer-list">
+          {% for project in site.data.projects %}
+            <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-drawer-card">
+              <div class="project-drawer-card-content">
+                <div class="project-drawer-name">{{ project.name }}</div>
+                <div class="project-drawer-url">{{ project.url | replace: "https://", "" | replace: "http://", "" }}</div>
+              </div>
+              <i class="fas fa-chevron-right project-drawer-arrow"></i>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('click', function(event) {
+    var trigger = event.target.closest('#projects-trigger');
+    if (trigger) {
+      var drawer = document.getElementById('projects-drawer');
+      if (drawer) {
+        drawer.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      return;
+    }
+    if (event.target.closest('.projects-drawer-backdrop') || event.target.closest('.projects-drawer-close')) {
+      var drawer = document.getElementById('projects-drawer');
+      if (drawer) {
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      var drawer = document.getElementById('projects-drawer');
+      if (drawer && drawer.classList.contains('is-open')) {
+        drawer.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+</script>

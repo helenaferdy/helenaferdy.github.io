@@ -6,10 +6,6 @@ refactor: true
 {% include lang.html %}
 
 {% if paginator.page == 1 or paginator == nil %}
-<!-- Mobile-Only Projects Carousel (Visible on mobile/tablet, hidden on desktop) -->
-<div class="mobile-only-projects d-xl-none" style="margin-bottom: 1.5rem;">
-  {% include my-projects.html lang=lang %}
-</div>
 
 <!-- Sleek Horizontally Scrollable 7-Pillar Competency Deck -->
 <div class="competency-matrix-container" style="margin-bottom: 1.25rem;">
@@ -532,24 +528,13 @@ refactor: true
   </div>
 </div>
 
-<div class="section-title-wrapper"
-  style="padding-top: 0.75rem; padding-bottom: 0px; margin-top: 0.75rem; margin-bottom: 0px;">
-  <h3 class="section-title-label"
-    style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color);">
-    <i class="fas fa-feather-alt text-muted-color" style="font-size: 0.95rem;"></i>
-    <span>Blog Posts</span>
-  </h3>
-</div>
 {% endif %}
 
 {% if paginator.page > 1 %}
 <div class="section-title-wrapper"
-  style="padding-top: 0.25rem; padding-bottom: 0px; margin-top: 0; margin-bottom: 0px;">
+  style="padding-top: 0.25rem; padding-bottom: 0px; margin-top: 0; margin-bottom: 0px; display: flex; justify-content: center;">
   <h3 class="section-title-label"
-    style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color);">
-    <i class="fas fa-feather-alt text-muted-color" style="font-size: 0.95rem;"></i>
-    <span>Blog Posts</span>
-    <i class="fas fa-chevron-right text-muted-color" style="font-size: 0.65rem;"></i>
+    style="font-size: 1.15rem; font-weight: 700; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--text-color); width: 100%;">
     <span style="font-weight: 500; color: var(--text-muted-color);">Page {{ paginator.page }} of {{
       paginator.total_pages }}</span>
   </h3>

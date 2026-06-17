@@ -4,7 +4,7 @@
   {% if page.layout == 'post' %}
     <!-- Compact list view for post pages to save vertical space -->
     <div id="access-projects" class="mb-4">
-      <div class="panel-heading">MY OTHER PROJECTS</div>
+      <div class="panel-heading">My Projects</div>
       <div class="projects-compact-list mt-3">
         {% for project in site.data.projects %}
           <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-compact-item d-block">
@@ -17,7 +17,7 @@
   {% else %}
     <!-- Standard card view for main pages -->
     <div id="access-projects" class="mb-4">
-      <div class="panel-heading">MY OTHER PROJECTS</div>
+      <div class="panel-heading">My Projects</div>
       <div class="projects-container mt-3">
         {% for project in site.data.projects %}
           <a href="{{ project.url }}" target="_blank" rel="noopener" class="project-spotlight-card d-block mb-3 p-3">
@@ -39,22 +39,11 @@
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     
-    .project-spotlight-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--link-color);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    
     .project-title {
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--text-color);
       transition: color 0.3s ease;
-    }
-    
-    .project-spotlight-card:hover .project-title {
-      color: var(--link-color);
     }
     
     .project-url-sub {
@@ -74,21 +63,12 @@
       transition: all 0.2s ease;
     }
     
-    .project-compact-item:hover {
-      border-left-color: var(--link-color);
-      padding-left: 0.9rem;
-    }
-    
     .project-title-compact {
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--text-color);
       line-height: 1.2;
       transition: color 0.2s ease;
-    }
-    
-    .project-compact-item:hover .project-title-compact {
-      color: var(--link-color);
     }
     
     .project-url-compact {

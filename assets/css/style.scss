@@ -126,12 +126,7 @@ html[data-mode="dark"] .dashboard-tag-count {
   transition: all 0.2s ease;
   position: relative;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--link-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
+
 }
 
 .competency-card-header {
@@ -447,10 +442,7 @@ body:has(#post-list) .competency-matrix-container {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
     transition: all 0.2s ease !important;
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.08) !important;
-      border-color: var(--link-color) !important;
-    }
+
   }
 
   .competency-card-header {
@@ -718,6 +710,10 @@ body:has(#post-list) .competency-matrix-container {
   .post-preview .post-meta {
     font-size: 0.68rem !important; /* Reduced by 1 point (from ~0.75rem) */
   }
+
+  .post-preview .card-title {
+    font-size: 1.15rem !important; /* Reduced by another half a point (from 1.25rem -> 1.2rem -> 1.15rem) */
+  }
 }
 
 /* ==========================================================================
@@ -911,12 +907,7 @@ body:has(#post-list) .competency-matrix-container {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     margin-bottom: 0.75rem !important;
     
-    &:hover {
-      background: rgba(255, 255, 255, 0.08) !important;
-      border-color: var(--link-color) !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
-    }
+
   }
 
   .project-title {
@@ -926,9 +917,7 @@ body:has(#post-list) .competency-matrix-container {
     line-height: 1.2 !important;
   }
   
-  .project-spotlight-card:hover .project-title {
-    color: var(--link-color) !important;
-  }
+
   
   .project-url-sub {
     font-size: 0.72rem !important;
@@ -936,6 +925,230 @@ body:has(#post-list) .competency-matrix-container {
     margin-top: 0.15rem !important;
     line-height: 1.1 !important;
     opacity: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & TABLET SLIDING PROJECTS DRAWER (Viewport < 1200px)
+   ========================================================================== */
+
+#projects-trigger {
+  display: none !important;
+}
+
+@media (max-width: 849px) {
+  #projects-trigger {
+    display: inline-block !important;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #999999;
+    margin-left: 0.85rem; /* Space between search and projects trigger */
+    transition: color 0.2s ease, transform 0.2s ease;
+    
+    &:hover {
+      color: var(--link-color);
+      transform: scale(1.1);
+    }
+  }
+
+  /* Hide projects trigger when search is active */
+  #search-trigger.unloaded ~ #projects-trigger {
+    display: none !important;
+  }
+}
+
+.projects-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3000; /* Higher than other layers */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0.35s ease;
+}
+
+.projects-drawer.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.projects-drawer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(8px) saturate(1.5);
+  -webkit-backdrop-filter: blur(8px) saturate(1.5);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.projects-drawer.is-open .projects-drawer-backdrop {
+  opacity: 1;
+}
+
+.projects-drawer-container {
+  position: relative;
+  width: 320px;
+  max-width: 85%;
+  height: 100%;
+  background: rgba(27, 27, 34, 0.9);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem 1.25rem 2rem 1.25rem;
+  z-index: 3001;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-drawer.is-open .projects-drawer-container {
+  transform: translateX(0);
+}
+
+.projects-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.projects-drawer-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projects-drawer-icon {
+  font-size: 1.1rem;
+  color: var(--link-color);
+}
+
+.projects-drawer-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.projects-drawer-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  
+  &:hover {
+    color: #FFFFFF;
+    transform: scale(1.1);
+  }
+}
+
+.projects-drawer-body {
+  overflow-y: auto;
+  flex-grow: 1;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+}
+
+.projects-drawer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Glassmorphism drawer cards */
+.project-drawer-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  text-decoration: none !important;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--link-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+
+}
+
+.project-drawer-card-content {
+  flex-grow: 1;
+  padding-right: 0.5rem;
+}
+
+.project-drawer-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+
+
+.project-drawer-url {
+  font-size: 0.65rem;
+  color: var(--text-muted-color);
+  margin-top: 0.15rem;
+  font-family: var(--font-family-monospace, monospace);
+  opacity: 0.8;
+}
+
+.project-drawer-arrow {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+/* Hide on desktop breakpoint */
+@media (min-width: 1200px) {
+  .projects-drawer {
+    display: none !important;
   }
 }
 
