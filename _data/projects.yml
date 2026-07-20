@@ -6,6 +6,10 @@
   url: https://cve.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall CVE Monitor
+- name: Firewall Config Analyzer
+  url: https://fwconfig.senaperdiana.com
+  icon: fas fa-exchange-alt
+  description: Firewall Config Analyzer
 - name: Firewall Traffic Visualizer
   url: https://fwtraffic.senaperdiana.com
   icon: fas fa-exchange-alt
@@ -14,10 +18,6 @@
   url: https://fwaudit.senaperdiana.com
   icon: fas fa-exchange-alt
   description: Firewall Policy Auditor
-- name: Firewall Policy Converter
-  url: https://fwconvert.senaperdiana.com
-  icon: fas fa-exchange-alt
-  description: Firewall Policy Converter
 - name: Internet Traceroute
   url: https://itrace.senaperdiana.com
   icon: fas fa-exchange-alt
