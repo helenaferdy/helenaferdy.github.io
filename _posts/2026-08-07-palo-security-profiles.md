@@ -403,7 +403,7 @@ We open a local file directory on the Windows client containing sensitive text f
 
 ---
 
-We open a DLP testing web application (`192.168.200.24:5000`) displaying a "Secure File Drop" upload form.
+We open the DLP testing web application at `192.168.200.24:5000` — a "Secure File Drop" form. Without any Data Filtering profile applied, uploading a file containing sensitive content completes successfully, confirmed by the green **"Upload successful."** banner. This establishes our unprotected baseline.
 
 ![x](/static/2026-08-07-palo-security-profiles/40.png)
 
