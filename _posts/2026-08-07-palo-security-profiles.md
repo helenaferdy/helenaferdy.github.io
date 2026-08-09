@@ -78,7 +78,7 @@ We look up `CVE-2017-0143` on Palo Alto's **Threat Vault** (`threatvault.paloalt
 
 ---
 
-Under **Objects → Security Profiles → Vulnerability Protection**, we review the predefined `strict` profile, which sets the default action for critical, high, and medium severity threats to `reset-both`.
+Under **Objects → Security Profiles → Vulnerability Protection**, we review the predefined `strict` profile, which sets the default action for critical, high, and medium severity threats to `reset-both`, and we also can see that it already has the CVE in its database.
 
 ![x](/static/2026-08-07-palo-security-profiles/06.png)
 
@@ -142,7 +142,7 @@ From the Windows XP client browser, we access `http://192.168.200.24/eicar.com`.
 
 ### Profile Configuration & Mitigation
 
-Under **Objects → Security Profiles → Antivirus**, we view the `default` Antivirus profile settings, which configure decoders (`http`, `ftp`, `smb`) with action `reset-both`.
+Here we can see that the traffic traverses without any meaningful detection or mitigation.
 
 ![x](/static/2026-08-07-palo-security-profiles/12.png)
 
@@ -150,7 +150,7 @@ Under **Objects → Security Profiles → Antivirus**, we view the `default` Ant
 
 ---
 
-We edit the security rule to attach the `default` Antivirus profile.
+Under **Objects → Security Profiles → Antivirus**, we view the `default` Antivirus profile settings, which configure decoders (`http`, `ftp`, `smb`) with action `reset-both`.
 
 ![x](/static/2026-08-07-palo-security-profiles/13.png)
 
@@ -158,7 +158,7 @@ We edit the security rule to attach the `default` Antivirus profile.
 
 ---
 
-We confirm the policy settings in the security rule table.
+We confirm the policy settings in the security rule table has antivirus enabled.
 
 ![x](/static/2026-08-07-palo-security-profiles/14.png)
 
@@ -189,7 +189,7 @@ In **Monitor → Threat Logs**, the detection is recorded:
 
 > **URL Filtering** controls web access based on URL categories and site safety ratings.
 
-We verify URL category resolution on Palo Alto's URL test portal (`urifiltering.paloaltonetworks.com/query/`).
+on Palo Alto's URL test portal (`urifiltering.paloaltonetworks.com/query/`), we verify URL category for senaperdiana.com is `Computer-and-Internet-Info`. 
 
 ![x](/static/2026-08-07-palo-security-profiles/17.png)
 
@@ -205,7 +205,7 @@ We test baseline web connectivity from the client machine by visiting `https://s
 
 ---
 
-Under **Objects → Security Profiles → URL Filtering**, we review profile action settings across categories: Allow, Alert, Block, Continue, and Override.
+Under **Objects → Security Profiles → URL Filtering**, we set `Computer-and-Internet-Info` to be blocked.
 
 ![x](/static/2026-08-07-palo-security-profiles/19.png)
 
@@ -253,7 +253,7 @@ With the profile applied, we test from the Windows 11 client. Navigating to `htt
 
 ---
 
-Under **Monitor → URL Filtering Logs**, we inspect log entries detailing matching domain names, category classifications (`personal-sites-and-blogs`, `malware`), and enforced actions (`block-url`, `alert`).
+Under **Monitor → URL Filtering Logs**, we inspect log entries detailing matching both `Computer-and-Internet-Info` and `subdomains.senaperdiana.com`.
 
 ![x](/static/2026-08-07-palo-security-profiles/25.png)
 
@@ -267,7 +267,7 @@ Under **Monitor → URL Filtering Logs**, we inspect log entries detailing match
 
 ### Unprotected Download Test
 
-From Kali Linux, we host executable files (`putty.exe`) and document archives over HTTP. Opening `http://192.168.200.24/` from the browser shows the directory listing.
+From Kali Linux, we host executable files (`putty.exe`) and document archives over HTTP. Opening `http://192.168.200.24/` from the browser shows the directory listing and fully downloadable.
 
 ![x](/static/2026-08-07-palo-security-profiles/26.png)
 
@@ -277,7 +277,7 @@ From Kali Linux, we host executable files (`putty.exe`) and document archives ov
 
 ### Profile Configuration & Mitigation
 
-Under **Objects → Security Profiles → File Blocking**, we create a custom profile (`helena-fileblock`) configured to block `PE / Windows Executable (exe)` and `7z` files for application `web-browsing`.
+Under **Objects → Security Profiles → File Blocking**, we create a custom profile (`helena-fileblock`) configured to block `exe` and `zip` files.
 
 ![x](/static/2026-08-07-palo-security-profiles/27.png)
 
@@ -293,7 +293,7 @@ We attach `helena-fileblock` to our security policy.
 
 ---
 
-We refresh the directory listing (`archive.7z`, `putty.exe`) and attempt to download an executable. The download fails immediately.
+We refresh the directory listing and attempt to download an executable and zip. The download fails immediately while downloadng 7z still succeeds.
 
 ![x](/static/2026-08-07-palo-security-profiles/29.png)
 
@@ -301,7 +301,7 @@ We refresh the directory listing (`archive.7z`, `putty.exe`) and attempt to down
 
 ---
 
-Under **Monitor → Data Filtering / File Blocking Logs**, the event is logged with `Windows Executable (EXE)` as the file type and `block` as the action.
+Under **Monitor → Data Filtering / File Blocking Logs**, the event is logged with `Windows Executable (EXE)` and `ZIP` as the file type and `block` as the action.
 
 ![x](/static/2026-08-07-palo-security-profiles/30.png)
 
@@ -321,7 +321,7 @@ Under **Device → Setup → WildFire**, we inspect global WildFire configuratio
 
 ---
 
-Under **Objects → Security Profiles → WildFire Analysis**, we view the profile list view.
+Under **Objects → Security Profiles → WildFire Analysis**, we view the WildFire Analysis profile rule to forward unknown files across all file types to `public-cloud`.
 
 ![x](/static/2026-08-07-palo-security-profiles/32.png)
 
@@ -329,7 +329,7 @@ Under **Objects → Security Profiles → WildFire Analysis**, we view the profi
 
 ---
 
-We configure the WildFire Analysis profile rule to forward unknown files across all file types to `public-cloud`.
+We attach the profile into our security rule.
 
 ![x](/static/2026-08-07-palo-security-profiles/33.png)
 
@@ -359,7 +359,7 @@ Since `hello.exe` was just created, no antivirus database has an existing signat
 
 ---
 
-We place `hello.exe` on our Kali HTTP server directory listing.
+We place `hello.exe` on our Kali HTTP server directory listing and download it to our client.
 
 ![x](/static/2026-08-07-palo-security-profiles/35.png)
 
@@ -395,7 +395,7 @@ When the client downloads `hello.exe`, the firewall forwards the file sample to 
 
 > **Data Filtering** prevents sensitive data exfiltration by matching network payloads against custom regex patterns or dictionary definitions.
 
-We open a local file directory on the Windows client containing sensitive text files.
+We create a txt fiile on the Windows client containing sensitive text files and keyword `password`.
 
 ![x](/static/2026-08-07-palo-security-profiles/39.png)
 
@@ -438,7 +438,7 @@ We attach `helena-dlp` to our security policy rule.
 
 ---
 
-From the client browser, we attempt to upload a text file (`secretz.txt`) containing the string `password` to `192.168.200.24:5000/upload`. The firewall blocks the transfer inline and displays Palo Alto's **Data Transfer Blocked** page.
+From the client browser, we attempt to upload a text file (`secretz.txt`) containing the string `password`, the firewall blocks the transfer inline and displays Palo Alto's **Data Transfer Blocked** page.
 
 ![x](/static/2026-08-07-palo-security-profiles/44.png)
 
@@ -458,7 +458,7 @@ Under **Monitor → Data Filtering Logs**, the incident is logged with pattern n
 
 > **Anti-Spyware** profiles detect and block command-and-control (C2) communication, spyware phone-home traffic, and DNS-based exfiltration by matching traffic against Palo Alto's threat intelligence signatures and DNS security policies.
 
-Under **Objects → Security Profiles → Anti-Spyware**, we review the predefined `strict` profile. The **Signature Policies** tab defines severity-based rules: `simple-critical`, `simple-high`, and `simple-medium` all map to `reset-both`, while `simple-informational` and `simple-low` use the `default` action.
+To verify Anti-Spyware in action, we use `test-c2.testpanw.com` — Palo Alto's official C2 test domain. From Windows 11 (`10.200.0.21`), we run an `nslookup` for the domain **before** the profile is applied. The DNS query resolves normally, returning Google's CDN addresses (`74.125.24.x`) and the domain's canonical name, confirming unrestricted DNS resolution.
 
 ![x](/static/2026-08-07-palo-security-profiles/51.png)
 
@@ -466,7 +466,7 @@ Under **Objects → Security Profiles → Anti-Spyware**, we review the predefin
 
 ---
 
-In the **Signature Exceptions** tab, we can see the full library of 8,921 individual threat signatures, each classified by severity, category (spyware, webshell, cryptominer, downloader), and assigned action. Notable signatures include EICAR Test File Detection, B734K PowerShell and MIMIKATZ Commands Traffic Detection, and SmokeLoader Download Traffic Detection — all configured to `default (reset-both)`.
+Under **Objects → Security Profiles → Anti-Spyware**, we use the predefined `strict` profile.
 
 ![x](/static/2026-08-07-palo-security-profiles/52.png)
 
@@ -474,7 +474,7 @@ In the **Signature Exceptions** tab, we can see the full library of 8,921 indivi
 
 ---
 
-The **DNS Policies** tab governs DNS Security, with `default-paloalto-dns` configured to **sinkhole** matching C2 lookups. DNS Security entries for **Command and Control Domains** have a default action of `block`, while **Ad Tracking Domains** are set to `allow` with informational logging.
+In the **Signature Exceptions** tab, we can see the full library of 8,921 individual threat signatures, each classified by severity, category (spyware, webshell, cryptominer, downloader), and assigned action. Notable signatures include EICAR Test File Detection, B734K PowerShell and MIMIKATZ Commands Traffic Detection, and SmokeLoader Download Traffic Detection — all configured to `default (reset-both)`.
 
 ![x](/static/2026-08-07-palo-security-profiles/53.png)
 
@@ -482,7 +482,7 @@ The **DNS Policies** tab governs DNS Security, with `default-paloalto-dns` confi
 
 ---
 
-We attach the `strict` Anti-Spyware profile to our security policy rule under **Policies → Security → Actions → Profile Setting → Anti-Spyware**.
+The **DNS Policies** tab governs DNS Security, with `default-paloalto-dns` configured to **sinkhole** matching C2 lookups. DNS Security entries for **Command and Control Domains** have a default action of `block`, while **Ad Tracking Domains** are set to `allow` with informational logging.
 
 ![x](/static/2026-08-07-palo-security-profiles/54.png)
 
@@ -490,15 +490,15 @@ We attach the `strict` Anti-Spyware profile to our security policy rule under **
 
 ---
 
-### C2 DNS Sinkhole Test
-
-To verify Anti-Spyware in action, we use `test-c2.testpanw.com` — Palo Alto's official C2 test domain. From Windows 11 (`10.200.0.21`), we run an `nslookup` for the domain **before** the profile is applied. The DNS query resolves normally, returning Google's CDN addresses (`74.125.24.x`) and the domain's canonical name, confirming unrestricted DNS resolution.
+We attach the `strict` Anti-Spyware profile to our security policy rule under **Policies → Security → Actions → Profile Setting → Anti-Spyware**.
 
 ![x](/static/2026-08-07-palo-security-profiles/55.png)
 
 <br>
 
 ---
+
+### C2 DNS Sinkhole Test
 
 With the `strict` Anti-Spyware profile now active, we repeat the `nslookup test-c2.testpanw.com`. This time the query times out completely — **DNS request timed out** — because the firewall's DNS Security sinkhole intercepted and dropped the C2 domain resolution attempt before it could reach the upstream resolver.
 
@@ -580,3 +580,7 @@ We re-run the `hping3` ICMP flood from Kali Linux. As traffic exceeds the activa
 Under **Monitor → Threat Logs**, the firewall records DoS protection events with threat type `flood`, threat name `ICMP Flood`, and action `random-drop` / `drop`.
 
 ![x](/static/2026-08-07-palo-security-profiles/50.png)
+
+<br>
+
+---
