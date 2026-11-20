@@ -14,25 +14,10 @@ The architecture separates network functionality into four discrete planes:
 3. **Control Plane (Catalyst SD-WAN Controller / vSmart)**: The brain of the SD-WAN overlay. It establishes secure DTLS/TLS control connections with WAN edge routers and utilizes the **Overlay Management Protocol (OMP)** to exchange routing reachability, transport locators (TLOCs), encryption keys, and centralized data/routing policies without requiring a full mesh of BGP/OSPF peerings across the edge.
 4. **Data Plane (Catalyst SD-WAN WAN Edge / cEdge & vEdge)**: Physical or virtual appliances (such as the Cisco Catalyst 8000V Edge Software Router) deployed at branch offices, campuses, and data centers. They establish auto-keyed IPsec data tunnels between one another across underlay transports based on control policies received from vSmart.
 
-In this comprehensive deployment guide, we build a multi-site Cisco Catalyst SD-WAN fabric from scratch: deploying controllers, establishing an Enterprise CA PKI trust model, onboarding WAN Edge routers (Catalyst 8000V) via Cisco Smart Account / Plug and Play (PnP), creating modular Feature and Device Templates, validating OMP routing and BFD session establishment, and configuring Direct Internet Access (DIA) with NAT and inter-VPN route leaking.
-
----
 
 ## Topology & Architecture
 
 Our lab fabric consists of three control plane nodes residing in the controller subnet, two transport underlays representing dual-ISP connectivity, and multiple branch sites running Cisco Catalyst 8000V virtual edge routers:
-
-- **Control Plane**:
-  - **vManage (Manager)**: System IP `1.1.1.1`, Site ID `1`, VPN 0 IP `172.16.0.91/24`, VPN 512 Mgmt IP `198.18.129.91/18`
-  - **vBond (Validator)**: System IP `1.1.1.2`, Site ID `1`, VPN 0 IP `172.16.0.92/24`, VPN 512 Mgmt IP `198.18.129.92/18`
-  - **vSmart (Controller)**: System IP `1.1.1.3`, Site ID `1`, VPN 0 IP `172.16.0.93/24`, VPN 512 Mgmt IP `198.18.129.93/18`
-- **Transport Underlays (WAN Transports)**:
-  - **`biz-internet`**: Subnet `172.17.0.0/24` (Gateway: `172.17.0.1`)
-  - **`public-internet`**: Subnet `172.18.0.0/24` (Gateway: `172.18.0.1`)
-- **WAN Edge Sites**:
-  - **Site 11 (Jakarta - `c8k-11-jkt`)**: System IP `10.11.1.1`, Site ID `11`, WAN1 (Gig1) `172.17.0.11/24`, WAN2 (Gig2) `172.18.0.11/24`, Service LAN (VPN 1 Gig3) `10.11.0.1/24`
-  - **Site 12 (Surabaya - `c8k-12-sby`)**: System IP `10.12.1.1`, Site ID `12`, WAN1 (Gig1) `172.17.0.12/24`, WAN2 (Gig2) `172.18.0.12/24`, Service LAN (VPN 1 Gig3) `10.12.0.1/24`
-  - **Site 13 (Denpasar - `c8k-13-dps`)**: System IP `10.13.1.1`, Site ID `13`, WAN1 (Gig1) `172.17.0.13/24`, WAN2 (Gig2) `172.18.0.13/24`, Service LAN (VPN 1 Gig3) `10.13.0.1/24`
 
 ![x](/static/2026-11-20-cisco-sdwan/00.png)
 
