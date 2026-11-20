@@ -5,14 +5,14 @@ categories: [Software Defined Networking, Cisco SD-WAN]
 tags: [SD-WAN]
 ---
 
-**Cisco Catalyst SD-WAN** (formerly Cisco SD-WAN / Viptela) is an enterprise-grade Software-Defined Wide Area Network architecture designed to decouple network hardware from control mechanisms, centralize orchestration, and dynamically optimize application traffic across diverse transport links (MPLS, broadband Internet, LTE/5G).
+**Cisco Catalyst SD-WAN** is an enterprise-grade Software-Defined Wide Area Network architecture designed to decouple network hardware from control mechanisms, centralize orchestration, and dynamically optimize application traffic across diverse transport links (MPLS, broadband Internet, LTE/5G).
 
 The architecture separates network functionality into four discrete planes:
 
-1. **Management Plane (Catalyst SD-WAN Manager / vManage)**: Centralized single-pane-of-glass Network Management System (NMS) providing multi-tenant GUI, configuration management via feature/device templates, real-time monitoring, telemetry, troubleshooting, and software upgrades.
+1. **Management Plane (Catalyst SD-WAN Manager / vManage)**: Centralized single-pane-of-glass providing configuration management via feature/device templates, real-time monitoring, telemetry, troubleshooting, and software upgrades.
 2. **Orchestration Plane (Catalyst SD-WAN Validator / vBond)**: The gatekeeper and orchestrator of the entire SD-WAN fabric. It authenticates and authorizes all incoming controllers and WAN edge routers via PKI certificates and whitelist serial/chassis numbers, facilitates NAT traversal, and distributes initial control-plane connection information.
 3. **Control Plane (Catalyst SD-WAN Controller / vSmart)**: The brain of the SD-WAN overlay. It establishes secure DTLS/TLS control connections with WAN edge routers and utilizes the **Overlay Management Protocol (OMP)** to exchange routing reachability, transport locators (TLOCs), encryption keys, and centralized data/routing policies without requiring a full mesh of BGP/OSPF peerings across the edge.
-4. **Data Plane (Catalyst SD-WAN WAN Edge / cEdge & vEdge)**: Physical or virtual appliances (such as the Cisco Catalyst 8000V Edge Software Router) deployed at branch offices, campuses, and data centers. They establish auto-keyed IPsec data tunnels between one another across underlay transports based on control policies received from vSmart.
+4. **Data Plane (Catalyst SD-WAN WAN Edge / cEdge & vEdge)**: Routers deployed at branch offices, campuses, and data centers. They establish auto-keyed IPsec data tunnels between one another across underlay transports based on control policies received from vSmart.
 
 
 ## Topology & Architecture
