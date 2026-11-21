@@ -9,7 +9,7 @@ tags: [SD-WAN]
 
 The architecture separates network functionality into four discrete planes:
 
-1. **Management Plane (Catalyst SD-WAN Manager / vManage)**: Centralized single-pane-of-glass providing configuration management via feature/device templates, real-time monitoring, telemetry, troubleshooting, and software upgrades.
+1. **Management Plane (Catalyst SD-WAN Manager / vManage)**: Centralized configuration management via feature/device templates, real-time monitoring, telemetry, troubleshooting, and software upgrades.
 2. **Orchestration Plane (Catalyst SD-WAN Validator / vBond)**: The gatekeeper and orchestrator of the entire SD-WAN fabric. It authenticates and authorizes all incoming controllers and WAN edge routers via PKI certificates and whitelist serial/chassis numbers, facilitates NAT traversal, and distributes initial control-plane connection information.
 3. **Control Plane (Catalyst SD-WAN Controller / vSmart)**: The brain of the SD-WAN overlay. It establishes secure DTLS/TLS control connections with WAN edge routers and utilizes the **Overlay Management Protocol (OMP)** to exchange routing reachability, transport locators (TLOCs), encryption keys, and centralized data/routing policies without requiring a full mesh of BGP/OSPF peerings across the edge.
 4. **Data Plane (Catalyst SD-WAN WAN Edge / cEdge & vEdge)**: Routers deployed at branch offices, campuses, and data centers. They establish auto-keyed IPsec data tunnels between one another across underlay transports based on control policies received from vSmart.
@@ -35,8 +35,7 @@ We prepare the virtual appliance installation OVA images for **Catalyst SD-WAN M
 
 ---
 
-Upon powering on each controller appliance, we access the console using the default credentials (`admin`/`admin`). The system prompts us to establish a secure initial administrator password and select the vManage operating persona (`1) COMPUTE_AND_DATA`).
-
+Upon powering on each controller appliance, we access the console using the default credentials (`admin`/`admin`).
 ![x](/static/2026-11-20-cisco-sdwan/02.png)
 
 <br>
@@ -254,7 +253,7 @@ Returning to **Configuration → Devices → Control components**, all three con
 
 ## Onboarding Edge Routers
 
-To onboard our edge routers, we log into **Cisco Software Central** (`software.cisco.com`) and navigate to **Network Plug and Play → Plug and Play Connect**.
+To onboard our edge routers, we log into **Cisco Software Central** (`software.cisco.com`) and navigate to **Provisioning → Plug and Play Connect**.
 
 ![x](/static/2026-11-20-cisco-sdwan/15.png)
 
@@ -416,7 +415,7 @@ commit
 We install our Enterprise Root CA certificate chain into the router bootflash to enable trust establishment with the controllers:
 
 ```
-edge-11-jkt#request platform software sdwan root-cert-chain install bootflash:CA.cer
+request platform software sdwan root-cert-chain install bootflash:CA.cer
 ```
 
 ![x](/static/2026-11-20-cisco-sdwan/26.png)
@@ -446,7 +445,7 @@ The bootstrap dialog generates the UUID and One-Time Password (OTP) activation t
 On the router console, we activate the chassis using the generated credentials:
 
 ```
-edge-11-jkt#request platform software sdwan vedge_cloud activate chassis-number C8K-7C396478-00F8-9657-D6F8-72884AF95985 token bb9288e019bb4a01a59269e1a1dd9d29
+request platform software sdwan vedge_cloud activate chassis-number C8K-7C396478-00F8-9657-D6F8-72884AF95985 token bb9288e019bb4a01a59269e1a1dd9d29
 ```
 
 The router establishes a temporary control connection to vBond, receives validation, and authenticates Netconf over SSH from vManage (`1.1.1.1`).
@@ -574,7 +573,7 @@ Under Allow Service, we enable `All`.
 
 ### VPN 1 (Service VPN) Templates
 
-We create the Service VPN template named `C8K-VPN1` with VPN ID `1` and name `SERVIC-LAN`.
+We create the Service VPN template named `C8K-VPN1` with VPN ID `1` and name `SERVICE-LAN`.
 
 ![x](/static/2026-11-20-cisco-sdwan/43.png)
 
@@ -730,16 +729,8 @@ Under **Monitor → Devices**, all five fabric devices (**vmanage**, **vbond**, 
 On `edge-11-jkt`, we verify control connections and local properties:
 
 ```
-edge-11-jkt#show sdwan control local-properties | include personality|organization-name|certificate-status|site-id|domain-id|system-ip
-personality               vedge
-sp-organization-name      helena
-organization-name         helena
-certificate-status        Installed
-site-id                   11
-domain-id                 1
-system-ip                 10.11.1.1
-
-edge-11-jkt#show sdwan control connections
+show sdwan control local-properties
+show sdwan control connections
 ```
 
 The output confirms active DTLS control connections to **vSmart** (`1.1.1.3`) over both transports (`biz-internet` and `public-internet`), to **vBond** (`172.16.0.92`), and to **vManage** (`1.1.1.1`).
@@ -753,9 +744,9 @@ The output confirms active DTLS control connections to **vSmart** (`1.1.1.3`) ov
 We inspect OMP peerings and routing updates for VPN 1:
 
 ```
-edge-11-jkt#show sdwan omp peers
-edge-11-jkt#show sdwan omp routes vpn 1 | b TENANT
-edge-11-jkt#show ip route vrf 1 | b Gateway
+show sdwan omp peers
+show sdwan omp routes vpn 1
+show ip route vrf 1
 ```
 
 The router receives the remote Site 12 LAN prefix (`10.12.0.0/24`) via OMP from vSmart (`1.1.1.3`), installed into the VRF 1 routing table via next hop `10.12.1.1` using `Sdwan-system-intf`.
@@ -769,7 +760,7 @@ The router receives the remote Site 12 LAN prefix (`10.12.0.0/24`) via OMP from 
 We verify Bidirectional Forwarding Detection (BFD) sessions between sites:
 
 ```
-edge-11-jkt#show sdwan bfd sessions
+show sdwan bfd sessions
 ```
 
 Four active IPsec BFD tunnels are up between Site 11 and Site 12 (`10.12.1.1`), forming a full mesh across both transports:
@@ -778,11 +769,8 @@ Four active IPsec BFD tunnels are up between Site 11 and Site 12 (`10.12.1.1`), 
 - `public-internet` → `biz-internet`
 - `public-internet` → `public-internet`
 
-We test data-plane connectivity by pinging the remote Site 12 gateway (`10.12.0.1`) from `GigabitEthernet3` in VRF 1 with 100% success rate:
+We also test data-plane connectivity by pinging the remote Site 12 gateway (`10.12.0.1`) from `GigabitEthernet3` in VRF 1 with 100% success rate:
 
-```
-edge-11-jkt#ping vrf 1 10.12.0.1 source GigabitEthernet3
-```
 
 ![x](/static/2026-11-20-cisco-sdwan/61.png)
 
@@ -791,7 +779,7 @@ edge-11-jkt#ping vrf 1 10.12.0.1 source GigabitEthernet3
 ---
 
 From the end-host workstations on the LAN segments, we verify end-to-end site-to-site communication:
-- Client at Site 11 (`10.11.0.21`) successfully pings Client at Site 12 (`10.12.0.22`) with `time=2ms`.
+- Client at Site 11 (`10.11.0.21`) successfully pings Client at Site 12 (`10.12.0.22`).
 - Client at Site 12 (`10.12.0.22`) successfully pings Client at Site 11 (`10.11.0.21`).
 
 ![x](/static/2026-11-20-cisco-sdwan/62.png)
@@ -822,17 +810,7 @@ Next, in the `C8K-VPN1` template under **Route Leak**, we configure inter-VPN ro
 
 ---
 
-After updating and pushing the templates, we verify the routing table in VRF 1 on `edge-11-jkt`:
-
-```
-edge-11-jkt#show ip route vrf 1 | b Gateway
-Gateway of last resort is 172.18.0.1 to network 0.0.0.0
-
-S* + 0.0.0.0/0 [1/0] via 172.18.0.1
-               [1/0] via 172.17.0.1
-```
-
-Default routes pointing to both Internet underlay gateways (`172.18.0.1` and `172.17.0.1`) are now leaked directly into VRF 1.
+After updating and pushing the templates, we verify the routing table in VRF 1 on `edge-11-jkt`, where default routes pointing to both Internet underlay gateways (`172.18.0.1` and `172.17.0.1`) are now leaked directly into VRF 1.
 
 ![x](/static/2026-11-20-cisco-sdwan/65.png)
 
@@ -845,3 +823,80 @@ Finally, from the LAN workstation (`10.11.0.21`), we verify outbound Internet co
 - Traceroute to Google DNS (`8.8.8.8`) demonstrates traffic exiting the local default gateway (`10.11.0.1`), translating via the local WAN underlay (`172.18.0.1`), and reaching the public destination in 3 hops without backhauling across the SD-WAN overlay.
 
 ![x](/static/2026-11-20-cisco-sdwan/66.png)
+
+<br>
+
+---
+
+## Onboarding with Bootstrap File
+
+While manual CLI bootstrap and activation work well for initial lab validation, large-scale production rollouts typically leverage automated zero-touch or one-touch onboarding using a **Bootstrap Configuration File** (`ciscosdwan_cloud_init.cfg`). 
+
+Now that our modular Device Template (`C8K-DualWAN`) is fully configured and operational, we can pre-attach new unmanaged WAN edge chassis to the template in vManage before the physical or virtual router is even booted up.
+
+Under **Configuration → Templates → Device Templates**, we open the action menu for `C8K-DualWAN`, select **Attach Devices**, and choose the third unmanaged chassis (`C8K-0FE0A823-8B7F-6EB3-4AE5-FE5A61CF85A7`).
+
+![x](/static/2026-11-20-cisco-sdwan/67.png)
+
+<br>
+
+---
+
+In the Update Device Template form, we pre-populate the variable parameters specifically for **Site 13 (Denpasar - `edge-13-dps`)**:
+- **Hostname**: `edge-13-dps`
+- **System IP**: `10.13.1.1`
+- **Site ID**: `13`
+- **VPN 0 WAN 1 IP**: `172.17.0.13/24`
+- **VPN 0 WAN 2 IP**: `172.18.0.13/24`
+- **VPN 1 LAN IP**: `10.13.0.1/24`
+
+![x](/static/2026-11-20-cisco-sdwan/68.png)
+
+<br>
+
+---
+
+We click **Update** and push the template attachment. Because the physical or virtual device is not yet booted, vManage records the task status as **Done - Scheduled**:
+> *"Device became unreachable. Configuration template C8K-DualWAN scheduled to be attached when device comes online."*
+
+![x](/static/2026-11-20-cisco-sdwan/69.png)
+
+<br>
+
+---
+
+Next, under **Configuration → Devices → WAN Edge list**, we locate `edge-13-dps` and select **Generate Bootstrap Configuration**. 
+
+Because the device already has a template pre-attached, vManage generates a complete multipart cloud-init configuration (`#cloud-boothook` + `#cloud-config`). In addition to the UUID and OTP token (`7f2d9a1a546443279fee23639cd15c4b`), the bootstrap payload embeds the Enterprise Root CA certificate chain and the entire pre-compiled IOS-XE CLI running configuration generated from our template (system settings, IP addresses, VPN 0/1, BFD, and OMP parameters). We download this file as `ciscosdwan_cloud_init.cfg`.
+
+![x](/static/2026-11-20-cisco-sdwan/70.png)
+
+<br>
+
+---
+
+We transfer `ciscosdwan_cloud_init.cfg` into the router's `bootflash:` filesystem. From privileged EXEC mode, we enable controller mode:
+
+```
+Router#dir bootflash: | inc cisco
+30   -rw-   27007  Nov 21 2026 04:55:37 +00:00  ciscosdwan_cloud_init.cfg
+
+Router#controller-mode enable
+Enabling controller mode will erase the nvram filesystem, remove all configuration files, and reload the box!
+Ensure the BOOT variable points to a valid image
+Continue? [confirm]
+```
+
+Upon confirming, the router reboots into SD-WAN controller mode, automatically discovers the cloud-init bootstrap file in bootflash, applies the embedded configuration, and connects directly to vBond and vManage.
+
+![x](/static/2026-11-20-cisco-sdwan/71.png)
+
+<br>
+
+---
+
+After a few minutes, the router completes its automated bootstrap sequence, contacts the controllers, and pulls its full operational profile. In vManage, `edge-13-dps` appears in the WAN Edge list in **In Sync** state, managed by `Template C8K-DualWAN`. 
+
+All that remains is signing its certificate under **Certificate management**, bringing all three sites (`SITE_11`, `SITE_12`, and `SITE_13`) online with synchronized templates and full fabric connectivity.
+
+![x](/static/2026-11-20-cisco-sdwan/72.png)
